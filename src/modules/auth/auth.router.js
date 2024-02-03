@@ -1,7 +1,7 @@
 import { Router } from "express";
 import * as authController from './controller/auth.js'
 import { asyncHandler } from "../../utils/errorHandling.js";
-import { validation } from "../../Middleware/validation.middleware.js";
+import { validation } from "../../middleware/validation.middleware.js";
 import * as validators from "./auth.validation.js"
 import { fileUpload, fileValidation } from "../../utils/multer.js";
 const router = Router();
