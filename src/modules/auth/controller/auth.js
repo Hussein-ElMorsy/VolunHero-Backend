@@ -137,7 +137,7 @@ export const confirmEmail =async (req,res,next)=>{
         return next(new Error("In-valid token payload",{cause:400}));
     }
     const user = await userModel.findOneAndUpdate({email: email.toLowerCase()},{confirmEmail:true});
-    return user.modifiedCount ? res.json({ message: "Done" }).status(200) : res.json.send("Not register account").status(404);
+    return user.modifiedCount ? res.json({ message: "Done" }).status(200) : res.json({ message: "Not registered account" }).status(404);
 
 }
 

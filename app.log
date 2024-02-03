@@ -2,3 +2,4 @@
 [2024-02-04 00:15:00] [ERROR] An error occurred: ValidationError: userName: userName is required
 [2024-02-04 00:15:19] [ERROR] An error occurred: ValidationError: userName: userName is required
 [2024-02-04 00:31:03] [ERROR] An error occurred: Email not confirmed
+[2024-02-04 01:39:54] [ERROR] An error occurred: TypeError: res.json.send is not a function
