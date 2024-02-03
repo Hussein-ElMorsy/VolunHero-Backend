@@ -158,8 +158,8 @@ export const newConfirmEmail = async(req,res,next)=>{
     }
 
     const newToken = generateToken({payload:email,signature:process.env.EMAIL_TOKEN,expiresIn: 60 * 2});
-    const link = `${req.protocol}://${req.headers.host}/api/v1/auth/confirmEmail/${newToken}`;
-    const refreshLink = `${req.protocol}://${req.headers.host}/auth/newConfirmEmail/${token}`;
+    const link = `${req.protocol}://${req.headers.host}/api/auth/confirmEmail/${newToken}`;
+    const refreshLink = `${req.protocol}://${req.headers.host}/api/auth/newConfirmEmail/${token}`;
     const html = `<!DOCTYPE html>
     <html>
     <head>
