@@ -409,8 +409,37 @@ export const forgetPassword = async(req,res,next)=>{
     user.changePasswordTime = Date.now()
     await user.save();
     return res.status(200).json({message:"Done",user});
-
-
-
-
 }
+
+export const protect = async (req, res, next)=> {
+    let token;
+
+    if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
+        token = req.headers.authorization.split(' ')[1];
+    }
+    else if(req.cookies && req.cookies.jwt){ 
+        token = req.cookies.jwt;
+    }
+
+
+    if(!token){
+        return next(new Error("Please login first",{cause:401}));
+    }
+
+    // const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET); await  promisify ???? 
+    const decoded = verifyToken({token});
+    const existedUser = await userModel.findById(decoded._id);
+    if(!existedUser){
+        return next(new Error("This user doest not longer exist",{cause:401}));
+    }
+
+    // // 4) Check if user changed password after the token was issued
+    // if(existedUser.changedPasswordAfter(decoded.iat)){
+    //     return next(new AppError(`User changed the password...please login again`, 401));
+    // }
+
+
+    req.user = existedUser; // 
+    res.locals.user = existedUser;
+    next();
+};

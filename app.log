@@ -2,3 +2,83 @@
 [2024-02-04 00:15:00] [ERROR] An error occurred: ValidationError: userName: userName is required
 [2024-02-04 00:15:19] [ERROR] An error occurred: ValidationError: userName: userName is required
 [2024-02-04 00:31:03] [ERROR] An error occurred: Email not confirmed
+<<<<<<< Updated upstream
+=======
+[2024-02-04 01:39:54] [ERROR] An error occurred: TypeError: res.json.send is not a function
+[2024-04-23 21:04:14] [ERROR] An error occurred: Email not confirmed
+[2024-04-23 21:05:44] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-04-23 21:06:11] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-04-23 21:06:51] [ERROR] An error occurred: Email already existed
+[2024-04-24 22:22:14] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 22:23:01] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 22:23:15] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 22:23:28] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 22:24:07] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:24:19] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:24:25] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:24:38] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:25:02] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:25:29] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:25:33] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:26:02] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:26:03] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:26:27] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:26:53] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:26:54] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:27:35] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:30:12] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:30:49] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:31:45] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:32:08] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-24 22:33:09] [ERROR] An error occurred: ReferenceError: AppError is not defined
+[2024-04-24 22:33:25] [ERROR] An error occurred: fn(...).catch is not a function
+[2024-04-24 22:33:42] [ERROR] An error occurred: fn(...).catch is not a function
+[2024-04-24 22:51:33] [ERROR] An error occurred: JsonWebTokenError: invalid signature
+[2024-04-24 22:52:11] [ERROR] An error occurred: JsonWebTokenError: invalid signature
+[2024-04-24 22:53:05] [ERROR] An error occurred: JsonWebTokenError: invalid signature
+[2024-04-24 22:54:02] [ERROR] An error occurred: JsonWebTokenError: invalid signature
+[2024-04-24 22:54:55] [ERROR] An error occurred: JsonWebTokenError: invalid signature
+[2024-04-24 22:57:17] [ERROR] An error occurred: Not registered acount
+[2024-04-24 22:57:41] [ERROR] An error occurred: JsonWebTokenError: invalid signature
+[2024-04-24 23:00:40] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 23:00:42] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 23:01:01] [ERROR] An error occurred: JsonWebTokenError: invalid signature
+[2024-04-24 23:01:18] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 23:01:39] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 23:01:57] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 23:02:07] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 23:02:08] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 23:02:37] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 23:02:44] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 23:03:12] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 23:03:13] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'jwt')
+[2024-04-24 23:04:55] [ERROR] An error occurred: Please login first
+[2024-04-24 23:05:13] [ERROR] An error occurred: Please login first
+[2024-04-24 23:05:38] [ERROR] An error occurred: Please login first
+[2024-04-24 23:06:45] [ERROR] An error occurred: Please login first
+[2024-04-25 00:16:41] [ERROR] An error occurred: No Document found with this id
+[2024-04-25 00:16:58] [ERROR] An error occurred: No Document found with this id
+[2024-04-25 00:18:49] [ERROR] An error occurred: ReferenceError: user is not defined
+[2024-04-25 00:19:06] [ERROR] An error occurred: No Document found with this id
+[2024-04-25 00:22:30] [ERROR] An error occurred: Not registered acount
+[2024-04-25 00:22:41] [ERROR] An error occurred: Email not confirmed
+[2024-04-25 00:24:09] [ERROR] An error occurred: Email not confirmed
+[2024-04-25 01:09:16] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-04-25 01:11:38] [ERROR] An error occurred: ReferenceError: filterObj is not defined
+[2024-04-25 01:13:55] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-25 01:14:13] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-25 01:15:56] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-25 01:17:12] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-25 01:17:41] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-25 01:18:09] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-25 01:21:00] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-25 01:21:28] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-25 01:22:10] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-25 01:22:23] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-25 01:22:59] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-25 01:24:21] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-25 01:24:50] [ERROR] An error occurred: ReferenceError: User is not defined
+[2024-04-25 01:29:43] [ERROR] An error occurred: This route is not for password updates. please use /updateMyPassword
+[2024-04-25 01:29:56] [ERROR] An error occurred: Unexpected token } in JSON at position 80
+[2024-04-25 02:27:09] [ERROR] An error occurred: Not registered acount
+>>>>>>> Stashed changes
