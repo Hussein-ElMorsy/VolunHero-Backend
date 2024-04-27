@@ -145,3 +145,15 @@
 [2024-04-27 12:23:56] [ERROR] An error occurred: Error: Attatchments for Medical and Educational specification only
 [2024-04-27 12:27:53] [ERROR] An error occurred: ReferenceError: files is not defined
 [2024-04-27 12:29:39] [ERROR] An error occurred: [object Object]
+[2024-04-27 15:24:01] [ERROR] An error occurred: Email already existed
+[2024-04-27 15:24:30] [ERROR] An error occurred: Unexpected token } in JSON at position 421
+[2024-04-27 15:25:54] [ERROR] An error occurred: Email already existed
+[2024-04-27 16:07:24] [ERROR] An error occurred: Email already existed
+[2024-04-27 16:07:50] [ERROR] An error occurred: Error: Attatchments required
+[2024-04-27 16:09:31] [ERROR] An error occurred: Email already existed
+[2024-04-27 16:11:03] [ERROR] An error occurred: Email already existed
+[2024-04-27 16:11:24] [ERROR] An error occurred: Error: Attatchments required
+[2024-04-27 16:17:23] [ERROR] An error occurred: Email already existed
+[2024-04-27 16:20:53] [ERROR] An error occurred: Error: Attatchments required
+[2024-04-27 16:21:09] [ERROR] An error occurred: Error: Attatchments required
+[2024-04-27 16:21:24] [ERROR] An error occurred: Error: Attatchments required

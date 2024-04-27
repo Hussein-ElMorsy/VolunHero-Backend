@@ -14,6 +14,8 @@ export const getAuthModule = (req, res, next) => {
 export const signUp = async (req, res, next) => {
     const { email } = req.body;
 
+    let role = req.body.role || "User";
+    console.log(role);
     const user = await userModel.findOne({ email: email.toLowerCase() });
     if (user) {
         return next(new Error("Email already existed", { cause: 409 }));
@@ -39,15 +41,26 @@ export const signUp = async (req, res, next) => {
 
     req.body.attachments = [];
     if (req.files && req.files.attachments) {
-        if (req.body?.specification == "Medical" || req.body?.specification == "Educational") {
+        if (role == "User" && (req.body?.specification == "Medical" || req.body?.specification == "Educational")) {
             await Promise.all(req.files.attachments.map(async (file) => {
                 const { secure_url, public_id } = await cloudinary.uploader.upload(file.path, { folder: `${process.env.APP_NAME}/attachments/${nanoid()}/attachment` });
                 req.body.attachments.push({ secure_url, public_id });
             }));
         }
-        else {
-            throw new Error("Attatchments for Medical and Educational specification only", { statusCode: 400 });
+        else if (role == "User" && req.body?.specification == "General") {
+            throw new Error("Attatchments for Medical and Educational only", { statusCode: 400 });
         }
+        else {
+            await Promise.all(req.files.attachments.map(async (file) => {
+                const { secure_url, public_id } = await cloudinary.uploader.upload(file.path, { folder: `${process.env.APP_NAME}/attachments/${nanoid()}/attachment` });
+                req.body.attachments.push({ secure_url, public_id });
+            }));
+        }
+    }
+    else {
+        if((role == "User" && (req.body?.specification == "Medical" || req.body?.specification == "Educational"))||role == "Organization")
+            throw new Error("Attatchments required", { statusCode: 400 });
+        
     }
     console.log(req.body);
 

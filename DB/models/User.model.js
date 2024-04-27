@@ -40,8 +40,18 @@ const userSchema = new Schema({
     profilePic: Object,
     coverPic: Object,
     images: [Object],
-    DOB: String,
-    address: String,
+    DOB:  {
+        type:String,
+        required: function () {
+            return this.role === 'User';
+        },
+    },
+    address: {
+        type:String,
+        required: function () {
+            return this.role === 'User';
+        },
+    },
     gender: {
         type: String,
         default: "Male",
@@ -88,7 +98,8 @@ const userSchema = new Schema({
         type: [String],
         required: function () {
             return this.role === 'Organization';
-        }
+        },
+    
     }
     ,
     specification: {
