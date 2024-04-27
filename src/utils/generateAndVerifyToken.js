@@ -9,5 +9,6 @@ export const generateToken = ({ payload = {}, signature = process.env.TOKEN_SIGN
 
 export const verifyToken = ({token,signature=process.env.TOKEN_SIGNATURE}={})=>{
     const decoded = jwt.verify(token,signature);
+
     return decoded;
 }

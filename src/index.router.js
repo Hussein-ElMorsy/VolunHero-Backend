@@ -2,6 +2,7 @@ import morgan from "morgan";
 import { connectDB } from "../DB/connection.js";
 import { globalErrorHandling } from "./utils/errorHandling.js";
 import authRouter from "./modules/auth/auth.router.js"
+import userRouter from "./modules/user/router.js"
 
 const initApp = (app, express) => {
 
@@ -17,7 +18,9 @@ const initApp = (app, express) => {
        return res.status(200).json({message:"Welcome to Volanhero"});
     })
     app.use("/api/auth", authRouter)
-    
+
+    app.use("/api/users", userRouter) // Added
+
     app.all('*', (req, res, next) => {
         return res.json({ message: "In-valid routing" });
     })
