@@ -16,6 +16,7 @@ export class ApiFeatures {
         const skip = (parseInt(this.queryData.page) - 1) * parseInt(this.queryData.size);
         // this.page=page;
         this.mongooseQuery.limit(parseInt(this.queryData.size)).skip(skip);
+
         return this;
     }
 
@@ -24,12 +25,11 @@ export class ApiFeatures {
     filter() {
         const excludeQueryParams = ['page', 'size', 'sort', 'search', 'fields'];
 
-        const filterquery = { ... this.query };
+        const filterquery = { ... this.queryData };
 
         excludeQueryParams.forEach(element => {
             delete filterquery[element];
         });
-
         this.mongooseQuery.find(JSON.parse(JSON.stringify(filterquery).replace(/(gt|gte|lt|lte|in|nin|eq|neq)/g, match => `$${match}`)));
 
         return this;
@@ -37,6 +37,7 @@ export class ApiFeatures {
 
     sort() {
         this.mongooseQuery.sort(this.queryData.sort?.replaceAll(',', ' '));
+
         return this;
     }
 

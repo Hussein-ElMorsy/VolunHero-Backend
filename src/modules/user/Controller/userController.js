@@ -43,16 +43,22 @@ export const updateMe = (async (req, res, next) =>{
   });
 });
 
-export const deleteMe = factory.deleteOne(userModel);
-// export const deleteMe = (async (req, res, next) => {
-//   await User.findByIdAndUpdate(req.user.id, {active: false});
-//   // console.log(req.user.id);
-//   // console.log(req.user.active);
-//   res.status(204).json({
-//       status: "success",
-//       data: null
-//   })
-// });
+export const deleteMe = (async (req, res, next) => { // Not sure
+  let id;
+  if(req.user.id){
+    id = req.user.id
+  }
+  if(!id) return next(new Error("No id found")) // Modification is done
+
+  const doc = await userModel.findByIdAndDelete(id);
+  if (!doc) {
+    return next(new Error("No Document found with this id"));
+  }
+  res.status(204).json({
+    status: "sucess",
+    data: null,
+  });
+});
 
 
 export const restrictTo = (...roles) => {

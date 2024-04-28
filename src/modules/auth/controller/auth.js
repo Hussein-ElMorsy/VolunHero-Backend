@@ -21,9 +21,13 @@ export const signUp = async(req,res,next)=>{
     }
 
     const token = generateToken({ payload: { email }, expiresIn: 60 * 5, signature: process.env.EMAIL_TOKEN })
-    const link = `${req.protocol}://${req.headers.host}/api/v1/auth/confirmEmail/${token}`
+    console.log(token)
+    // const link = `${req.protocol}://${req.headers.host}/api/v1/auth/confirmEmail/${token}`
+    const link = `${req.protocol}://${req.headers.host}/api/auth/confirmEmail/${token}`
+
     const refreshToken = generateToken({ payload: { email }, expiresIn: 60 * 60 * 24 * 30, signature: process.env.EMAIL_TOKEN })
-    const refreshLink = `${req.protocol}://${req.headers.host}/api/v1/auth/newConfirmEmail/${refreshToken}`
+    // const refreshLink = `${req.protocol}://${req.headers.host}/api/v1/auth/newConfirmEmail/${refreshToken}`
+    const refreshLink = `${req.protocol}://${req.headers.host}/api/auth/newConfirmEmail/${refreshToken}`
 
     const html = `<!DOCTYPE html>
     <html>
@@ -158,7 +162,10 @@ export const newConfirmEmail = async(req,res,next)=>{
     }
 
     const newToken = generateToken({payload:email,signature:process.env.EMAIL_TOKEN,expiresIn: 60 * 2});
-    const link = `${req.protocol}://${req.headers.host}/api/v1/auth/confirmEmail/${newToken}`;
+    // const link = `${req.protocol}://${req.headers.host}/api/v1/auth/confirmEmail/${newToken}`;
+    const link = `${req.protocol}://${req.headers.host}/api/auth/confirmEmail/${newToken}`;
+    console.log(link)
+
     const refreshLink = `${req.protocol}://${req.headers.host}/auth/newConfirmEmail/${token}`;
     const html = `<!DOCTYPE html>
     <html>

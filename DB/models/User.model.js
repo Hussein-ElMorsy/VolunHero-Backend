@@ -64,6 +64,21 @@ const userSchema = new Schema({
     timestamps: true
 })
 
+// Check again
+userSchema.pre('save', async function(next){ // For updating passwordChangetAt in restPassword
+    if(!this.isModified('password') || this.isNew) return next();  // new => New Doc not change password
 
+    this.changePasswordTime = Date.now() - 1000; 
+    next();                                    
+});
+
+userSchema.methods.changedPasswordAfter = function(JWTTimestamp){
+    if(this.changePasswordTime){
+        const changeTimestamp = parseInt(this.changePasswordTime.getTime() / 1000, 10);
+        // console.log(changeTimestamp, JWTTimestamp);
+        return JWTTimestamp < changeTimestamp;
+    }
+    return false;
+}
 const userModel = mongoose.models.User || model('User', userSchema);
 export default userModel
