@@ -157,3 +157,30 @@
 [2024-04-27 16:20:53] [ERROR] An error occurred: Error: Attatchments required
 [2024-04-27 16:21:09] [ERROR] An error occurred: Error: Attatchments required
 [2024-04-27 16:21:24] [ERROR] An error occurred: Error: Attatchments required
+[2024-04-28 15:49:12] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-28 15:51:52] [ERROR] An error occurred: TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property '_writableState' -> object with constructor 'WritableState'
+    |     property 'afterWriteTickInfo' -> object with constructor 'Object'
+    --- property 'stream' closes the circle
+[2024-04-28 15:55:10] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-28 15:57:32] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-28 15:59:45] [ERROR] An error occurred: Chat not found
+[2024-04-28 18:44:07] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-28 18:44:46] [ERROR] An error occurred: Chat not found
+[2024-04-28 18:47:19] [ERROR] An error occurred: Chat not found
+[2024-04-28 18:47:58] [ERROR] An error occurred: No chats found
+[2024-04-28 18:48:46] [ERROR] An error occurred: TypeError: deleteChat.ok is not a function
+[2024-04-28 18:49:57] [ERROR] An error occurred: Chat not found
+[2024-04-28 18:50:42] [ERROR] An error occurred: No chats found
+[2024-04-28 19:14:29] [ERROR] An error occurred: No chats found
+[2024-04-28 19:14:34] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-04-28 19:22:21] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-28 19:29:01] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-28 19:29:21] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-04-28 19:32:45] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-28 19:36:36] [ERROR] An error occurred: Chat not found
+[2024-04-28 19:42:29] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-04-28 19:42:56] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-04-28 19:43:55] [ERROR] An error occurred: Chat not found
+[2024-04-28 19:44:18] [ERROR] An error occurred: Chat not found

@@ -65,7 +65,7 @@ export const signUp = async (req, res, next) => {
     console.log(req.body);
 
     const newUser = await userModel.create(req.body);
-    return res.status(201).json({ message: "Done", newUser });
+    return res.status(201).json({ message: "success", newUser });
 
 
 }
@@ -78,7 +78,7 @@ export const confirmEmail = async (req, res, next) => {
         return next(new Error("In-valid token payload", { cause: 400 }));
     }
     const user = await userModel.findOneAndUpdate({ email: email.toLowerCase() }, { confirmEmail: true });
-    return user.modifiedCount ? res.json({ message: "Done" }).status(200) : res.json.send("Not register account").status(404);
+    return user.modifiedCount ? res.json({ message: "success" }).status(200) : res.json.send("Not register account").status(404);
 
 }
 
@@ -219,7 +219,7 @@ export const login = async (req, res, next) => {
     const refresh_Token = generateToken({ payload: { _id: user._id, role: user.role }, expiresIn: 60 * 60 * 24 * 356 });
     user.status = "online";
     await user.save();
-    return res.status(200).json({ message: "Done", access_token, refresh_Token })
+    return res.status(200).json({ message: "success", access_token, refresh_Token })
 
 }
 
@@ -322,7 +322,7 @@ export const sendCode = async (req, res, next) => {
     }
 
 
-    return res.status(200).json({ message: "Done", user });
+    return res.status(200).json({ message: "success", user });
 
 
 
@@ -349,7 +349,7 @@ export const forgetPassword = async (req, res, next) => {
     user.forgetCode = null;
     user.changePasswordTime = Date.now()
     await user.save();
-    return res.status(200).json({ message: "Done", user });
+    return res.status(200).json({ message: "success", user });
 }
 
 export const protect = async (req, res, next) => {

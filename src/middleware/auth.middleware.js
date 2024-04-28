@@ -4,6 +4,8 @@ import { asyncHandler } from "../utils/errorHandling.js";
 
 export const roles = {
     Admin :"Admin",
+    User:"User",
+    Organization :"Organization"
 }
 
 export const auth = (accessRoles=[])=>{
