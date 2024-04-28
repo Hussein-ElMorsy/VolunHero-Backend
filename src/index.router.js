@@ -2,7 +2,7 @@ import morgan from "morgan";
 import { connectDB } from "../DB/connection.js";
 import { globalErrorHandling } from "./utils/errorHandling.js";
 import authRouter from "./modules/auth/auth.router.js"
-import userRouter from "./modules/user/router.js"
+import userRouter from "./modules/user/user.router.js"
 import chatRouter from "./modules/chat/chat.router.js"
 import messageRouter from "./modules/message/message.router.js"
 
