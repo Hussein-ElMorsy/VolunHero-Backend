@@ -22,7 +22,10 @@ export const signUp = async (req, res, next) => {
     }
 
     const token = generateToken({ payload: { email }, expiresIn: 60 * 5, signature: process.env.EMAIL_TOKEN })
+    console.log(token)
+    // const link = `${req.protocol}://${req.headers.host}/api/v1/auth/confirmEmail/${token}`
     const link = `${req.protocol}://${req.headers.host}/api/auth/confirmEmail/${token}`
+
     const refreshToken = generateToken({ payload: { email }, expiresIn: 60 * 60 * 24 * 30, signature: process.env.EMAIL_TOKEN })
     const refreshLink = `${req.protocol}://${req.headers.host}/api/auth/newConfirmEmail/${refreshToken}`
 

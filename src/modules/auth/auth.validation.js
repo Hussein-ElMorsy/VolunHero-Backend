@@ -1,5 +1,5 @@
 import joi from "joi";
-import { generalFields } from "../../middleware/validation.middleware.js"
+import {generalFields} from "../../middleware/validation.middleware.js"
 
 export const signUp = joi.object({
   firstName: joi.string().min(2).max(25),
