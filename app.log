@@ -82,74 +82,66 @@
 [2024-04-25 01:29:56] [ERROR] An error occurred: Unexpected token } in JSON at position 80
 [2024-04-25 02:27:09] [ERROR] An error occurred: Not registered acount
 >>>>>>> Stashed changes
-[2024-04-25 21:22:56] [ERROR] An error occurred: ReferenceError: APIFeatuers is not defined
-[2024-04-25 21:35:03] [ERROR] An error occurred: TypeError: (intermediate value).filter(...).sort(...).limitFields is not a function
-[2024-04-25 21:35:23] [ERROR] An error occurred: TypeError: (intermediate value).filter(...).sort(...).limitFields is not a function
-[2024-04-25 21:36:44] [ERROR] An error occurred: TypeError: (intermediate value).filter(...).sort(...).limitFields is not a function
-[2024-04-25 21:37:32] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
-[2024-04-25 21:38:06] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
-[2024-04-25 21:38:58] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
-[2024-04-25 21:39:14] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
-[2024-04-25 21:39:33] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
-[2024-04-25 21:40:30] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
-[2024-04-25 21:40:46] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
-[2024-04-25 21:41:20] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
-[2024-04-25 21:41:56] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
-[2024-04-25 21:41:57] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
-[2024-04-25 21:42:10] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
-[2024-04-25 21:42:36] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
-[2024-04-25 21:52:55] [ERROR] An error occurred: TokenExpiredError: jwt expired
-[2024-04-25 22:26:21] [ERROR] An error occurred: TokenExpiredError: jwt expired
-[2024-04-25 22:30:46] [ERROR] An error occurred: MongoServerError: E11000 duplicate key error collection: volunhero.users index: email_1 dup key: { email: "dadada@gmail.com" }
-[2024-04-25 22:32:44] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:33:59] [ERROR] An error occurred: In-valid email or password
-[2024-04-25 22:34:15] [ERROR] An error occurred: In-valid email or password
-[2024-04-25 22:37:13] [ERROR] An error occurred: JsonWebTokenError: jwt malformed
-[2024-04-25 22:42:34] [ERROR] An error occurred: ReferenceError: Model is not defined
-[2024-04-25 22:42:56] [ERROR] An error occurred: Not registered acount
-[2024-04-25 22:43:14] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:43:17] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:43:28] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:43:38] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:43:46] [ERROR] An error occurred: Email already existed
-[2024-04-25 22:43:49] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:43:54] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:43:55] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:43:59] [ERROR] An error occurred: Email already existed
-[2024-04-25 22:44:43] [ERROR] An error occurred: Not registered acount
-[2024-04-25 22:45:13] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:45:21] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:45:29] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:46:12] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:46:38] [ERROR] An error occurred: TokenExpiredError: jwt expired
-[2024-04-25 22:46:57] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:47:01] [ERROR] An error occurred: Email already existed
-[2024-04-25 22:47:56] [ERROR] An error occurred: Not registered acount
-[2024-04-25 22:48:27] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:49:24] [ERROR] An error occurred: Not registered acount
-[2024-04-25 22:49:37] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:49:50] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:50:45] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:52:58] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:58:01] [ERROR] An error occurred: TokenExpiredError: jwt expired
-[2024-04-25 22:58:10] [ERROR] An error occurred: Email already existed
-[2024-04-25 22:58:55] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 22:59:38] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 23:00:16] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 23:01:26] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 23:05:01] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 23:05:50] [ERROR] An error occurred: Email already existed
-[2024-04-25 23:05:59] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 23:06:51] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 23:07:02] [ERROR] An error occurred: TypeError: res.json.send is not a function
-[2024-04-25 23:08:35] [ERROR] An error occurred: You don't have permisson
-[2024-04-25 23:08:56] [ERROR] An error occurred: You don't have permisson
-[2024-04-25 23:11:40] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
-[2024-04-25 23:11:59] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
-[2024-04-25 23:12:22] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
-[2024-04-25 23:12:36] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
-[2024-04-25 23:19:11] [ERROR] An error occurred: Please login first
-[2024-04-25 23:19:35] [ERROR] An error occurred: Not registered acount
-[2024-04-25 23:19:40] [ERROR] An error occurred: Email not confirmed
-[2024-04-25 23:19:59] [ERROR] An error occurred: TypeError: res.json.send is not a function
-[2024-04-25 23:20:17] [ERROR] An error occurred: You don't have permisson
+[2024-04-26 21:32:37] [ERROR] An error occurred: Unexpected token } in JSON at position 64
+[2024-04-26 21:32:40] [ERROR] An error occurred: Email not confirmed
+[2024-04-26 22:57:31] [ERROR] An error occurred: Email already existed
+[2024-04-26 23:00:37] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:02:27] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:04:02] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:04:09] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:11:42] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:12:01] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:20:50] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:25:39] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:27:02] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:27:03] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:34:09] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:34:12] [ERROR] An error occurred: Unexpected token } in JSON at position 289
+[2024-04-26 23:34:34] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:34:57] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:34:58] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:34:59] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:39:23] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:40:27] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:40:28] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:42:02] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:42:21] [ERROR] An error occurred: Email already existed
+[2024-04-26 23:45:21] [ERROR] An error occurred: Email already existed
+[2024-04-26 23:46:32] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:47:38] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:49:14] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:49:15] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-26 23:49:15] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 10:17:39] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 10:17:41] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 10:21:53] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 10:22:54] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 10:24:17] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 10:24:47] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 10:30:04] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 10:30:05] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 10:31:16] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 10:31:16] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 11:17:03] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 11:17:05] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 11:17:56] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 11:18:21] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 11:18:22] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 11:29:23] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 11:29:36] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 11:30:16] [ERROR] An error occurred: Invalid reference exceeds the schema root: ref:specification
+[2024-04-27 11:30:33] [ERROR] An error occurred: Email already existed
+[2024-04-27 11:45:48] [ERROR] An error occurred: Email already existed
+[2024-04-27 11:52:56] [ERROR] An error occurred: [object Object]
+[2024-04-27 11:55:25] [ERROR] An error occurred: [object Object]
+[2024-04-27 12:07:40] [ERROR] An error occurred: Email already exists
+[2024-04-27 12:12:03] [ERROR] An error occurred: Email already exists
+[2024-04-27 12:12:50] [ERROR] An error occurred: generateEmailHTML is not defined
+[2024-04-27 12:15:36] [ERROR] An error occurred: User validation failed: userName: userName is required
+[2024-04-27 12:16:02] [ERROR] An error occurred: User validation failed: userName: userName is required
+[2024-04-27 12:16:54] [ERROR] An error occurred: User validation failed: userName: userName is required
+[2024-04-27 12:19:39] [ERROR] An error occurred: emailLower is not defined
+[2024-04-27 12:22:55] [ERROR] An error occurred: ReferenceError: files is not defined
+[2024-04-27 12:23:56] [ERROR] An error occurred: Error: Attatchments for Medical and Educational specification only
+[2024-04-27 12:27:53] [ERROR] An error occurred: ReferenceError: files is not defined
+[2024-04-27 12:29:39] [ERROR] An error occurred: [object Object]
