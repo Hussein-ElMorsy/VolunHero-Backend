@@ -184,3 +184,17 @@
 [2024-04-28 19:42:56] [ERROR] An error occurred: TokenExpiredError: jwt expired
 [2024-04-28 19:43:55] [ERROR] An error occurred: Chat not found
 [2024-04-28 19:44:18] [ERROR] An error occurred: Chat not found
+[2024-04-29 02:48:24] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-29 02:48:43] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-29 02:49:20] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-29 02:50:54] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-29 02:52:11] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-29 02:52:33] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-29 02:53:03] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-29 02:56:01] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-29 02:57:03] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-29 03:01:14] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-29 03:02:01] [ERROR] An error occurred: JsonWebTokenError: invalid token
+[2024-04-29 03:03:28] [ERROR] An error occurred: JsonWebTokenError: invalid token
+[2024-04-29 03:03:38] [ERROR] An error occurred: JsonWebTokenError: invalid token
+[2024-04-29 03:04:13] [ERROR] An error occurred: JsonWebTokenError: invalid token

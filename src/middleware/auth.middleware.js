@@ -9,8 +9,8 @@ export const roles = {
 }
 
 export const auth = (accessRoles=[])=>{
+    
     return asyncHandler( async (req,res,next)=>{
-
         const {authorization} = req.headers;
         // console.log(authorization);
         if(!authorization?.startsWith(process.env.BEARER_TOKEN)){
@@ -18,7 +18,7 @@ export const auth = (accessRoles=[])=>{
         }
 
         const token = authorization.split(process.env.BEARER_TOKEN)[1];
-        // console.log({token});
+        console.log({token});
         if(!token){
             return next(new Error("In-valid token",{cause:400}));
         }
