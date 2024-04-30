@@ -15,14 +15,15 @@ export const signUp = async (req, res, next) => {
     const { email } = req.body;
 
     let role = req.body.role || "User";
-    console.log(role);
+    console.log(req.body);
     const user = await userModel.findOne({ email: email.toLowerCase() });
     if (user) {
         return next(new Error("Email already existed", { cause: 409 }));
     }
 
+
     const token = generateToken({ payload: { email }, expiresIn: 60 * 5, signature: process.env.EMAIL_TOKEN })
-    console.log(token)
+    // console.log(token)
     // const link = `${req.protocol}://${req.headers.host}/api/v1/auth/confirmEmail/${token}`
     const link = `${req.protocol}://${req.headers.host}/api/auth/confirmEmail/${token}`
 
@@ -31,9 +32,9 @@ export const signUp = async (req, res, next) => {
 
     const html = generateEmailHTML(link, refreshLink);
 
-    if (!sendEmail({ to: email, subject: "Email Confirmation", html })) {
-        return next(new Error("Rejected Email", { cause: 400 }));
-    }
+    // if (!sendEmail({ to: email, subject: "Email Confirmation", html })) {
+    //     return next(new Error("Rejected Email", { cause: 400 }));
+    // }
     // console.log("ddasds");
     const hashPassword = hashText({ plaintext: req.body.password });
     req.body.password = hashPassword;
@@ -43,7 +44,8 @@ export const signUp = async (req, res, next) => {
     req.body.customId = nanoid();
 
     req.body.attachments = [];
-    if (req.files && req.files.attachments) {
+    if (req?.files && req?.files?.attachments) {
+        console.log("11111");
         if (role == "User" && (req.body?.specification == "Medical" || req.body?.specification == "Educational")) {
             await Promise.all(req.files.attachments.map(async (file) => {
                 const { secure_url, public_id } = await cloudinary.uploader.upload(file.path, { folder: `${process.env.APP_NAME}/attachments/${nanoid()}/attachment` });
@@ -54,16 +56,19 @@ export const signUp = async (req, res, next) => {
             throw new Error("Attatchments for Medical and Educational only", { statusCode: 400 });
         }
         else {
-            await Promise.all(req.files.attachments.map(async (file) => {
+            console.log("111112222");
+            console.log(req.files.attachments);
+            for (const file of req.files.attachments) {
                 const { secure_url, public_id } = await cloudinary.uploader.upload(file.path, { folder: `${process.env.APP_NAME}/attachments/${nanoid()}/attachment` });
                 req.body.attachments.push({ secure_url, public_id });
-            }));
+                console.log("22222222");
+            }
         }
     }
     else {
-        if((role == "User" && (req.body?.specification == "Medical" || req.body?.specification == "Educational"))||role == "Organization")
+        if ((role == "User" && (req.body?.specification == "Medical" || req.body?.specification == "Educational")) || role == "Organization")
             throw new Error("Attatchments required", { statusCode: 400 });
-        
+
     }
     console.log(req.body);
 

@@ -198,3 +198,13 @@
 [2024-04-29 03:03:28] [ERROR] An error occurred: JsonWebTokenError: invalid token
 [2024-04-29 03:03:38] [ERROR] An error occurred: JsonWebTokenError: invalid token
 [2024-04-29 03:04:13] [ERROR] An error occurred: JsonWebTokenError: invalid token
+[2024-04-29 14:52:22] [ERROR] An error occurred: Error: Attatchments required
+[2024-04-29 14:54:06] [ERROR] An error occurred: Error: Attatchments required
+[2024-04-29 15:08:40] [ERROR] An error occurred: Email already existed
+[2024-04-29 15:12:39] [ERROR] An error occurred: Email already existed
+[2024-04-29 15:25:49] [ERROR] An error occurred: Email already existed
+[2024-04-29 15:29:09] [ERROR] An error occurred: ValidationError: address: Path `address` is required., DOB: Path `DOB` is required.
+[2024-04-29 15:29:49] [ERROR] An error occurred: ValidationError: address: Path `address` is required.
+[2024-04-29 15:30:17] [ERROR] An error occurred: ValidationError: address: Path `address` is required.
+[2024-04-29 15:31:19] [ERROR] An error occurred: Email already existed
+[2024-04-29 15:31:43] [ERROR] An error occurred: Error: Attatchments for Medical and Educational only
