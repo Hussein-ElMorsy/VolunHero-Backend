@@ -72,7 +72,9 @@ export const getAll = (Model) => async (req, res, next) => {
     .filter()
     .sort()
     .select()
-    .paginate();
+    .paginate()
+    .select();
+    // .paginate(); 
 
 
   const doc = await features.mongooseQuery; 

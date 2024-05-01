@@ -230,3 +230,48 @@
 [2024-04-30 23:06:48] [ERROR] An error occurred: [object Object]
 [2024-04-30 23:55:11] [ERROR] An error occurred: In-valid Bearer key
 [2024-04-30 23:56:00] [ERROR] An error occurred: ReferenceError: userId is not defined
+[2024-05-01 15:33:24] [ERROR] An error occurred: ValidationError: slugUserName: Path `slugUserName` is required.
+[2024-05-01 15:38:59] [ERROR] An error occurred: ValidationError: slugUserName: Path `slugUserName` is required.
+[2024-05-01 15:39:40] [ERROR] An error occurred: ValidationError: slugUserName: Path `slugUserName` is required.
+[2024-05-01 15:39:49] [ERROR] An error occurred: ValidationError: slugUserName: Path `slugUserName` is required.
+[2024-05-01 15:40:05] [ERROR] An error occurred: ValidationError: slugUserName: Path `slugUserName` is required.
+[2024-05-01 15:41:09] [ERROR] An error occurred: ValidationError: slugUserName: Path `slugUserName` is required.
+[2024-05-01 15:41:11] [ERROR] An error occurred: ValidationError: slugUserName: Path `slugUserName` is required.
+[2024-05-01 15:41:39] [ERROR] An error occurred: ValidationError: slugUserName: Path `slugUserName` is required.
+[2024-05-01 15:42:54] [ERROR] An error occurred: ValidationError: slugUserName: Path `slugUserName` is required.
+[2024-05-01 15:43:33] [ERROR] An error occurred: ValidationError: slugUserName: Path `slugUserName` is required.
+[2024-05-01 15:49:18] [ERROR] An error occurred: ValidationError: address: Path `address` is required., DOB: Path `DOB` is required.
+[2024-05-01 15:49:49] [ERROR] An error occurred: ValidationError: address: Path `address` is required., DOB: Path `DOB` is required.
+[2024-05-01 15:50:05] [ERROR] An error occurred: ValidationError: DOB: Path `DOB` is required.
+[2024-05-01 16:04:00] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-01 16:04:53] [ERROR] An error occurred: JsonWebTokenError: jwt malformed
+[2024-05-01 16:19:32] [ERROR] An error occurred: Please login first
+[2024-05-01 16:19:44] [ERROR] An error occurred: Please login first
+[2024-05-01 16:19:57] [ERROR] An error occurred: Please login first
+[2024-05-01 16:20:24] [ERROR] An error occurred: Please login first
+[2024-05-01 16:52:15] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-05-01 16:56:17] [ERROR] An error occurred: ReferenceError: consolel is not defined
+[2024-05-01 16:58:09] [ERROR] An error occurred: ReferenceError: Model is not defined
+[2024-05-01 17:16:47] [ERROR] An error occurred: ReferenceError: mongoose is not defined
+[2024-05-01 17:17:17] [ERROR] An error occurred: TypeError: Class constructor ObjectId cannot be invoked without 'new'
+[2024-05-01 17:17:26] [ERROR] An error occurred: TypeError: Class constructor ObjectId cannot be invoked without 'new'
+[2024-05-01 17:18:46] [ERROR] An error occurred: TypeError: Class constructor ObjectId cannot be invoked without 'new'
+[2024-05-01 17:21:15] [ERROR] An error occurred: TypeError: Class constructor ObjectId cannot be invoked without 'new'
+[2024-05-01 17:21:16] [ERROR] An error occurred: TypeError: Class constructor ObjectId cannot be invoked without 'new'
+[2024-05-01 17:22:42] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-05-01 17:27:32] [ERROR] An error occurred: ObjectParameterError: Parameter "obj" to Document() must be an object, got "66323a96c1faa34e5d78da93" (type string)
+[2024-05-01 17:28:49] [ERROR] An error occurred: TypeError: Class constructor ObjectId cannot be invoked without 'new'
+[2024-05-01 17:29:03] [ERROR] An error occurred: TypeError: Assignment to constant variable.
+[2024-05-01 17:56:20] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-05-01 17:56:32] [ERROR] An error occurred: ReferenceError: check is not defined
+[2024-05-01 17:56:45] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'likes')
+[2024-05-01 17:57:12] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'likes')
+[2024-05-01 17:58:30] [ERROR] An error occurred: MongoServerError: Performing an update on the path '_id' would modify the immutable field '_id'
+[2024-05-01 19:04:25] [ERROR] An error occurred: ReferenceError: post is not defined
+[2024-05-01 19:07:10] [ERROR] An error occurred: ReferenceError: post is not defined
+[2024-05-01 19:14:20] [ERROR] An error occurred: ReferenceError: Cannot access 'post' before initialization
+[2024-05-01 19:14:34] [ERROR] An error occurred: ReferenceError: done is not defined
+[2024-05-01 19:14:49] [ERROR] An error occurred: TypeError: postModel.update is not a function
+[2024-05-01 19:31:52] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-05-01 20:03:45] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-05-01 20:03:55] [ERROR] An error occurred: CastError: Cast to [ObjectId] failed for value "[ { userId: new ObjectId("66323a96c1faa34e5d78da93") } ]" (type string) at path "likes.0" because of "CastError"

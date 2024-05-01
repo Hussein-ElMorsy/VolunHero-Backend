@@ -26,6 +26,7 @@ const postSchema = new Schema(
         },
       },
     ],
+   
     // comments: [{
     //     userId: {
     //         type: Types.ObjectId,
