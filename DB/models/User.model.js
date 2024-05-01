@@ -10,6 +10,11 @@ const userSchema = new Schema({
         max: [20, 'max length 2 char'],
         lowercase: true
     },
+    slugUserName:{
+        type:String,
+        required:true,
+        lowercase:true
+    },
     email: {
         type: String,
         unique: [true, 'email must be unique value'],

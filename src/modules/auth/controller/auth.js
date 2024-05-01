@@ -4,7 +4,7 @@ import { sendEmail, generateEmailHTML } from "../../../utils/email.js";
 import { generateToken, verifyToken } from "../../../utils/generateAndVerifyToken.js";
 import { compare, hashText } from "../../../utils/hashAndComare.js";
 import cloudinary from "../../../utils/coudinary.js"
-
+import slugify from "slugify";
 
 export const getAuthModule = (req, res, next) => {
 
@@ -45,7 +45,7 @@ export const signUp = async (req, res, next) => {
 
     req.body.attachments = [];
     if (req?.files && req?.files?.attachments) {
-        console.log("11111");
+
         if (role == "User" && (req.body?.specification == "Medical" || req.body?.specification == "Educational")) {
             await Promise.all(req.files.attachments.map(async (file) => {
                 const { secure_url, public_id } = await cloudinary.uploader.upload(file.path, { folder: `${process.env.APP_NAME}/attachments/${nanoid()}/attachment` });
@@ -56,12 +56,10 @@ export const signUp = async (req, res, next) => {
             throw new Error("Attatchments for Medical and Educational only", { statusCode: 400 });
         }
         else {
-            console.log("111112222");
             console.log(req.files.attachments);
             for (const file of req.files.attachments) {
                 const { secure_url, public_id } = await cloudinary.uploader.upload(file.path, { folder: `${process.env.APP_NAME}/attachments/${nanoid()}/attachment` });
                 req.body.attachments.push({ secure_url, public_id });
-                console.log("22222222");
             }
         }
     }
@@ -71,10 +69,9 @@ export const signUp = async (req, res, next) => {
 
     }
     console.log(req.body);
-
+    req.body.slugUserName = slugify(req.body.userName, '-');
     const newUser = await userModel.create(req.body);
     return res.status(201).json({ message: "success", newUser });
-
 
 }
 

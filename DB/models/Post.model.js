@@ -13,15 +13,16 @@ const postSchema = new Schema(
       enum: ["General", "Medical", "Educational"],
     },
     attachments: [Object],
-    owner: {
-      type: mongoose.Schema.ObjectId,
+    createdBy: {
+      type: Types.ObjectId,
       ref: "User",
     },
-    Likes: [
+    likes: [
       {
         userId: {
           type: Types.ObjectId,
           ref: "User",
+          required:true,
         },
       },
     ],
@@ -31,6 +32,7 @@ const postSchema = new Schema(
     //         ref: "User",
     //     }
     // }]
+    customId:String,
   },
   {
     timestamps: true,

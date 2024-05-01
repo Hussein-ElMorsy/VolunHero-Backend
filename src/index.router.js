@@ -22,7 +22,7 @@ const initApp = (app, express) => {
   app.use("/api/users", userRouter); // Added
   app.use("/api/chat", chatRouter); // Added
   app.use("/api/message", messageRouter); // Added
-  app.use("/api/posts", postRouter); // Added
+  app.use("/api/post", postRouter); // Added
 
   app.all("*", (req, res, next) => {
     return res.json({ message: "In-valid routing" });

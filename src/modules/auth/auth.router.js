@@ -6,6 +6,8 @@ import * as validators from "./auth.validation.js"
 import { fileUpload, fileValidation } from "../../utils/multer.js";
 
 const router = Router();
+
+
 router.get("/",authController.getAuthModule);
 
 router.post('/signUp',fileUpload(fileValidation.image).fields([

@@ -208,3 +208,25 @@
 [2024-04-29 15:30:17] [ERROR] An error occurred: ValidationError: address: Path `address` is required.
 [2024-04-29 15:31:19] [ERROR] An error occurred: Email already existed
 [2024-04-29 15:31:43] [ERROR] An error occurred: Error: Attatchments for Medical and Educational only
+[2024-04-30 20:21:08] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-04-30 20:35:02] [ERROR] An error occurred: JsonWebTokenError: invalid token
+[2024-04-30 20:35:10] [ERROR] An error occurred: JsonWebTokenError: invalid algorithm
+[2024-04-30 20:35:18] [ERROR] An error occurred: JsonWebTokenError: invalid signature
+[2024-04-30 21:48:14] [ERROR] An error occurred: [object Object]
+[2024-04-30 21:48:21] [ERROR] An error occurred: ReferenceError: slugify is not defined
+[2024-04-30 21:58:36] [ERROR] An error occurred: Email not confirmed
+[2024-04-30 22:11:03] [ERROR] An error occurred: Error: In-valid user Id
+[2024-04-30 22:11:53] [ERROR] An error occurred: In-valid user Id
+[2024-04-30 22:50:36] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{ id: '66313faa332b6ea1206901ac' }" (type Object) at path "_id" for model "Post"
+[2024-04-30 22:50:49] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{ id: '66313faa332b6ea1206901ac' }" (type Object) at path "_id" for model "Post"
+[2024-04-30 22:51:46] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{ id: '66313faa332b6ea1206901ac' }" (type Object) at path "_id" for model "Post"
+[2024-04-30 22:52:23] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{ id: '66313faa332b6ea1206901ac' }" (type Object) at path "_id" for model "Post"
+[2024-04-30 22:52:38] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{ id: '66313faa332b6ea1206901ac' }" (type Object) at path "_id" for model "Post"
+[2024-04-30 22:52:53] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{ id: '66313faa332b6ea1206901ac' }" (type Object) at path "_id" for model "Post"
+[2024-04-30 22:53:59] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{ id: '66313faa332b6ea1206901ac' }" (type Object) at path "_id" for model "Post"
+[2024-04-30 22:56:54] [ERROR] An error occurred: JsonWebTokenError: invalid signature
+[2024-04-30 23:02:43] [ERROR] An error occurred: [object Object]
+[2024-04-30 23:04:45] [ERROR] An error occurred: [object Object]
+[2024-04-30 23:06:48] [ERROR] An error occurred: [object Object]
+[2024-04-30 23:55:11] [ERROR] An error occurred: In-valid Bearer key
+[2024-04-30 23:56:00] [ERROR] An error occurred: ReferenceError: userId is not defined

@@ -5,8 +5,11 @@ import { asyncHandler } from "../../utils/errorHandling.js";
 import { validation } from "../../middleware/validation.middleware.js";
 import * as validators from "../auth/auth.validation.js";
 import { fileUpload, fileValidation } from "../../utils/multer.js";
+import postRouter from "../Post/post.router.js"
 const router = Router();
 
+
+router.use("/:slugUserName/:userId/post",postRouter)
 router.use(asyncHandler(authController.protect));
 // router.get('/', asyncHandler(userController.getUserModule)); //for testing
 router.get("/me", userController.getMe, asyncHandler(userController.getUser));

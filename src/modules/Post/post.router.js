@@ -3,12 +3,26 @@ import { asyncHandler } from "../../utils/errorHandling.js";
 import { auth } from "../../middleware/auth.middleware.js";
 import * as postController from "./controller/post.js";
 import { validation } from "../../middleware/validation.middleware.js";
-// import * as validators from "./post.validation.js"
+import * as validators from "./post.validation.js"
 import { endPoint } from "./post.endpoint.js";
-const router = Router();
+import { fileUpload, fileValidation } from "../../utils/multer.js";
+const router = Router({mergeParams:true});
 
 
-router.post("/", auth(endPoint.createPost),asyncHandler(postController.createPost));
+router.get("/",asyncHandler(postController.getPostsOfSpecificUser));
+router.get("/ownerPosts", auth(endPoint.getPostsOfOwner),asyncHandler(postController.getPostsOfOwner));
+router.post("/", auth(endPoint.createPost),fileUpload(fileValidation.image).fields([
+    {name:"attachments",maxCount:100},
+]),validation(validators.createPost),asyncHandler(postController.createPost));
+
+router.put("/:id",auth(endPoint.updatePost),fileUpload(fileValidation.image).fields([
+    {name:"attachments",maxCount:100},
+]),validation(validators.updatePost),asyncHandler(postController.updatePost));
+
+
+router.put("/:id/like",auth(endPoint.likePost),validation(validators.likePost),asyncHandler(postController.likePost));
+
+
 router.get("/:id", auth(endPoint.createPost),asyncHandler(postController.getPost));
 router.get("/:id", auth(endPoint.createPost),asyncHandler(postController.deletePost));
 
