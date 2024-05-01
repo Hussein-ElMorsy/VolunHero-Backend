@@ -230,3 +230,7 @@
 [2024-04-30 23:06:48] [ERROR] An error occurred: [object Object]
 [2024-04-30 23:55:11] [ERROR] An error occurred: In-valid Bearer key
 [2024-04-30 23:56:00] [ERROR] An error occurred: ReferenceError: userId is not defined
+[2024-05-01 21:15:53] [ERROR] An error occurred: fn is not a function
+[2024-05-01 21:16:31] [ERROR] An error occurred: fn is not a function
+[2024-05-01 21:51:22] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-01 21:52:44] [ERROR] An error occurred: In-valid post

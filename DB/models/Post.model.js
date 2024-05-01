@@ -26,6 +26,15 @@ const postSchema = new Schema(
         },
       },
     ],
+    sharedUsers: [
+      {
+        userId: {
+          type: Types.ObjectId,
+          ref: "User",
+          required:true,
+        },
+      },
+    ],
     // comments: [{
     //     userId: {
     //         type: Types.ObjectId,

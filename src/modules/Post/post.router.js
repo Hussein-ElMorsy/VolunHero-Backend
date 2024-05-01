@@ -9,6 +9,9 @@ import { fileUpload, fileValidation } from "../../utils/multer.js";
 const router = Router({mergeParams:true});
 
 
+
+router.get("/allposts",asyncHandler(postController.getAllPosts));
+
 router.get("/",asyncHandler(postController.getPostsOfSpecificUser));
 router.get("/ownerPosts", auth(endPoint.getPostsOfOwner),asyncHandler(postController.getPostsOfOwner));
 router.post("/", auth(endPoint.createPost),fileUpload(fileValidation.image).fields([
@@ -20,11 +23,12 @@ router.put("/:id",auth(endPoint.updatePost),fileUpload(fileValidation.image).fie
 ]),validation(validators.updatePost),asyncHandler(postController.updatePost));
 
 
-router.put("/:id/like",auth(endPoint.likePost),validation(validators.likePost),asyncHandler(postController.likePost));
+router.patch("/:id/like",auth(endPoint.likePost),validation(validators.likePost),asyncHandler(postController.likePost));
 
 
-router.get("/:id", auth(endPoint.createPost),asyncHandler(postController.getPost));
-router.get("/:id", auth(endPoint.createPost),asyncHandler(postController.deletePost));
+// router.get("/:id", auth(endPoint.createPost),asyncHandler(postController.getPost));
+router.delete("/:id", auth(endPoint.createPost),validation(validators.deletePost),asyncHandler(postController.deletePost));
+
 
 
 

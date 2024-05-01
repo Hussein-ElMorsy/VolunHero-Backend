@@ -46,3 +46,8 @@ export const likePost = joi.object({
     }
 ).required();
 
+
+
+export const deletePost = joi.object({
+    id:generalFields.id.required()
+}).required()

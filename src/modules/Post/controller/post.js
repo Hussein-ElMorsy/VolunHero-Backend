@@ -4,6 +4,15 @@ import cloudinary from "../../../utils/coudinary.js"
 import userModel from "../../../../DB/models/User.model.js";
 
 
+
+export const getAllPosts = async(req,res,next)=>{
+
+  const posts = await postModel.find();
+
+  return res.status(200).json({ message: "success", posts })
+
+}
+
 export const getPostsOfSpecificUser = async (req, res, next) => {
 
   console.log(req.params);
@@ -30,10 +39,10 @@ export const getPostsOfOwner = async (req, res, next) => {
 
 export const createPost = async (req, res, next) => {
 
-  console.log(req.user);
-  console.log(JSON.stringify(req.user._id));
-  req.body.createdBy = req.user._id;
+  // console.log(req.user);
+  // console.log(JSON.stringify(req.user._id));
 
+  req.body.createdBy = req.user._id;
   req.body.attachments = [];
   if (req?.files && req?.files?.attachments) {
     req.body.customId = nanoid();
@@ -116,12 +125,12 @@ export const likePost = async (req, res, next) => {
   if (!check) {
     console.log("yes");
     console.log(regUser);
-    await postModel.updateOne({_id:id}, { $addToSet: { likes: regUser } });
+    await postModel.findByIdAndUpdate(id, { $addToSet: { likes: {userId:regUser}} });
     const updatedPost = await postModel.findById(id);
     return res.status(200).json({ message: "Added like", post: updatedPost });
   } else {
     console.log("no");
-    await postModel.updateOne({_id:id}, {
+    await postModel.findByIdAndUpdate(id, {
       $pull: {
           likes: {
             userId: regUser 
@@ -134,22 +143,28 @@ export const likePost = async (req, res, next) => {
 
 
 
-
 }
 
+
+
 export const deletePost = async (req, res, next) => {
-  let id;
-  if (req.params.id) {
-    id = req.params.id;
-  }
-  if (!id) return next(new Error("No id found")); // Modification is done
+
+  const { id } = req.params;
+  const checkUserPost = await postModel.findOne({ createdBy: req.user._id, _id: id });
+
+  if (!checkUserPost) return next(new Error("In-valid post")); // Modification is done
 
   const doc = await postModel.findByIdAndDelete(id);
   if (!doc) {
     return next(new Error("No Document found with this id"));
   }
-  res.status(204).json({
-    message: "sucess",
-    data: null,
-  });
+  return res.status(204).json({message: "sucess"});
 };
+
+
+
+export const sharePost = async (req,res,next)=>{
+
+  
+
+}
