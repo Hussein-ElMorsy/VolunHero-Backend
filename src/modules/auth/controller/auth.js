@@ -205,7 +205,6 @@ export const newConfirmEmail = async (req, res, next) => {
 }
 
 export const login = async (req, res, next) => {
-
     const { email, password } = req.body;
 
     const user = await userModel.findOne({ email: email.toLowerCase() });
@@ -220,6 +219,7 @@ export const login = async (req, res, next) => {
     if (!compare({ plaintext: password, hashValue: user.password })) {
         return next(new Error("In-valid email or password", { coase: 400 }));
     }
+    console.log(req.body)
     const access_token = generateToken({ payload: { _id: user._id, role: user.role }, expiresIn: 60 * 30 });
     const refresh_Token = generateToken({ payload: { _id: user._id, role: user.role }, expiresIn: 60 * 60 * 24 * 356 });
     user.status = "online";

@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import postModel from "../../../../DB/models/Post.model.js";
-import cloudinary from "../../../utils/coudinary.js"
+import cloudinary from "../../../utils/coudinary.js";
 import userModel from "../../../../DB/models/User.model.js";
 
 
@@ -14,7 +14,6 @@ export const getAllPosts = async(req,res,next)=>{
 }
 
 export const getPostsOfSpecificUser = async (req, res, next) => {
-
   console.log(req.params);
   const checkUser = await userModel.findById(req.params.userId);
   if (!checkUser) {
@@ -22,20 +21,14 @@ export const getPostsOfSpecificUser = async (req, res, next) => {
   }
   const posts = await postModel.find({ createdBy: req.params.userId });
 
-  return res.status(200).json({ message: "success", posts })
-
-}
-
+  return res.status(200).json({ message: "success", posts });
+};
 
 export const getPostsOfOwner = async (req, res, next) => {
-
   const posts = await postModel.find({ createdBy: req.user._id });
 
-  return res.status(200).json({ message: "success", posts })
-
-}
-
-
+  return res.status(200).json({ message: "success", posts });
+};
 
 export const createPost = async (req, res, next) => {
 
@@ -46,11 +39,15 @@ export const createPost = async (req, res, next) => {
   req.body.attachments = [];
   if (req?.files && req?.files?.attachments) {
     req.body.customId = nanoid();
-    await Promise.all(req.files.attachments.map(async (file) => {
-      const { secure_url, public_id } = await cloudinary.uploader.upload(file.path, { folder: `${process.env.APP_NAME}/post/${req.body.customId}` });
-      req.body.attachments.push({ secure_url, public_id });
-    }));
-
+    await Promise.all(
+      req.files.attachments.map(async (file) => {
+        const { secure_url, public_id } = await cloudinary.uploader.upload(
+          file.path,
+          { folder: `${process.env.APP_NAME}/post/${req.body.customId}` }
+        );
+        req.body.attachments.push({ secure_url, public_id });
+      })
+    );
   }
 
   const post = await postModel.create(req.body);
@@ -58,28 +55,29 @@ export const createPost = async (req, res, next) => {
   return res.status(201).json({ message: "success", post });
 };
 
-
-
 export const updatePost = async (req, res, next) => {
-
   // first check post for login user
   const { id } = req.params;
-  const checkUserPost = await postModel.findOne({ createdBy: req.user._id, _id: id });
+  const checkUserPost = await postModel.findOne({
+    createdBy: req.user._id,
+    _id: id,
+  });
 
   if (!checkUserPost) {
     throw next(new Error("In-valid post", { cause: 404 }));
   }
 
-
   if (req.files?.attachments?.length) {
-    req.body.attachments = []
+    req.body.attachments = [];
     const customId = checkUserPost.customId || nanoid();
     for (const file of req.files.attachments) {
-      const { secure_url, public_id } = await cloudinary.uploader.upload(file.path, { folder: `${process.env.APP_NAME}/post/${customId}` })
+      const { secure_url, public_id } = await cloudinary.uploader.upload(
+        file.path,
+        { folder: `${process.env.APP_NAME}/post/${customId}` }
+      );
       // await cloudinary.uploader.destroy(file.public_id)
-      req.body.attachments.push({ secure_url, public_id })
+      req.body.attachments.push({ secure_url, public_id });
     }
-
   }
 
   const post = await postModel.findByIdAndUpdate(id, req.body, {
@@ -108,32 +106,30 @@ export const updatePost = async (req, res, next) => {
 //   });
 // };
 
-
 export const likePost = async (req, res, next) => {
-
   const { id } = req.params;
 
   const regUser = req.user._id;
-
-  const check = await postModel.findOne({
+  const check = await postModel.findOne({ // Change each userId to _id If you want 
     _id: id,
-    'likes.userId': regUser
-  })
+    "likes.userId": regUser,
+  });
 
-
-  console.log({ check });
   if (!check) {
     console.log("yes");
+    await postModel.updateOne({_id:id}, { $addToSet: { likes: {userId:regUser} } });
+
     console.log(regUser);
     await postModel.findByIdAndUpdate(id, { $addToSet: { likes: {userId:regUser}} });
     const updatedPost = await postModel.findById(id);
+    console.log(updatedPost);
     return res.status(200).json({ message: "Added like", post: updatedPost });
   } else {
     console.log("no");
     await postModel.findByIdAndUpdate(id, {
       $pull: {
           likes: {
-            userId: regUser 
+            userId: regUser
           }
       }
   });

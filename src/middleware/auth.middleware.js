@@ -41,7 +41,7 @@ export const auth = (accessRoles=[])=>{
         if(!accessRoles.includes(user.role)){
             return next(new Error("Not authorized user",{cause:400}));
         }
-
+        console.log(user)
         req.user= user;
         return next()
 
