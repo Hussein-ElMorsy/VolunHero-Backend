@@ -33,6 +33,10 @@ const postSchema = new Schema(
           ref: "User",
           required:true,
         },
+        sharedAt:{
+          type:Date,
+          default: Date.now 
+        }
       },
     ],
     // comments: [{

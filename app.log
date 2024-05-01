@@ -234,3 +234,17 @@
 [2024-05-01 21:16:31] [ERROR] An error occurred: fn is not a function
 [2024-05-01 21:51:22] [ERROR] An error occurred: In-valid Bearer key
 [2024-05-01 21:52:44] [ERROR] An error occurred: In-valid post
+[2024-05-01 23:36:10] [ERROR] An error occurred: ReferenceError: regUser is not defined
+[2024-05-01 23:47:51] [ERROR] An error occurred: CastError: Cast to Array failed for value "{
+  createdBy: '66323a96c1faa34e5d78da93',
+  '$in': [ 'sharedUsers.userId' ]
+}" (type Object) at path "$or" for model "Post"
+[2024-05-01 23:48:44] [ERROR] An error occurred: CastError: Cast to Array failed for value "{
+  createdBy: '66323a96c1faa34e5d78da93',
+  '$in': [ 'sharedUsers.userId' ]
+}" (type Object) at path "$or" for model "Post"
+[2024-05-02 00:05:35] [ERROR] An error occurred: ReferenceError: mongoose is not defined
+[2024-05-02 00:05:59] [ERROR] An error occurred: TypeError: Class constructor ObjectId cannot be invoked without 'new'
+[2024-05-02 00:07:22] [ERROR] An error occurred: TypeError: Class constructor ObjectId cannot be invoked without 'new'
+[2024-05-02 00:28:15] [ERROR] An error occurred: ValidationError: post.postId: Path `post.postId` is required.
+[2024-05-02 00:28:50] [ERROR] An error occurred: ReferenceError: post is not defined

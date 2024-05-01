@@ -51,3 +51,10 @@ export const likePost = joi.object({
 export const deletePost = joi.object({
     id:generalFields.id.required()
 }).required()
+
+
+export const sharePost = joi.object({
+    id:generalFields.id.required()
+}).required()
+
+

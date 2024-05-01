@@ -29,8 +29,8 @@ router.patch("/:id/like",auth(endPoint.likePost),validation(validators.likePost)
 // router.get("/:id", auth(endPoint.createPost),asyncHandler(postController.getPost));
 router.delete("/:id", auth(endPoint.createPost),validation(validators.deletePost),asyncHandler(postController.deletePost));
 
-
-
+router.patch("/:id/share",auth(endPoint.sharePost),validation(validators.sharePost),asyncHandler(postController.sharePost))
+router.patch("/:id/removeShare",auth(endPoint.sharePost),validation(validators.sharePost),asyncHandler(postController.removeSharedPost))
 
 // router.get("/",asyncHandler(chatControllers.getAllChats))
 // router.post('/',auth(endPoint.createChat),validation(validators.createChat), asyncHandler(chatControllers.createChat))

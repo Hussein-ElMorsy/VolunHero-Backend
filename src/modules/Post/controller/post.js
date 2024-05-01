@@ -2,10 +2,11 @@ import { nanoid } from "nanoid";
 import postModel from "../../../../DB/models/Post.model.js";
 import cloudinary from "../../../utils/coudinary.js";
 import userModel from "../../../../DB/models/User.model.js";
+import ProfileDataModel from "../../../../DB/models/ProfileData.model.js";
 
 
 
-export const getAllPosts = async(req,res,next)=>{
+export const getAllPosts = async (req, res, next) => {
 
   const posts = await postModel.find();
 
@@ -13,13 +14,23 @@ export const getAllPosts = async(req,res,next)=>{
 
 }
 
+
+//  get post by id
+
+// get profile posts 
+
 export const getPostsOfSpecificUser = async (req, res, next) => {
   console.log(req.params);
   const checkUser = await userModel.findById(req.params.userId);
   if (!checkUser) {
     throw next(new Error("In-valid user Id", { cause: 404 }));
   }
-  const posts = await postModel.find({ createdBy: req.params.userId });
+  const posts = await postModel.find({
+    $or: [
+      { createdBy: req.params.userId },
+      { "sharedUsers.userId": req.params.userId }
+    ]
+  });
 
   return res.status(200).json({ message: "success", posts });
 };
@@ -51,7 +62,10 @@ export const createPost = async (req, res, next) => {
   }
 
   const post = await postModel.create(req.body);
-
+  const addToProfile = new ProfileDataModel;
+  addToProfile.userId=req.user._id,
+  addToProfile.post= post._id 
+  await addToProfile.save();
   return res.status(201).json({ message: "success", post });
 };
 
@@ -110,6 +124,9 @@ export const likePost = async (req, res, next) => {
   const { id } = req.params;
 
   const regUser = req.user._id;
+  const checkPostFound = await postModel.findById(id);
+  if (!checkPostFound) return next(new Error("In-valid Post Id", { cause: 404 }));
+
   const check = await postModel.findOne({ // Change each userId to _id If you want 
     _id: id,
     "likes.userId": regUser,
@@ -117,10 +134,7 @@ export const likePost = async (req, res, next) => {
 
   if (!check) {
     console.log("yes");
-    await postModel.updateOne({_id:id}, { $addToSet: { likes: {userId:regUser} } });
-
-    console.log(regUser);
-    await postModel.findByIdAndUpdate(id, { $addToSet: { likes: {userId:regUser}} });
+    await postModel.findByIdAndUpdate(id, { $addToSet: { likes: { userId: regUser } } });
     const updatedPost = await postModel.findById(id);
     console.log(updatedPost);
     return res.status(200).json({ message: "Added like", post: updatedPost });
@@ -128,11 +142,11 @@ export const likePost = async (req, res, next) => {
     console.log("no");
     await postModel.findByIdAndUpdate(id, {
       $pull: {
-          likes: {
-            userId: regUser
-          }
+        likes: {
+          userId: regUser
+        }
       }
-  });
+    });
     const updatedPost = await postModel.findById(id);
     return res.status(200).json({ message: "Removed like", post: updatedPost });
   }
@@ -140,6 +154,7 @@ export const likePost = async (req, res, next) => {
 
 
 }
+
 
 
 
@@ -154,13 +169,61 @@ export const deletePost = async (req, res, next) => {
   if (!doc) {
     return next(new Error("No Document found with this id"));
   }
-  return res.status(204).json({message: "sucess"});
+  return res.status(204).json({ message: "success" });
 };
 
 
 
-export const sharePost = async (req,res,next)=>{
 
-  
+export const sharePost = async (req, res, next) => {
+
+
+  const { id } = req.params;
+  const regUser = req.user._id;
+  const checkPost = await postModel.findById(id);
+
+  if (!checkPost) return next(new Error("In-valid Post Id", { cause: 404 }));
+
+
+  await postModel.findByIdAndUpdate(id, { $push: { sharedUsers: { userId: regUser } } });
+  const updatedPost = await postModel.findById(id);
+  console.log(updatedPost);
+  const addToProfile = new ProfileDataModel;
+  addToProfile.userId=req.user._id,
+  addToProfile.post= updatedPost._id ;
+  await addToProfile.save();
+  return res.status(200).json({ message: "Post shared", post: updatedPost });
+
 
 }
+
+
+
+export const removeSharedPost = async (req, res, next) => {
+
+  const { id } = req.params;
+  const regUser = req.user._id;
+  const checkPost = await postModel.findById(id);
+
+  if (!checkPost) return next(new Error("In-valid Post Id", { cause: 404 }));
+
+  const checkShare = await postModel.findOne({ // Change each userId to _id If you want 
+    _id: id,
+    "sharedUsers.userId": regUser,
+  });
+
+  if (!checkShare) return next(new Error("can not remove post", { cause: 400 }));
+
+  await postModel.findByIdAndUpdate(id, {
+    $pull: {
+      sharedUsers: {
+        userId: regUser,
+        // _id:sharedId
+      }
+    }
+  })
+
+  const updatedPost = await postModel.findById(id);
+  return res.status(200).json({ message: "Removed Post", post: updatedPost });
+}
+
