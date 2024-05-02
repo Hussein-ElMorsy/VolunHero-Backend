@@ -5,8 +5,7 @@ import userModel from "../../../../DB/models/User.model.js";
 export const getUserModule =  async (req, res, next) => {
   return res.json({ message: "user controller" });
 }
-export const getMe = (req, res, next) =>{
-  // console.log(req.user.id)
+export const getMe = (req, res, next) =>{  
   req.params.id = req.user.id;
   next();
 }
@@ -71,8 +70,6 @@ export const restrictTo = (...roles) => {
 };
 
 export const getUsers = factory.getAll(userModel);
-export const createUser = factory.createOne(userModel);
-
 export const updateUser = factory.updateOne(userModel)
 export const deleteUser = factory.deleteOne(userModel);
 
