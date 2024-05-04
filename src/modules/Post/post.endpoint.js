@@ -11,4 +11,5 @@ export const endPoint = {
     deletePost:[roles.Organization,roles.User,roles.Admin],
     likePost:[roles.Organization,roles.User,roles.Admin],
     sharePost:[roles.Organization,roles.User,roles.Admin],
+    getPostById:[roles.Organization,roles.User,roles.Admin],
 }

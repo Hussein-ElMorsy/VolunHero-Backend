@@ -42,8 +42,8 @@ const userSchema = new Schema({
       type: Boolean,
       default: false,
     },
-    profilePic: Object,
-    coverPic: Object,
+    profilePic: {type:Object,default:null},
+    coverPic: {type:Object,default:null},
     images: [Object],
     DOB:  {
         type:String,

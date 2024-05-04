@@ -12,8 +12,10 @@ const router = Router({mergeParams:true});
 
 router.get("/allposts",asyncHandler(postController.getAllPosts));
 
+
 router.get("/",asyncHandler(postController.getPostsOfSpecificUser));
 router.get("/ownerPosts", auth(endPoint.getPostsOfOwner),asyncHandler(postController.getPostsOfOwner));
+router.get("/:id",auth(endPoint.getPostById),validation(validators.getPostById),asyncHandler(postController.getPostById))
 router.post("/", auth(endPoint.createPost),fileUpload(fileValidation.image).fields([
     {name:"attachments",maxCount:100},
 ]),validation(validators.createPost),asyncHandler(postController.createPost));
@@ -31,6 +33,11 @@ router.delete("/:id", auth(endPoint.createPost),validation(validators.deletePost
 
 router.patch("/:id/share",auth(endPoint.sharePost),validation(validators.sharePost),asyncHandler(postController.sharePost))
 router.patch("/:id/removeShare",auth(endPoint.sharePost),validation(validators.sharePost),asyncHandler(postController.removeSharedPost))
+
+
+router.get("/:id/likes",auth(endPoint.getPostLikes),validation(validators.getPostLikes),asyncHandler(postController.getPostLikes));
+
+
 
 // router.get("/",asyncHandler(chatControllers.getAllChats))
 // router.post('/',auth(endPoint.createChat),validation(validators.createChat), asyncHandler(chatControllers.createChat))

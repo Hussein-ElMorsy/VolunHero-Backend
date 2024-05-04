@@ -4,18 +4,41 @@ import cloudinary from "../../../utils/coudinary.js";
 import userModel from "../../../../DB/models/User.model.js";
 import ProfileDataModel from "../../../../DB/models/ProfileData.model.js";
 
-
+// const posts = await postModel.aggregatePostss();
 
 export const getAllPosts = async (req, res, next) => {
 
-  const posts = await postModel.find();
+  const posts = await postModel.find().populate(
+    [{
+      path: 'createdBy',
+      select: 'userName profilePic role'
+    }
+  ]);
 
-  return res.status(200).json({ message: "success", posts })
+  const modifiedPosts = posts.map(post => {
+    const { likes, sharedUsers, ...rest } = post.toObject();
+    return rest;
+  });
+
+
+  return res.status(200).json({ message: "success", modifiedPosts })
 
 }
 
 
+
+
 //  get post by id
+
+export const getPostById = async (req, res, next) => {
+
+  const { id } = req.params;
+  const post = await postModel.findById(id);
+  if (!post) {
+    return next(new Error("In-valid postId", { cause: 404 }));
+  }
+  return res.status(200).json({ message: "success", post });
+}
 
 // get profile posts 
 
@@ -32,11 +55,33 @@ export const getPostsOfSpecificUser = async (req, res, next) => {
     ]
   });
 
+
+
+
   return res.status(200).json({ message: "success", posts });
 };
 
 export const getPostsOfOwner = async (req, res, next) => {
-  const posts = await postModel.find({ createdBy: req.user._id });
+
+  const posts = await postModel.aggregatePosts(req.user._id);
+  // let posts = await postModel.aggregate([
+  //   {
+  //     $match: { createdBy: (req.user._id) }
+  //   },
+  //   {
+  //     $addFields: {
+  //       likesCount: { $size: "$likes" },
+  //       sharedCount: { $size: "$sharedUsers" }
+  //     }
+  //   },
+  //   {
+  //     $project: {
+  //       likes:0,
+  //       sharedUsers:0
+  //     }
+  //   }
+  // ]);
+  console.log({ posts });
 
   return res.status(200).json({ message: "success", posts });
 };
@@ -63,8 +108,8 @@ export const createPost = async (req, res, next) => {
 
   const post = await postModel.create(req.body);
   const addToProfile = new ProfileDataModel;
-  addToProfile.userId=req.user._id,
-  addToProfile.post= post._id 
+  addToProfile.userId = req.user._id,
+    addToProfile.post = post._id
   await addToProfile.save();
   return res.status(201).json({ message: "success", post });
 };
@@ -189,8 +234,8 @@ export const sharePost = async (req, res, next) => {
   const updatedPost = await postModel.findById(id);
   console.log(updatedPost);
   const addToProfile = new ProfileDataModel;
-  addToProfile.userId=req.user._id,
-  addToProfile.post= updatedPost._id ;
+  addToProfile.userId = req.user._id,
+    addToProfile.post = updatedPost._id;
   await addToProfile.save();
   return res.status(200).json({ message: "Post shared", post: updatedPost });
 

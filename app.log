@@ -273,3 +273,52 @@
 [2024-05-02 16:11:56] [ERROR] An error occurred: In-valid Bearer key
 [2024-05-02 16:12:17] [ERROR] An error occurred: TokenExpiredError: jwt expired
 [2024-05-02 16:15:56] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-03 20:49:07] [ERROR] An error occurred: In-valid user Id
+[2024-05-03 20:54:21] [ERROR] An error occurred: TypeError: docs is not iterable
+[2024-05-03 20:56:29] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-05-03 21:05:37] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-05-03 21:06:35] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-05-03 21:07:55] [ERROR] An error occurred: TypeError: doc.select is not a function
+[2024-05-03 21:08:29] [ERROR] An error occurred: TypeError: doc.select is not a function
+[2024-05-03 21:09:33] [ERROR] An error occurred: TypeError: docs is not iterable
+[2024-05-03 21:11:49] [ERROR] An error occurred: TypeError: docs is not iterable
+[2024-05-03 21:14:18] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-05-03 21:22:11] [ERROR] An error occurred: MongooseError: Query was already executed: Post.find({ createdBy: new ObjectId("66313d03ce77d838e1e87cc...
+[2024-05-03 21:22:37] [ERROR] An error occurred: MongooseError: Query was already executed: Post.find({ createdBy: new ObjectId("66313d03ce77d838e1e87cc...
+[2024-05-03 21:22:55] [ERROR] An error occurred: TypeError: doc.select is not a function
+[2024-05-03 21:28:57] [ERROR] An error occurred: MongooseError: Query was already executed: Post.find({ createdBy: new ObjectId("66313d03ce77d838e1e87cc...
+[2024-05-03 21:29:42] [ERROR] An error occurred: MongooseError: Query was already executed: Post.find({ createdBy: new ObjectId("66313d03ce77d838e1e87cc...
+[2024-05-03 21:31:09] [ERROR] An error occurred: MongooseError: Query was already executed: Post.find({ createdBy: new ObjectId("66313d03ce77d838e1e87cc...
+[2024-05-03 21:31:24] [ERROR] An error occurred: MongooseError: Query was already executed: Post.find({ createdBy: new ObjectId("66313d03ce77d838e1e87cc...
+[2024-05-03 21:36:54] [ERROR] An error occurred: ReferenceError: likes is not defined
+[2024-05-03 21:37:20] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-05-03 21:37:24] [ERROR] An error occurred: TypeError: doc.omit is not a function
+[2024-05-03 21:39:47] [ERROR] An error occurred: ReferenceError: log is not defined
+[2024-05-03 21:48:44] [ERROR] An error occurred: ReferenceError: log is not defined
+[2024-05-03 21:54:09] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-05-03 21:57:48] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-05-03 22:00:38] [ERROR] An error occurred: TypeError: plainDoc.select is not a function
+[2024-05-03 22:11:59] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-05-03 22:14:44] [ERROR] An error occurred: TypeError: next is not a function
+[2024-05-03 22:17:47] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-05-03 22:37:40] [ERROR] An error occurred: In-valid user Id
+[2024-05-03 22:49:46] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-03 22:54:43] [ERROR] An error occurred: MongoServerError: PlanExecutor error during aggregation :: caused by :: The argument to $size must be an array, but was of type: missing
+[2024-05-03 22:55:07] [ERROR] An error occurred: MongoServerError: PlanExecutor error during aggregation :: caused by :: The argument to $size must be an array, but was of type: missing
+[2024-05-03 22:56:07] [ERROR] An error occurred: MongoServerError: PlanExecutor error during aggregation :: caused by :: The argument to $size must be an array, but was of type: missing
+[2024-05-03 22:57:44] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
+[2024-05-03 22:58:00] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
+[2024-05-03 23:09:44] [ERROR] An error occurred: ReferenceError: req is not defined
+[2024-05-03 23:09:59] [ERROR] An error occurred: TypeError: this.aggregate is not a function
+[2024-05-03 23:10:12] [ERROR] An error occurred: TypeError: this.aggregate is not a function
+[2024-05-03 23:17:51] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-05-03 23:27:27] [ERROR] An error occurred: TypeError: postModel.find(...).aggregatePosts is not a function
+[2024-05-03 23:34:39] [ERROR] An error occurred: Error: Error in aggregation
+[2024-05-03 23:34:41] [ERROR] An error occurred: Error: Error in aggregation
+[2024-05-03 23:36:46] [ERROR] An error occurred: Error: Error in aggregation
+[2024-05-03 23:37:45] [ERROR] An error occurred: Error: Error in aggregation
+[2024-05-03 23:38:51] [ERROR] An error occurred: Error: Error in aggregation
+[2024-05-03 23:39:30] [ERROR] An error occurred: MongooseError: Operation `posts.find()` buffering timed out after 10000ms
+[2024-05-03 23:49:13] [ERROR] An error occurred: Error: Error in aggregation
+[2024-05-04 14:09:36] [ERROR] An error occurred: TypeError: postModel.aggregatePostss(...).populate is not a function
+[2024-05-04 14:11:34] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `User` because it is not in your schema. Set the `strictPopulate` option to false to override.

@@ -46,11 +46,74 @@ const postSchema = new Schema(
     //     }
     // }]
     customId:String,
+    likesCount:{type:Number,default:0},
+    shareCount:{type:Number,default:0},
   },
   {
     timestamps: true,
   }
 );
+
+// postSchema.pre('find', async function(next) {
+//   this.select('-likes -sharedUsers'); // Exclude likes and sharedUsers fields
+//   next();
+// });
+
+postSchema.post('find', async function(docs,next) {
+  for (let doc of docs) {
+    doc.likesCount = doc.likes.length;
+    doc.shareCount = doc.sharedUsers.length;
+  }
+
+});
+
+postSchema.statics.aggregatePostss = async function(userId) {
+  try {
+    
+      const posts = await this.aggregate([
+          { $match: { createdBy: userId } },
+          {
+              $addFields: {
+                  likesCount: { $size: "$likes" },
+                  sharedCount: { $size: "$sharedUsers" }
+              }
+          },
+          {
+              $project: {
+                  likes: 0,
+                  sharedUsers: 0
+              }
+          }
+      ]);
+      return posts;
+  } catch (error) {
+      throw new Error('Error in aggregation');
+  }
+};
+
+postSchema.statics.aggregatePosts = async function(userId) {
+  try {
+    
+      const posts = await this.aggregate([
+          { $match: { createdBy: userId } },
+          {
+              $addFields: {
+                  likesCount: { $size: "$likes" },
+                  sharedCount: { $size: "$sharedUsers" }
+              }
+          },
+          {
+              $project: {
+                  likes: 0,
+                  sharedUsers: 0
+              }
+          }
+      ]);
+      return posts;
+  } catch (error) {
+      throw new Error('Error in aggregation');
+  }
+};
 
 const postModel = mongoose.models.Post || model("Post", postSchema);
 export default postModel;
