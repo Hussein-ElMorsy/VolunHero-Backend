@@ -6,5 +6,10 @@ export const endPoint = {
     me: [roles.Organization,roles.User, roles.Admin],
     getUser : [roles.Admin],
     updateUser : [roles.Admin],
-    deleteUser : [roles.Admin]
+    deleteUser : [roles.Admin],
+    getMyFollowings:[roles.User,roles.Organization],
+    getUserFollowings:[roles.User,roles.Organization,roles.Admin],
+    getMyFollowers:[roles.User,roles.Organization],
+    getUserFollowers:[roles.User,roles.Organization,roles.Admin],
+    makeFollow:[roles.User,roles.Organization],
 }

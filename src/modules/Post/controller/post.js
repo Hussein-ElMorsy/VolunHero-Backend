@@ -13,7 +13,10 @@ export const getAllPosts = async (req, res, next) => {
       path: 'createdBy',
       select: 'userName profilePic role'
     }
-  ]);
+    ]);
+
+
+  console.log({ posts });
 
   const modifiedPosts = posts.map(post => {
     const { likes, sharedUsers, ...rest } = post.toObject();
@@ -48,21 +51,19 @@ export const getPostsOfSpecificUser = async (req, res, next) => {
   if (!checkUser) {
     throw next(new Error("In-valid user Id", { cause: 404 }));
   }
-  const posts = await postModel.find({
-    $or: [
-      { createdBy: req.params.userId },
-      { "sharedUsers.userId": req.params.userId }
-    ]
-  });
-
-
+  const posts = await ProfileDataModel.find({ userId: req.params.userId }).populate({
+    path: "userId",
+    select: "userName profilePic"
+  }).populate({
+      path: "post"
+    });
 
   return res.status(200).json({ message: "success", posts });
 };
 
 export const getPostsOfOwner = async (req, res, next) => {
 
-  const posts = await postModel.aggregatePosts(req.user._id);
+  // const posts = await postModel.aggregatePosts(req.user._id);
   // let posts = await postModel.aggregate([
   //   {
   //     $match: { createdBy: (req.user._id) }
@@ -80,7 +81,16 @@ export const getPostsOfOwner = async (req, res, next) => {
   //     }
   //   }
   // ]);
-  console.log({ posts });
+
+  let posts = await ProfileDataModel.find({ userId: req.user._id }).populate({
+      path: "post",
+    });
+
+    console.log(posts);
+    posts = posts.map(post => {
+      const { likes, sharedUsers, ...rest } = post.post.toObject();
+      return rest;
+    });
 
   return res.status(200).json({ message: "success", posts });
 };
@@ -234,7 +244,7 @@ export const sharePost = async (req, res, next) => {
   console.log(updatedPost);
   const addToProfile = new ProfileDataModel;
   addToProfile.userId = req.user._id,
-  addToProfile.post = updatedPost._id;
+    addToProfile.post = updatedPost._id;
   await addToProfile.save();
   return res.status(200).json({ message: "Post shared", post: updatedPost });
 
