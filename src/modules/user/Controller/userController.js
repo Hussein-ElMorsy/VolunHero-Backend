@@ -201,3 +201,42 @@ export const makeFollow = async (req, res, next) => {
 
 }
 
+export const makeUnFollow = async (req, res, next) => {
+
+  const { userId } = req.params;
+
+  // check userId found or not
+
+  const user = await userModel.findById(userId);
+  // console.log({user});
+  if (!user || user._id.equals(req.user._id)) {
+    return next(new Error("In-valid userId", { cause: 404 }));
+  }
+
+  // console.log(user.following);
+
+  // check if i already follow him or not
+  const userFollowers = user.followers.map(i => i?.userId?.toString());
+  if (!userFollowers.includes(req.user._id.toString())) {
+    return next(new Error("You don't follow this user", { cause: 409 }));
+  }
+
+
+  console.log({ userFollowers });
+
+  // else
+  // add my id to his followers array
+  user.followers.pull({ userId: req.user._id });
+  await user.save();
+  // add his id to my following list
+
+  await userModel.findByIdAndUpdate(req.user._id,
+    { $pull: { following: { userId: new mongoose.Types.ObjectId(userId) } } },
+    { new: true }
+  )
+
+  return res.status(200).json({ message: "success" })
+
+
+}
+

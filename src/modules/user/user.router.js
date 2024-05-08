@@ -43,9 +43,10 @@ router.get("/:slugUserName/:userId/followers",auth(endPoint.getUserFollowers),as
 
 
 // make follow and unfollow
-
+// "Unfollow - Comments - Saved posts" - Home page - Data profile
 router.patch("/:userId/makefollow",auth(endPoint.makeFollow),asyncHandler(userController.makeFollow))
 
+router.patch("/:userId/makeunfollow",auth(endPoint.makeFollow),asyncHandler(userController.makeUnFollow))
 
 router // Check api features again
   .route("/")
@@ -56,4 +57,6 @@ router
   .get(auth(endPoint.getUser), validation(validators.user), asyncHandler(userController.getUser))
   .patch(auth(endPoint.updateUser), asyncHandler(userController.updateUser)) // Change it
   .delete(auth(endPoint.deleteUser), validation(validators.user), asyncHandler(userController.deleteUser));
+
+
 export default router;

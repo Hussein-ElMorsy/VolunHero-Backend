@@ -384,3 +384,18 @@
 [2024-05-08 21:26:05] [ERROR] An error occurred: ReferenceError: following is not defined
 [2024-05-08 21:29:49] [ERROR] An error occurred: You already follow this user
 [2024-05-08 21:31:33] [ERROR] An error occurred: You already follow this user
+[2024-05-08 23:29:53] [ERROR] An error occurred: You don't follow this user
+[2024-05-08 23:30:33] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:30:43] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:31:35] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:32:01] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:32:02] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:32:31] [ERROR] An error occurred: You already follow this user
+[2024-05-08 23:32:53] [ERROR] An error occurred: You already follow this user
+[2024-05-08 23:32:56] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:33:30] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:33:37] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:33:42] [ERROR] An error occurred: You don't follow this user
+[2024-05-08 23:34:44] [ERROR] An error occurred: You already follow this user
+[2024-05-08 23:37:50] [ERROR] An error occurred: You already follow this user
+[2024-05-08 23:38:10] [ERROR] An error occurred: You don't follow this user
