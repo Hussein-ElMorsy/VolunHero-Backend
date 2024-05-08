@@ -57,7 +57,6 @@ export const getPostsOfSpecificUser = async (req, res, next) => {
 
 
 
-
   return res.status(200).json({ message: "success", posts });
 };
 
@@ -235,7 +234,7 @@ export const sharePost = async (req, res, next) => {
   console.log(updatedPost);
   const addToProfile = new ProfileDataModel;
   addToProfile.userId = req.user._id,
-    addToProfile.post = updatedPost._id;
+  addToProfile.post = updatedPost._id;
   await addToProfile.save();
   return res.status(200).json({ message: "Post shared", post: updatedPost });
 

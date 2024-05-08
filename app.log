@@ -322,3 +322,38 @@
 [2024-05-03 23:49:13] [ERROR] An error occurred: Error: Error in aggregation
 [2024-05-04 14:09:36] [ERROR] An error occurred: TypeError: postModel.aggregatePostss(...).populate is not a function
 [2024-05-04 14:11:34] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `User` because it is not in your schema. Set the `strictPopulate` option to false to override.
+[2024-05-07 17:46:55] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-05-07 17:47:02] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-05-07 17:47:34] [ERROR] An error occurred: Not authorized user
+[2024-05-07 17:47:52] [ERROR] An error occurred: Not authorized user
+[2024-05-07 17:53:13] [ERROR] An error occurred: Not authorized user
+[2024-05-07 17:53:30] [ERROR] An error occurred: Not authorized user
+[2024-05-07 17:54:48] [ERROR] An error occurred: ObjectParameterError: Parameter "obj" to Document() must be an object, got "663630377d4ef1488e818a9f" (type string)
+[2024-05-07 17:55:04] [ERROR] An error occurred: ObjectParameterError: Parameter "obj" to Document() must be an object, got "663630377d4ef1488e818a9f" (type string)
+[2024-05-07 17:58:34] [ERROR] An error occurred: ReferenceError: mongoose is not defined
+[2024-05-07 17:58:54] [ERROR] An error occurred: TypeError: Class constructor ObjectId cannot be invoked without 'new'
+[2024-05-07 18:03:19] [ERROR] An error occurred: TypeError: Class constructor ObjectId cannot be invoked without 'new'
+[2024-05-07 18:03:37] [ERROR] An error occurred: ValidationError: members.0.userId: Path `userId` is required., members.1.userId: Path `userId` is required.
+[2024-05-07 19:28:45] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-05-07 19:29:10] [ERROR] An error occurred: ObjectParameterError: Parameter "obj" to Document() must be an object, got "662cc67681ecb63561d8bb9a" (type string)
+[2024-05-07 19:29:28] [ERROR] An error occurred: ValidationError: members.0.userId: Path `userId` is required., members.1.userId: Path `userId` is required.
+[2024-05-07 19:58:30] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{
+  '$all': [
+    new ObjectId("663630377d4ef1488e818a9f"),
+    new ObjectId("65becec07dd3b62e95d4cad0")
+  ]
+}" (type Object) at path "userId" for model "Chat"
+[2024-05-07 22:06:36] [ERROR] An error occurred: Error: Can't use $elementmatch
+[2024-05-07 22:07:10] [ERROR] An error occurred: MongoServerError: $elemMatch needs an Object
+[2024-05-07 22:18:03] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `userId` because it is not in your schema. Set the `strictPopulate` option to false to override.
+[2024-05-07 22:31:48] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `members[1].userId` because it is not in your schema. Set the `strictPopulate` option to false to override.
+[2024-05-07 22:37:24] [ERROR] An error occurred: Error: Mongoose does not support calling populate() on nested docs. Instead of `doc.arr[0].populate("path")`, use `doc.populate("arr.0.path")`
+[2024-05-07 22:38:03] [ERROR] An error occurred: TypeError: chat.populate(...).execPopulate is not a function
+[2024-05-07 22:39:19] [ERROR] An error occurred: Error: Mongoose does not support calling populate() on nested docs. Instead of `doc.arr[0].populate("path")`, use `doc.populate("arr.0.path")`
+[2024-05-07 23:04:58] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `User` because it is not in your schema. Set the `strictPopulate` option to false to override.
+[2024-05-07 23:05:08] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `memberuser` because it is not in your schema. Set the `strictPopulate` option to false to override.
+[2024-05-07 23:06:14] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{ 'members.userId': new ObjectId("663630377d4ef1488e818a9f") }" (type Object) at path "_id" for model "Chat"
+[2024-05-08 13:58:41] [ERROR] An error occurred: ReferenceError: userId is not defined
+[2024-05-08 13:58:43] [ERROR] An error occurred: ReferenceError: userId is not defined
+[2024-05-08 14:08:04] [ERROR] An error occurred: In-valid users id
+[2024-05-08 14:23:33] [ERROR] An error occurred: TokenExpiredError: jwt expired

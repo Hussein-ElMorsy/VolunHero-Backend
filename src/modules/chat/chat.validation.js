@@ -12,7 +12,7 @@ export const createChat = joi.object({
 
 export const findUserChats = joi.object({
 
-    userId:generalFields.id.required(),
+    // userId:generalFields.id.required(),
 
 }).required()
 
