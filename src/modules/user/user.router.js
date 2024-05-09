@@ -23,14 +23,40 @@ router.delete("/deleteMe", auth(endPoint.me), userController.getMe,
 router.patch("/updateMe", auth(endPoint.me), // Check again
   asyncHandler(userController.updateMe));
 
+// get my following list
+router.get("/following",auth(endPoint.getMyFollowings),asyncHandler(userController.getMyFollowings))
+
+
+// get other user following list
+
+router.get("/:slugUserName/:userId/following",auth(endPoint.getUserFollowings),asyncHandler(userController.getUserFollowings))
+
+
+// get my followers list
+
+router.get("/following",auth(endPoint.getMyFollowers),asyncHandler(userController.getMyFollowers))
+
+
+// get other user followers list
+
+router.get("/:slugUserName/:userId/followers",auth(endPoint.getUserFollowers),asyncHandler(userController.getUserFollowers))
+
+
+// make follow and unfollow
+// "Unfollow - Comments - Saved posts" - Home page - Data profile
+router.patch("/:userId/makefollow",auth(endPoint.makeFollow),asyncHandler(userController.makeFollow))
+
+router.patch("/:userId/makeunfollow",auth(endPoint.makeFollow),asyncHandler(userController.makeUnFollow))
 
 router // Check api features again
   .route("/")
-  .get(auth(endPoint.getUser), asyncHandler(userController.getUsers))
+  .get(auth(endPoint.getUser), asyncHandler(userController.getUsers)); 
 
 router
   .route("/:id")
   .get(auth(endPoint.getUser), validation(validators.user), asyncHandler(userController.getUser))
   .patch(auth(endPoint.updateUser), asyncHandler(userController.updateUser)) // Change it
   .delete(auth(endPoint.deleteUser), validation(validators.user), asyncHandler(userController.deleteUser));
+
+
 export default router;

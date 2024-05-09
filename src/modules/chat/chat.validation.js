@@ -5,7 +5,7 @@ import { generalFields } from "../../middleware/validation.middleware.js";
 
 export const createChat = joi.object({
 
-    firstId:generalFields.id.required(),
+    // firstId:generalFields.id.required(),
     secondId:generalFields.id.required(),
 
 }).required()

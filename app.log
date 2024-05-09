@@ -357,7 +357,45 @@
 [2024-05-08 13:58:43] [ERROR] An error occurred: ReferenceError: userId is not defined
 [2024-05-08 14:08:04] [ERROR] An error occurred: In-valid users id
 [2024-05-08 14:23:33] [ERROR] An error occurred: TokenExpiredError: jwt expired
-[2024-05-09 14:05:05] [ERROR] An error occurred: Email already existed
-[2024-05-09 14:05:21] [ERROR] An error occurred: [object Object]
-[2024-05-09 14:06:30] [ERROR] An error occurred: [object Object]
-[2024-05-09 14:07:24] [ERROR] An error occurred: [object Object]
+[2024-05-08 15:35:29] [ERROR] An error occurred: ValidationError: address: Path `address` is required., DOB: Path `DOB` is required.
+[2024-05-08 15:36:10] [ERROR] An error occurred: ValidationError: address: Path `address` is required.
+[2024-05-08 16:21:18] [ERROR] An error occurred: In-valid user Id
+[2024-05-08 16:23:48] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `postId` because it is not in your schema. Set the `strictPopulate` option to false to override.
+[2024-05-08 16:27:02] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
+[2024-05-08 16:27:21] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
+[2024-05-08 16:27:22] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
+[2024-05-08 16:28:24] [ERROR] An error occurred: Not registered user
+[2024-05-08 16:28:57] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-05-08 16:33:18] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-05-08 16:33:37] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-05-08 16:37:04] [ERROR] An error occurred: TypeError: Assignment to constant variable.
+[2024-05-08 16:38:42] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'map')
+[2024-05-08 16:39:05] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'map')
+[2024-05-08 16:39:15] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'map')
+[2024-05-08 20:49:52] [ERROR] An error occurred: In-valid userId
+[2024-05-08 20:50:37] [ERROR] An error occurred: In-valid userId
+[2024-05-08 20:53:24] [ERROR] An error occurred: In-valid userId
+[2024-05-08 20:54:02] [ERROR] An error occurred: ReferenceError: userIdToCheck is not defined
+[2024-05-08 20:54:16] [ERROR] An error occurred: ReferenceError: userIdToCheck is not defined
+[2024-05-08 20:55:17] [ERROR] An error occurred: ReferenceError: userIdToCheck is not defined
+[2024-05-08 20:56:21] [ERROR] An error occurred: ReferenceError: userIdToCheck is not defined
+[2024-05-08 21:10:46] [ERROR] An error occurred: ObjectParameterError: Parameter "obj" to Document() must be an object, got "6636dfee44e6aa75be498402" (type string)
+[2024-05-08 21:12:55] [ERROR] An error occurred: TypeError: Class constructor ObjectId cannot be invoked without 'new'
+[2024-05-08 21:26:05] [ERROR] An error occurred: ReferenceError: following is not defined
+[2024-05-08 21:29:49] [ERROR] An error occurred: You already follow this user
+[2024-05-08 21:31:33] [ERROR] An error occurred: You already follow this user
+[2024-05-08 23:29:53] [ERROR] An error occurred: You don't follow this user
+[2024-05-08 23:30:33] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:30:43] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:31:35] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:32:01] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:32:02] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:32:31] [ERROR] An error occurred: You already follow this user
+[2024-05-08 23:32:53] [ERROR] An error occurred: You already follow this user
+[2024-05-08 23:32:56] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:33:30] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:33:37] [ERROR] An error occurred: In-valid Bearer key
+[2024-05-08 23:33:42] [ERROR] An error occurred: You don't follow this user
+[2024-05-08 23:34:44] [ERROR] An error occurred: You already follow this user
+[2024-05-08 23:37:50] [ERROR] An error occurred: You already follow this user
+[2024-05-08 23:38:10] [ERROR] An error occurred: You don't follow this user

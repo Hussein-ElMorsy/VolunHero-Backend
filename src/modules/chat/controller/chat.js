@@ -3,6 +3,7 @@ import messageModel from "../../../../DB/models/Message.model.js";
 import mongoose from 'mongoose';
 import userModel from "../../../../DB/models/User.model.js";
 
+//  get all chats in db
 export const getAllChats = async (req,res,next)=>{
 
     const chats = await chatModel.find().populate({
@@ -20,19 +21,22 @@ export const getAllChats = async (req,res,next)=>{
 
 }
 
+
+
+//  create new chat 
+
 export const createChat = async (req, res, next) => {
-    const { firstId, secondId } = req.body;
+    const { secondId } = req.body;
 
     // Convert firstId and secondId to ObjectIds if they are not already
-    const firstObjectId = new mongoose.Types.ObjectId(firstId);
     const secondObjectId = new mongoose.Types.ObjectId(secondId);
 
-    if(!await userModel.findById(firstId)||!await userModel.findById(secondId)){
+    if(!await userModel.findById(secondId)){
         return next(new Error("In-valid users id"),{cause:400});
     }
 
     const members = [
-        { userId: firstObjectId },
+        { userId: req.user._id },
         { userId: secondObjectId }
     ];
 
@@ -52,6 +56,7 @@ export const createChat = async (req, res, next) => {
 }
 
 
+// get chats of login user
 
 export const findUserChats = async (req, res, next) => {
     const userId  = req.user._id;
@@ -69,6 +74,9 @@ export const findUserChats = async (req, res, next) => {
 
 }
 
+
+
+
 export const findChat = async (req, res, next) => {
     const { firstId, secondId } = req.params;
 
@@ -79,6 +87,9 @@ export const findChat = async (req, res, next) => {
     return res.status(200).json({ message: "success", chat });
 
 }
+
+
+//  find chat by chatid
 
 export const findChatById = async (req, res, next) => {
     const {chatId} = req.params;
@@ -96,6 +107,9 @@ export const findChatById = async (req, res, next) => {
 
 }
 
+
+
+// delete chat 
 
 export const deleteChat = async (req,res,next)=>{
 

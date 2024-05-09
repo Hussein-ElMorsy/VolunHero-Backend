@@ -11,7 +11,7 @@ const router = Router();
 router.get("/",asyncHandler(chatControllers.getAllChats))
 router.post('/',auth(endPoint.createChat),validation(validators.createChat), asyncHandler(chatControllers.createChat))
 router.get('/mychats',auth(endPoint.findUserChats),validation(validators.findUserChats),asyncHandler(chatControllers.findUserChats))
-router.get('/find/:firstId/:secondId',auth(endPoint.findChat),validation(validators.findChat),asyncHandler(chatControllers.findChat))
+router.get('/find/:secondId',auth(endPoint.findChat),validation(validators.findChat),asyncHandler(chatControllers.findChat))
 router.get('/find/:chatId',auth(endPoint.findChat),validation(validators.findChatById),asyncHandler(chatControllers.findChatById))
 router.delete('/:chatId',auth(endPoint.deleteChat),validation(validators.deleteChat),asyncHandler(chatControllers.deleteChat))
 

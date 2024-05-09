@@ -45,12 +45,16 @@ export const createOne = (Model) => async (req, res, next) => { // Hashing passw
 };
 
 export const getOne = (Model, popOptions) => async (req, res, next) => {
-  //? for optional
 
   let query = Model.findById(req.params.id);
   if (popOptions) query.populate(popOptions);
 
-  const doc = await query;
+  req.query.fields = "-password,-status,-confirmEmail,-forgetCode,-changePasswordTime,-createdAt"
+  const features = new ApiFeatures(query, req.query).select()
+
+  const doc = await features.mongooseQuery;
+
+
   // console.log()
   // Model.findOne({_id: req.params.id})
   if (!doc) {
