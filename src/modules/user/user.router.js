@@ -11,6 +11,13 @@ import { auth } from "../../middleware/auth.middleware.js";
 const router = Router();
 
 
+
+
+// elle fadel hena ---------
+// 1 - update user profile pic , remove profile pic -|
+//                                                    ------>  mafesh create 3ashan hn3ml patch bs 3la el user
+// 2 - update user cover pic , remove cover pic     -| 
+
 router.use("/:slugUserName/:userId/post",postRouter)
 
 
