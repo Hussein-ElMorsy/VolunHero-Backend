@@ -357,3 +357,7 @@
 [2024-05-08 13:58:43] [ERROR] An error occurred: ReferenceError: userId is not defined
 [2024-05-08 14:08:04] [ERROR] An error occurred: In-valid users id
 [2024-05-08 14:23:33] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-05-09 14:05:05] [ERROR] An error occurred: Email already existed
+[2024-05-09 14:05:21] [ERROR] An error occurred: [object Object]
+[2024-05-09 14:06:30] [ERROR] An error occurred: [object Object]
+[2024-05-09 14:07:24] [ERROR] An error occurred: [object Object]

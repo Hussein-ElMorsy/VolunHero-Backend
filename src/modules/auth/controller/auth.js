@@ -15,7 +15,7 @@ export const signUp = async (req, res, next) => {
     const { email } = req.body;
 
     let role = req.body.role || "User";
-    console.log(req.body);
+    // console.log(req.body);
     const user = await userModel.findOne({ email: email.toLowerCase() });
     if (user) {
         return next(new Error("Email already existed", { cause: 409 }));
@@ -38,10 +38,15 @@ export const signUp = async (req, res, next) => {
     // console.log("ddasds");
     const hashPassword = hashText({ plaintext: req.body.password });
     req.body.password = hashPassword;
-    console.log(req.body.password);
-    console.log(req.body)
+    // console.log(req.body.password);
+    // console.log(req.body)
 
-    req.body.customId = nanoid();
+    console.log(req.files);
+    if(req?.files?.profilePic){
+        const { secure_url, public_id } = await cloudinary.uploader.upload(req.files.profilePic[0].path, { folder: `${process.env.APP_NAME}/user` })
+        req.body.profilePic = { secure_url, public_id };
+    }
+    
 
     req.body.attachments = [];
     if (req?.files && req?.files?.attachments) {
@@ -68,7 +73,8 @@ export const signUp = async (req, res, next) => {
             throw new Error("Attatchments required", { statusCode: 400 });
 
     }
-    console.log(req.body);
+    // console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkk");
+    // console.log(req.body);
     req.body.slugUserName = slugify(req.body.userName, '-');
     const newUser = await userModel.create(req.body);
     return res.status(201).json({ message: "success", newUser });

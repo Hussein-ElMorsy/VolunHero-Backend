@@ -20,6 +20,7 @@ export const signUp = joi.object({
   specification: generalFields.specification,
   file: joi.object({
       attachments: joi.array().items(generalFields.file).max(10),
+      profilePic:joi.array().items(generalFields.file.required()).length(1)
   }),
   phone: generalFields.phone,
   gender: generalFields.gender,

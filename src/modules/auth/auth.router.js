@@ -11,8 +11,8 @@ const router = Router();
 router.get("/",authController.getAuthModule);
 
 router.post('/signUp',fileUpload(fileValidation.image).fields([
+    {name:"profilePic",maxCount:1},
     {name:"attachments",maxCount:10},
-
 ]),validation(validators.signUp),asyncHandler(authController.signUp))
 router.get("/confirmEmail/:token",validation(validators.token),asyncHandler(authController.confirmEmail))
 router.get('/newConfirmEmail/:token',validation(validators.token),asyncHandler(authController.newConfirmEmail))
