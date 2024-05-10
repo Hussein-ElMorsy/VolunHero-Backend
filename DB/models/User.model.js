@@ -27,6 +27,7 @@ const userSchema = new Schema({
     },
     phone: {
       type: String,
+      default: null,
     },
     role: {
         type: String,
@@ -50,12 +51,14 @@ const userSchema = new Schema({
         required: function () {
             return this.role === 'User';
         },
+        default: null,
     },
     address: {
         type:String,
         required: function () {
             return this.role === 'User';
         },
+        default: null,
     },
     gender: {
         type: String,
@@ -64,6 +67,7 @@ const userSchema = new Schema({
         required: function () {
             return this.role === 'User';
         },
+        
     },
     forgetCode: {
         type: Number,
@@ -77,30 +81,36 @@ const userSchema = new Schema({
 
     overview: {
         type: String,
+        default: null,
         required: function () {
             return this.role === 'Organization';
         }
+        
     },
     website: {
         type: String,
+        default: null,
         required: function () {
             return this.role === 'Organization';
         }
     },
     headquarters: {
         type: String,
+        default: null,
         required: function () {
             return this.role === 'Organization';
         }
     },
     specialties: {
         type: String,
+        default: null,
         required: function () {
             return this.role === 'Organization';
         }
     },
     locations: {
         type: [String],
+        default: null,
         required: function () {
             return this.role === 'Organization';
         },
