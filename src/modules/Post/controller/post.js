@@ -88,7 +88,7 @@ export const getPostsOfOwner = async (req, res, next) => {
 
     // console.log({posts});
     posts = posts.map(post => {
-      const { likes, sharedUsers, ...rest } = post?.post.toObject();
+      const { likes, sharedUsers, ...rest } = post?.post?.toObject();
       return rest;
     });
     // console.log({posts});
