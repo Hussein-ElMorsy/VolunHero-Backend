@@ -2,6 +2,7 @@
 import * as factory from "./../../../utils/handlerFactory.js"
 import userModel from "../../../../DB/models/User.model.js";
 import mongoose from "mongoose";
+import cloudinary from "../../../utils/coudinary.js"
 
 export const getUserModule = async (req, res, next) => {
   return res.json({ message: "user controller" });
@@ -60,6 +61,70 @@ export const deleteMe = (async (req, res, next) => { // Not sure
   });
 });
 
+export const updateProfilePic = (async (req, res, next) =>{
+    if(req?.files?.profilePic){
+        const { secure_url, public_id } = await cloudinary.uploader.upload(req.files.profilePic[0].path, { folder: `${process.env.APP_NAME}/user` })
+        req.body.profilePic = { secure_url, public_id };
+    }
+    const updatedUser = await userModel.findByIdAndUpdate(req.user.id, req.body, {  // findByIdAndUpdate won't use middlewares in Model "NO NEED TO ENCRYPT PASSWORDS"
+      new: true,
+      runValidators: true
+    })
+    
+    res.status(200).json({
+      status: "sucess",
+      data: updatedUser
+    })
+})
+
+export const updateCoverPic = (async (req, res, next) =>{
+  if(req?.files?.coverPic){
+      const { secure_url, public_id } = await cloudinary.uploader.upload(req.files.coverPic[0].path, { folder: `${process.env.APP_NAME}/user` })
+      req.body.coverPic = { secure_url, public_id };
+  }
+  const updatedUser = await userModel.findByIdAndUpdate(req.user.id, req.body, {  // findByIdAndUpdate won't use middlewares in Model "NO NEED TO ENCRYPT PASSWORDS"
+    new: true,
+    runValidators: true
+  })
+  
+  res.status(200).json({
+    status: "sucess",
+    data: updatedUser
+  })
+})
+
+
+export const deleteProfilePic = (async (req, res, next) =>{
+  const user = await userModel.findById(req.user.id)
+
+  if(!user.profilePic){
+    return next(new Error(`No profile picture found`, 403));
+  }
+  await cloudinary.uploader.destroy(user.profilePic.public_id)
+
+  user.profilePic = null;
+  await user.save();
+
+  res.status(401).json({
+    status: "sucess",
+  })
+})
+
+export const deleteCoverPic = (async (req, res, next) =>{
+  const user = await userModel.findById(req.user.id)
+
+  if(!user.coverPic){
+    return next(new Error(`No Cover picture found`, 403));
+  }
+  await cloudinary.uploader.destroy(user.coverPic.public_id)
+
+  user.coverPic = null;
+  await user.save();
+
+  res.status(401).json({
+    status: "sucess",
+  })
+})
 
 export const restrictTo = (...roles) => {
   return (req, res, next) => {

@@ -42,17 +42,16 @@ export const generalFields = {
 };
 
 export const validation = (schema)=>{
-
     return (req,res,next)=>{
 
         const inputsData = {...req.body,...req.params,...req.query};
         if(req.file || req.files){
+           
             inputsData.file = req.file || req.files;
         }
-    
+        console.log(inputsData)
         const validationResult = schema.validate(inputsData,{abortEarly:true});
         // console.log({validationResult});
-        console.log({validationResult});
         if(validationResult.error?.details){
             return res.status(400).json({message:"Validation Error",validationError:validationResult.error.details})
         }
