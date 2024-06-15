@@ -3,47 +3,56 @@ import postModel from "../../../../DB/models/Post.model.js";
 import cloudinary from "../../../utils/coudinary.js";
 import userModel from "../../../../DB/models/User.model.js";
 import ProfileDataModel from "../../../../DB/models/ProfileData.model.js";
+import commentModel from "../../../../DB/models/Comment.model.js";
 
 // const posts = await postModel.aggregatePostss();
 
 export const getAllPosts = async (req, res, next) => {
-
-  const posts = await postModel.find().populate(
-    [{
-      path: 'createdBy',
-      select: 'userName profilePic role'
-    }
-    ]);
-
+  const posts = await postModel.find().populate([
+    {
+      path: "createdBy",
+      select: "userName profilePic role",
+    },
+  ]);
 
   console.log({ posts });
 
-  const modifiedPosts = posts.map(post => {
+  const modifiedPosts = posts.map((post) => {
     const { likes, sharedUsers, ...rest } = post.toObject();
     return rest;
   });
 
-
-  return res.status(200).json({ message: "success", modifiedPosts })
-
-}
-
-
-
+  return res.status(200).json({ message: "success", modifiedPosts });
+};
 
 //  get post by id
 
 export const getPostById = async (req, res, next) => {
-
   const { id } = req.params;
   const post = await postModel.findById(id);
   if (!post) {
     return next(new Error("In-valid postId", { cause: 404 }));
   }
   return res.status(200).json({ message: "success", post });
-}
+};
 
-// get profile posts 
+// get home page posts
+
+export const getHomePagePosts = async (req, res, next) => {
+  const user = await userModel.findById(req.user._id).select("following");
+  const followingIds = user.following.map((follow) => follow.userId._id);
+
+  // Find posts created by the users the current user is following
+  let posts = await ProfileDataModel.find({ userId: { $in: followingIds } })
+    .populate({
+      path: "post",
+    })
+    .sort({ createdAt: -1 });
+
+  return res.status(200).json({ message: "success", posts });
+};
+
+// get profile posts
 
 export const getPostsOfSpecificUser = async (req, res, next) => {
   console.log(req.params);
@@ -51,18 +60,20 @@ export const getPostsOfSpecificUser = async (req, res, next) => {
   if (!checkUser) {
     throw next(new Error("In-valid user Id", { cause: 404 }));
   }
-  const posts = await ProfileDataModel.find({ userId: req.params.userId }).populate({
-    path: "userId",
-    select: "userName profilePic"
-  }).populate({
-      path: "post"
+  const posts = await ProfileDataModel.find({ userId: req.params.userId })
+    .sort({ createdAt: -1 })
+    .populate({
+      path: "userId",
+      select: "userName profilePic",
+    })
+    .populate({
+      path: "post",
     });
 
   return res.status(200).json({ message: "success", posts });
 };
 
 export const getPostsOfOwner = async (req, res, next) => {
-
   // const posts = await postModel.aggregatePosts(req.user._id);
   // let posts = await postModel.aggregate([
   //   {
@@ -82,21 +93,23 @@ export const getPostsOfOwner = async (req, res, next) => {
   //   }
   // ]);
 
-  let posts = await ProfileDataModel.find({ userId: req.user._id }).populate({
+  let posts = await ProfileDataModel.find({ userId: req.user._id })
+    .sort({ createdAt: -1 })
+    .populate({
       path: "post",
     });
 
-    // console.log({posts});
-    posts = posts.map(post => {
-      const { likes, sharedUsers, ...rest } = post?.post?.toObject();
-      return rest;
-    });
-    // console.log({posts});
+  console.log({posts});
+  posts = posts.map((post) => {
+    const { likes, sharedUsers, ...rest } = post?.post?.toObject();
+    return rest;
+  });
+
+  // console.log({posts});
   return res.status(200).json({ message: "success", posts });
 };
 
 export const createPost = async (req, res, next) => {
-
   // console.log(req.user);
   // console.log(JSON.stringify(req.user._id));
 
@@ -116,9 +129,8 @@ export const createPost = async (req, res, next) => {
   }
 
   const post = await postModel.create(req.body);
-  const addToProfile = new ProfileDataModel;
-  addToProfile.userId = req.user._id,
-    addToProfile.post = post._id
+  const addToProfile = new ProfileDataModel();
+  (addToProfile.userId = req.user._id), (addToProfile.post = post._id);
   await addToProfile.save();
   return res.status(201).json({ message: "success", post });
 };
@@ -179,16 +191,21 @@ export const likePost = async (req, res, next) => {
 
   const regUser = req.user._id;
   const checkPostFound = await postModel.findById(id);
-  if (!checkPostFound) return next(new Error("In-valid Post Id", { cause: 404 }));
+  if (!checkPostFound)
+    return next(new Error("In-valid Post Id", { cause: 404 }));
 
-  const check = await postModel.findOne({ // Change each userId to _id If you want 
+  const check = await postModel.findOne({
+    // Change each userId to _id If you want
     _id: id,
     "likes.userId": regUser,
   });
 
   if (!check) {
     console.log("yes");
-    await postModel.findByIdAndUpdate(id, { $addToSet: { likes: { userId: regUser } } });
+    await postModel.findByIdAndUpdate(id, {
+      $addToSet: { likes: { userId: regUser } },
+      $inc: { likesCount: 1 },
+    });
     const updatedPost = await postModel.findById(id);
     console.log(updatedPost);
     return res.status(200).json({ message: "Added like", post: updatedPost });
@@ -197,25 +214,41 @@ export const likePost = async (req, res, next) => {
     await postModel.findByIdAndUpdate(id, {
       $pull: {
         likes: {
-          userId: regUser
-        }
-      }
+          userId: regUser,
+        },
+      },
+      $inc: { likesCount: -1 },
     });
     const updatedPost = await postModel.findById(id);
     return res.status(200).json({ message: "Removed like", post: updatedPost });
   }
+};
 
+export const commentPost = async (req, res, next) => {
+  req.body.createdBy = req.user._id;
 
+  const comment = await commentModel.create(req.body);
 
+  const { id } = req.params;
+  const updatedPost = await postModel.findByIdAndUpdate(id, {
+    $push: { comments: { commentId: comment._id, } },
+    $inc: { commentCount: 1 },
+  },
+  { new: true } 
+);
+if(!updatePost){
+    return res.status(404).json({message: "No post with this id"});
+  }
+  return res.status(200).json({ message: "Comment added", comment: comment });
 }
 
 
-
-
 export const deletePost = async (req, res, next) => {
-
   const { id } = req.params;
-  const checkUserPost = await postModel.findOne({ createdBy: req.user._id, _id: id });
+  const checkUserPost = await postModel.findOne({
+    createdBy: req.user._id,
+    _id: id,
+  });
 
   if (!checkUserPost) return next(new Error("In-valid post")); // Modification is done
 
@@ -226,58 +259,49 @@ export const deletePost = async (req, res, next) => {
   return res.status(204).json({ message: "success" });
 };
 
-
-
-
 export const sharePost = async (req, res, next) => {
-
-
   const { id } = req.params;
   const regUser = req.user._id;
   const checkPost = await postModel.findById(id);
 
   if (!checkPost) return next(new Error("In-valid Post Id", { cause: 404 }));
 
-
-  await postModel.findByIdAndUpdate(id, { $push: { sharedUsers: { userId: regUser } } });
+  await postModel.findByIdAndUpdate(id, {
+    $push: { sharedUsers: { userId: regUser } },
+  });
   const updatedPost = await postModel.findById(id);
   console.log(updatedPost);
-  const addToProfile = new ProfileDataModel;
-  addToProfile.userId = req.user._id,
-    addToProfile.post = updatedPost._id;
+  const addToProfile = new ProfileDataModel();
+  (addToProfile.userId = req.user._id), (addToProfile.post = updatedPost._id);
   await addToProfile.save();
   return res.status(200).json({ message: "Post shared", post: updatedPost });
-
-
-}
-
-
+};
 
 export const removeSharedPost = async (req, res, next) => {
-
   const { id } = req.params;
   const regUser = req.user._id;
   const checkPost = await postModel.findById(id);
 
   if (!checkPost) return next(new Error("In-valid Post Id", { cause: 404 }));
 
-  const checkShare = await postModel.findOne({ // Change each userId to _id If you want 
+  const checkShare = await postModel.findOne({
+    // Change each userId to _id If you want
     _id: id,
     "sharedUsers.userId": regUser,
   });
 
-  if (!checkShare) return next(new Error("can not remove post", { cause: 400 }));
+  if (!checkShare)
+    return next(new Error("can not remove post", { cause: 400 }));
 
   await postModel.findByIdAndUpdate(id, {
     $pull: {
       sharedUsers: {
         userId: regUser,
         // _id:sharedId
-      }
-    }
-  })
+      },
+    },
+  });
 
   const updatedPost = await postModel.findById(id);
   return res.status(200).json({ message: "Removed Post", post: updatedPost });
-}
-
+};

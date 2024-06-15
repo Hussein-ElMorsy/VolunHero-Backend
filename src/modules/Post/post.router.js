@@ -17,11 +17,14 @@ const router = Router({mergeParams:true});
 
 
 
-router.get("/allposts",asyncHandler(postController.getAllPosts));
+router.get("/allposts",asyncHandler(postController.getAllPosts)); // All posts 
 
+router.get("/",asyncHandler(postController.getPostsOfSpecificUser)); // using slug-name :)
 
-router.get("/",asyncHandler(postController.getPostsOfSpecificUser));
-router.get("/ownerPosts", auth(endPoint.getPostsOfOwner),asyncHandler(postController.getPostsOfOwner));
+router.get("/ownerPosts", auth(endPoint.getPostsOfOwner),asyncHandler(postController.getPostsOfOwner)); // Post of logged in user
+
+router.get("/homePage", auth(endPoint.getHomePagePosts), asyncHandler(postController.getHomePagePosts)) // Home page Posts
+
 router.get("/:id",auth(endPoint.getPostById),validation(validators.getPostById),asyncHandler(postController.getPostById))
 router.post("/", auth(endPoint.createPost),fileUpload(fileValidation.image).fields([
     {name:"attachments",maxCount:100},
@@ -44,7 +47,7 @@ router.patch("/:id/removeShare",auth(endPoint.sharePost),validation(validators.s
 
 router.get("/:id/likes",auth(endPoint.getPostLikes),validation(validators.getPostLikes),asyncHandler(postController.getPostLikes));
 
-
+router.post("/:id/comment",auth(endPoint.commentPost),validation(validators.commentPost),asyncHandler(postController.commentPost));
 
 // router.get("/",asyncHandler(chatControllers.getAllChats))
 // router.post('/',auth(endPoint.createChat),validation(validators.createChat), asyncHandler(chatControllers.createChat))

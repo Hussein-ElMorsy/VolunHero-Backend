@@ -401,3 +401,55 @@
 [2024-05-08 23:38:10] [ERROR] An error occurred: You don't follow this user
 [2024-05-10 11:59:53] [ERROR] An error occurred: Email not confirmed
 [2024-05-11 12:49:10] [ERROR] An error occurred: No profile picture found
+[2024-06-15 00:17:09] [ERROR] An error occurred: Not registered acount
+[2024-06-15 00:23:37] [ERROR] An error occurred: In-valid user Id
+[2024-06-15 00:28:28] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
+[2024-06-15 00:35:52] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
+[2024-06-15 00:48:11] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-15 00:58:35] [ERROR] An error occurred: ReferenceError: profileData is not defined
+[2024-06-15 00:58:54] [ERROR] An error occurred: ReferenceError: profileData is not defined
+[2024-06-15 00:59:17] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `undefined`
+[2024-06-15 00:59:50] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `undefined`
+[2024-06-15 01:00:05] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `undefined`
+[2024-06-15 01:00:22] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `undefined`
+[2024-06-15 01:06:49] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
+[2024-06-15 01:21:50] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-15 01:22:13] [ERROR] An error occurred: You already follow this user
+[2024-06-15 01:22:34] [ERROR] An error occurred: You already follow this user
+[2024-06-15 01:34:22] [ERROR] An error occurred: In-valid Bearer key
+[2024-06-15 01:34:57] [ERROR] An error occurred: In-valid Bearer key
+[2024-06-15 01:36:25] [ERROR] An error occurred: In-valid Bearer key
+[2024-06-15 01:36:30] [ERROR] An error occurred: In-valid Bearer key
+[2024-06-15 01:36:55] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-15 01:37:08] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'map')
+[2024-06-15 01:37:12] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'map')
+[2024-06-15 01:37:42] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'map')
+[2024-06-15 01:52:40] [ERROR] An error occurred: ReferenceError: ProfileData is not defined
+[2024-06-15 01:54:09] [ERROR] An error occurred: In-valid userId
+[2024-06-15 02:23:20] [ERROR] An error occurred: ReferenceError: likesCount is not defined
+[2024-06-15 02:24:27] [ERROR] An error occurred: ReferenceError: likesCount is not defined
+[2024-06-15 02:57:08] [ERROR] An error occurred: Not registered acount
+[2024-06-15 02:57:10] [ERROR] An error occurred: Not registered acount
+[2024-06-15 02:57:13] [ERROR] An error occurred: Not registered acount
+[2024-06-15 02:57:23] [ERROR] An error occurred: Not registered acount
+[2024-06-15 03:01:10] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-15 03:01:21] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
+[2024-06-15 03:02:20] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
+[2024-06-15 03:08:11] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
+[2024-06-15 03:12:58] [ERROR] An error occurred: In-valid Bearer key
+[2024-06-15 03:13:35] [ERROR] An error occurred: ReferenceError: id is not defined
+[2024-06-15 03:16:32] [ERROR] An error occurred: ReferenceError: id is not defined
+[2024-06-15 03:17:12] [ERROR] An error occurred: ReferenceError: id is not defined
+[2024-06-15 03:17:44] [ERROR] An error occurred: ReferenceError: id is not defined
+[2024-06-15 03:18:04] [ERROR] An error occurred: ReferenceError: id is not defined
+[2024-06-15 03:18:37] [ERROR] An error occurred: ReferenceError: id is not defined
+[2024-06-15 03:19:08] [ERROR] An error occurred: ReferenceError: id is not defined
+[2024-06-15 03:19:56] [ERROR] An error occurred: ReferenceError: id is not defined
+[2024-06-15 03:37:13] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-15 03:55:42] [ERROR] An error occurred: fn is not a function
+[2024-06-15 03:55:49] [ERROR] An error occurred: fn is not a function
+[2024-06-15 03:56:32] [ERROR] An error occurred: fn is not a function
+[2024-06-15 03:57:19] [ERROR] An error occurred: fn is not a function
+[2024-06-15 03:57:40] [ERROR] An error occurred: fn is not a function
+[2024-06-15 03:58:04] [ERROR] An error occurred: fn is not a function
+[2024-06-15 04:08:42] [ERROR] An error occurred: TokenExpiredError: jwt expired

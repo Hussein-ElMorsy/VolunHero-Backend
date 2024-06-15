@@ -39,15 +39,16 @@ const postSchema = new Schema(
         }
       },
     ],
-    // comments: [{
-    //     userId: {
-    //         type: Types.ObjectId,
-    //         ref: "User",
-    //     }
-    // }]
+    comments: [{
+        commentId: {
+            type: Types.ObjectId,
+            ref: "Comment",
+        }
+    }],
     customId:String,
     likesCount:{type:Number,default:0},
     shareCount:{type:Number,default:0},
+    commentsCount:{type:Number, default:0},
   },
   {
     timestamps: true,

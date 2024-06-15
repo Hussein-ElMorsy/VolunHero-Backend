@@ -13,7 +13,6 @@ const profileData = new Schema(
             required: true,
 
         },
-
     },
     {
         timestamps: true,

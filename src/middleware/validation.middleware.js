@@ -52,6 +52,7 @@ export const validation = (schema)=>{
         console.log(inputsData)
         const validationResult = schema.validate(inputsData,{abortEarly:true});
         // console.log({validationResult});
+
         if(validationResult.error?.details){
             return res.status(400).json({message:"Validation Error",validationError:validationResult.error.details})
         }
