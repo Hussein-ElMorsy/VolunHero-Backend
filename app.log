@@ -477,3 +477,12 @@
 [2024-06-18 21:44:41] [ERROR] An error occurred: MongoServerError: Caused by :: Write conflict during plan execution and yielding is disabled. :: Please retry your operation or multi-document transaction.
 [2024-06-18 21:45:09] [ERROR] An error occurred: MongoServerError: Caused by :: Write conflict during plan execution and yielding is disabled. :: Please retry your operation or multi-document transaction.
 [2024-06-18 21:45:27] [ERROR] An error occurred: MongoServerError: Caused by :: Write conflict during plan execution and yielding is disabled. :: Please retry your operation or multi-document transaction.
+[2024-06-18 23:07:46] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
+[2024-06-18 23:07:48] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
+[2024-06-18 23:08:43] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `createdBy` because it is not in your schema. Set the `strictPopulate` option to false to override.
+[2024-06-18 23:12:39] [ERROR] An error occurred: TypeError: post?.post?.toObject is not a function
+[2024-06-18 23:14:55] [ERROR] An error occurred: In-valid user Id
+[2024-06-18 23:16:27] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
+[2024-06-18 23:19:01] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
+[2024-06-18 23:19:32] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
+[2024-06-18 23:19:39] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.

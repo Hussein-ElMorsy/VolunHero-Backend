@@ -64,7 +64,7 @@ export const getPostsOfSpecificUser = async (req, res, next) => {
     .sort({ createdAt: -1 })
     .populate({
       path: "userId",
-      select: "userName profilePic",
+      select: "userName profilePic role",
     })
     .populate({
       path: "post",
