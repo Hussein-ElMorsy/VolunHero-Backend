@@ -453,3 +453,22 @@
 [2024-06-15 03:57:40] [ERROR] An error occurred: fn is not a function
 [2024-06-15 03:58:04] [ERROR] An error occurred: fn is not a function
 [2024-06-15 04:08:42] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-18 16:31:24] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'push')
+[2024-06-18 16:33:43] [ERROR] An error occurred: ValidationError: post: Cast to embedded failed for value "663e7b7a6fa70877ce2cee7a" (type string) at path "post" because of "ObjectParameterError"
+[2024-06-18 16:34:31] [ERROR] An error occurred: ValidationError: post: Cast to embedded failed for value "663e7b7a6fa70877ce2cee7a" (type string) at path "post" because of "ObjectParameterError"
+[2024-06-18 16:34:46] [ERROR] An error occurred: ValidationError: post: Cast to embedded failed for value "663e7b7a6fa70877ce2cee7a" (type string) at path "post" because of "ObjectParameterError"
+[2024-06-18 16:35:37] [ERROR] An error occurred: ValidationError: post: Cast to embedded failed for value "663e7b7a6fa70877ce2cee7a" (type string) at path "post" because of "ObjectParameterError"
+[2024-06-18 16:35:50] [ERROR] An error occurred: ValidationError: post: Cast to embedded failed for value "663e7b7a6fa70877ce2cee7a" (type string) at path "post" because of "ObjectParameterError"
+[2024-06-18 16:36:03] [ERROR] An error occurred: ValidationError: post: Cast to embedded failed for value "663e7b7a6fa70877ce2cee7a" (type string) at path "post" because of "ObjectParameterError"
+[2024-06-18 16:36:17] [ERROR] An error occurred: ValidationError: post: Cast to embedded failed for value "663e7b7a6fa70877ce2cee7a" (type string) at path "post" because of "ObjectParameterError"
+[2024-06-18 16:37:21] [ERROR] An error occurred: TypeError: Assignment to constant variable.
+[2024-06-18 16:44:49] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'push')
+[2024-06-18 16:45:49] [ERROR] An error occurred: In-valid Bearer key
+[2024-06-18 16:46:22] [ERROR] An error occurred: ReferenceError: savedPosts is not defined
+[2024-06-18 16:51:52] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'some')
+[2024-06-18 16:52:22] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'some')
+[2024-06-18 16:52:41] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-18 16:59:53] [ERROR] An error occurred: In-valid Bearer key
+[2024-06-18 17:00:09] [ERROR] An error occurred: In-valid Bearer key
+[2024-06-18 17:00:10] [ERROR] An error occurred: In-valid Bearer key
+[2024-06-18 17:00:19] [ERROR] An error occurred: In-valid Bearer key
