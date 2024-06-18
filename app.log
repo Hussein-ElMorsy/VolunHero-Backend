@@ -453,27 +453,3 @@
 [2024-06-15 03:57:40] [ERROR] An error occurred: fn is not a function
 [2024-06-15 03:58:04] [ERROR] An error occurred: fn is not a function
 [2024-06-15 04:08:42] [ERROR] An error occurred: TokenExpiredError: jwt expired
-[2024-06-17 21:09:56] [ERROR] An error occurred: TokenExpiredError: jwt expired
-[2024-06-17 21:10:13] [ERROR] An error occurred: Not registered acount
-[2024-06-17 21:10:23] [ERROR] An error occurred: Not registered acount
-[2024-06-17 21:13:14] [ERROR] An error occurred: Not registered acount
-[2024-06-17 21:13:18] [ERROR] An error occurred: Not registered acount
-[2024-06-17 21:15:17] [ERROR] An error occurred: Email not confirmed
-[2024-06-17 21:21:11] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
-[2024-06-18 12:28:15] [ERROR] An error occurred: Cannot read properties of undefined (reading 'validate')
-[2024-06-18 21:22:16] [ERROR] An error occurred: In-valid Bearer key
-[2024-06-18 21:22:49] [ERROR] An error occurred: ReferenceError: mongoose is not defined
-[2024-06-18 21:22:52] [ERROR] An error occurred: ReferenceError: mongoose is not defined
-[2024-06-18 21:32:40] [ERROR] An error occurred: ReferenceError: ObjectId is not defined
-[2024-06-18 21:33:31] [ERROR] An error occurred: MongoServerError: Caused by :: Write conflict during plan execution and yielding is disabled. :: Please retry your operation or multi-document transaction.
-[2024-06-18 21:33:57] [ERROR] An error occurred: ReferenceError: ObjectId is not defined
-[2024-06-18 21:35:55] [ERROR] An error occurred: ReferenceError: ObjectId is not defined
-[2024-06-18 21:37:28] [ERROR] An error occurred: ReferenceError: ObjectId is not defined
-[2024-06-18 21:39:03] [ERROR] An error occurred: TypeError: Class constructor ObjectId cannot be invoked without 'new'
-[2024-06-18 21:41:28] [ERROR] An error occurred: TypeError: Class constructor ObjectId cannot be invoked without 'new'
-[2024-06-18 21:42:07] [ERROR] An error occurred: MongoServerError: Caused by :: Write conflict during plan execution and yielding is disabled. :: Please retry your operation or multi-document transaction.
-[2024-06-18 21:44:13] [ERROR] An error occurred: ReferenceError: ObjectId is not defined
-[2024-06-18 21:44:24] [ERROR] An error occurred: MongoServerError: Caused by :: Write conflict during plan execution and yielding is disabled. :: Please retry your operation or multi-document transaction.
-[2024-06-18 21:44:41] [ERROR] An error occurred: MongoServerError: Caused by :: Write conflict during plan execution and yielding is disabled. :: Please retry your operation or multi-document transaction.
-[2024-06-18 21:45:09] [ERROR] An error occurred: MongoServerError: Caused by :: Write conflict during plan execution and yielding is disabled. :: Please retry your operation or multi-document transaction.
-[2024-06-18 21:45:27] [ERROR] An error occurred: MongoServerError: Caused by :: Write conflict during plan execution and yielding is disabled. :: Please retry your operation or multi-document transaction.
