@@ -6,9 +6,11 @@ import { validation } from "../../middleware/validation.middleware.js";
 import * as validators from "./post.validation.js"
 import { endPoint } from "./post.endpoint.js";
 import { fileUpload, fileValidation } from "../../utils/multer.js";
+import commentRouter from "../comment/comment.router.js"
+
 const router = Router({mergeParams:true});
 
-
+router.use("/:postId/comment", commentRouter);
 
 // elle na2s 
 // 3ayzen kol ma ngeb el posts n4of elle 3aml login 3aml like lel post abl keda wala la w nrg3o
@@ -47,7 +49,10 @@ router.patch("/:id/removeShare",auth(endPoint.sharePost),validation(validators.s
 
 router.get("/:id/likes",auth(endPoint.getPostLikes),validation(validators.getPostLikes),asyncHandler(postController.getPostLikes));
 
-router.post("/:id/comment",auth(endPoint.commentPost),validation(validators.commentPost),asyncHandler(postController.commentPost));
+
+
+// -------------- 
+// router.post("/:id/comment",auth(endPoint.commentPost),validation(validators.commentPost),asyncHandler(postController.commentPost));
 
 // router.get("/",asyncHandler(chatControllers.getAllChats))
 // router.post('/',auth(endPoint.createChat),validation(validators.createChat), asyncHandler(chatControllers.createChat))

@@ -6,6 +6,8 @@ import userRouter from "./modules/user/user.router.js";
 import chatRouter from "./modules/chat/chat.router.js";
 import messageRouter from "./modules/message/message.router.js";
 import postRouter from "./modules/Post/post.router.js";
+import commentRouter from "./modules/comment/comment.router.js";
+
 
 const initApp = (app, express) => {
   if (process.env.MOOD == "DEV") {
@@ -23,6 +25,7 @@ const initApp = (app, express) => {
   app.use("/api/chat", chatRouter); // Added
   app.use("/api/message", messageRouter); // Added
   app.use("/api/post", postRouter); // Added
+  app.use("/api/comment", commentRouter); // Added
 
   app.all("*", (req, res, next) => {
     return res.json({ message: "In-valid routing" });

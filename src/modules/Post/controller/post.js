@@ -224,23 +224,23 @@ export const likePost = async (req, res, next) => {
   }
 };
 
-export const commentPost = async (req, res, next) => {
-  req.body.createdBy = req.user._id;
+// export const commentPost = async (req, res, next) => {
+//   req.body.createdBy = req.user._id;
 
-  const comment = await commentModel.create(req.body);
+//   const comment = await commentModel.create(req.body);
 
-  const { id } = req.params;
-  const updatedPost = await postModel.findByIdAndUpdate(id, {
-    $push: { comments: { commentId: comment._id, } },
-    $inc: { commentCount: 1 },
-  },
-  { new: true } 
-);
-if(!updatePost){
-    return res.status(404).json({message: "No post with this id"});
-  }
-  return res.status(200).json({ message: "Comment added", comment: comment });
-}
+//   const { id } = req.params;
+//   const updatedPost = await postModel.findByIdAndUpdate(id, {
+//     $push: { comments: { commentId: comment._id, } },
+//     $inc: { commentCount: 1 },
+//   },
+//   { new: true } 
+// );
+// if(!updatePost){
+//     return res.status(404).json({message: "No post with this id"});
+//   }
+//   return res.status(200).json({ message: "Comment added", comment: comment });
+// }
 
 
 export const deletePost = async (req, res, next) => {

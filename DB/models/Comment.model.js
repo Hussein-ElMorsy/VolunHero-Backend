@@ -4,6 +4,10 @@ const commentSchema = new Schema(
   {
     content: String,
     // attachments: [Object],
+    postId:{
+      type:Types.ObjectId,
+      ref:"Post",
+    },
     createdBy: {
       type: Types.ObjectId,
       ref: "User",
