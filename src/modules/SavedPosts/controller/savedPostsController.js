@@ -1,4 +1,5 @@
 import savedPostsModel from "../../../../DB/models/SavedPosts.model.js";
+import postModel from "../../../../DB/models/Post.model.js";
 
 export const getSavedPosts = async (req, res, next) => {
   const userId = req.user._id;
@@ -9,9 +10,14 @@ export const getSavedPosts = async (req, res, next) => {
 export const savePost = async (req, res, next) => {
   const userId = req.user._id;
   const postId = req.params.id;
+  const existedPost = await postModel.findById(req.postId);
+  
+  if(!existedPost == null){
+    return res.status(404).json({ message: "No post with this ID" });
+  }
 
   let savedPosts = await savedPostsModel.findOne({ userId: userId });
-
+ 
   if (savedPosts) {
     const postExists = savedPosts.posts.some((p) => p.postId == postId);
 

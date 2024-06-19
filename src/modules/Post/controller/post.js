@@ -3,6 +3,7 @@ import postModel from "../../../../DB/models/Post.model.js";
 import cloudinary from "../../../utils/coudinary.js";
 import userModel from "../../../../DB/models/User.model.js";
 import ProfileDataModel from "../../../../DB/models/ProfileData.model.js";
+import savedPostsModel from "../../../../DB/models/SavedPosts.model.js";
 import commentModel from "../../../../DB/models/Comment.model.js";
 
 // const posts = await postModel.aggregatePostss();
@@ -250,12 +251,15 @@ export const deletePost = async (req, res, next) => { // DON'T Forget Profile mo
     createdBy: req.user._id,
     _id: id,
   });
-
+  
   if (!checkUserPost) return next(new Error("In-valid post")); // Modification is done
 
-  // Delete related entries in profileData
   await ProfileDataModel.deleteMany({ post: id });
 
+  await savedPostsModel.updateMany(
+    { 'posts.postId': id },
+    { $pull: { posts: { postId: id } } }
+  );
 
   const doc = await postModel.findByIdAndDelete(id);
   if (!doc) {
