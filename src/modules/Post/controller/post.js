@@ -99,8 +99,9 @@ export const getPostsOfOwner = async (req, res, next) => {
       path: "post",
     });
 
-  console.log({posts});
+  // console.log({posts});
   posts = posts.map((post) => {
+    // console.log(post);
     const { likes, sharedUsers, ...rest } = post?.post?.toObject();
     return rest;
   });
@@ -243,7 +244,7 @@ export const likePost = async (req, res, next) => {
 // }
 
 
-export const deletePost = async (req, res, next) => {
+export const deletePost = async (req, res, next) => { // DON'T Forget Profile model & Saved Posts
   const { id } = req.params;
   const checkUserPost = await postModel.findOne({
     createdBy: req.user._id,
@@ -251,6 +252,10 @@ export const deletePost = async (req, res, next) => {
   });
 
   if (!checkUserPost) return next(new Error("In-valid post")); // Modification is done
+
+  // Delete related entries in profileData
+  await ProfileDataModel.deleteMany({ post: id });
+
 
   const doc = await postModel.findByIdAndDelete(id);
   if (!doc) {
