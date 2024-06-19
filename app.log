@@ -489,3 +489,6 @@
 [2024-06-19 16:18:10] [ERROR] An error occurred: In-valid users id
 [2024-06-19 17:42:24] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
 [2024-06-19 17:43:06] [ERROR] An error occurred: Not registered user
+[2024-06-19 17:46:56] [ERROR] An error occurred: Email not confirmed
+[2024-06-19 17:49:04] [ERROR] An error occurred: In-valid users id
+[2024-06-19 17:50:54] [ERROR] An error occurred: Not registered user
