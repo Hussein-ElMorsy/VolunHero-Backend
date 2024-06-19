@@ -486,3 +486,6 @@
 [2024-06-18 23:19:01] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
 [2024-06-18 23:19:32] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
 [2024-06-18 23:19:39] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
+[2024-06-19 16:18:10] [ERROR] An error occurred: In-valid users id
+[2024-06-19 17:42:24] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
+[2024-06-19 17:43:06] [ERROR] An error occurred: Not registered user

@@ -30,7 +30,7 @@ export const auth = (accessRoles=[])=>{
 
         const user = await userModel.findById(decoded._id).select('email image role changePasswordTime');
         // console.log(user);
-        if(parseInt(user.changePasswordTime?.getTime()/1000)>decoded.iat){
+        if(parseInt(user?.changePasswordTime?.getTime()/1000)>decoded.iat){
             return next(new Error("Expired token",{cause:400}));
         }
 
