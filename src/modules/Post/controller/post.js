@@ -94,17 +94,29 @@ export const getPostsOfOwner = async (req, res, next) => {
   // ]);
 
   let posts = await ProfileDataModel.find({ userId: req.user._id })
-    .sort({ createdAt: -1 })
-    .populate({
+    .sort({ createdAt: -1 }).populate({
       path: "post",
+      populate: {
+        path: 'createdBy', 
+        select: 'userName profilePic role' 
+      }
     });
 
   console.log({posts});
   posts = posts.map((post) => {
-    const { likes, sharedUsers, ...rest } = post?.post?.toObject();
-    return rest;
+    const postObj = post?.post?.toObject() ?? {};
+    const { likes, sharedUsers, ...rest } = postObj;
+    if (likes !== undefined && sharedUsers !== undefined) {
+      return rest;
+    } else {
+      // Handle cases where likes or sharedUsers do not exist
+      return {
+        ...rest,
+        likes: likes ?? null,
+        sharedUsers: sharedUsers ?? null
+      };
+    }
   });
-
   // console.log({posts});
   return res.status(200).json({ message: "success", posts });
 };
