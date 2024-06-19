@@ -492,3 +492,9 @@
 [2024-06-19 17:46:56] [ERROR] An error occurred: Email not confirmed
 [2024-06-19 17:49:04] [ERROR] An error occurred: In-valid users id
 [2024-06-19 17:50:54] [ERROR] An error occurred: Not registered user
+[2024-06-19 21:55:58] [ERROR] An error occurred: Cannot read properties of undefined (reading 'catch')
+[2024-06-19 21:56:24] [ERROR] An error occurred: Cannot read properties of undefined (reading 'catch')
+[2024-06-19 22:02:23] [ERROR] An error occurred: fn is not a function
+[2024-06-19 22:03:20] [ERROR] An error occurred: fn is not a function
+[2024-06-19 22:04:04] [ERROR] An error occurred: fn is not a function
+[2024-06-19 22:05:17] [ERROR] An error occurred: Cannot read properties of undefined (reading '_id')
