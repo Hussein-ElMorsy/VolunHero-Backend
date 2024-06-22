@@ -285,6 +285,7 @@ export const sharePost = async (req, res, next) => {
 
   await postModel.findByIdAndUpdate(id, {
     $push: { sharedUsers: { userId: regUser } },
+    $inc: { shareCount: 1 },
   });
   const updatedPost = await postModel.findById(id);
   console.log(updatedPost);
