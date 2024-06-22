@@ -3,6 +3,7 @@ import postModel from "../../../../DB/models/Post.model.js";
 import cloudinary from "../../../utils/coudinary.js";
 import userModel from "../../../../DB/models/User.model.js";
 import ProfileDataModel from "../../../../DB/models/ProfileData.model.js";
+import savedPostsModel from "../../../../DB/models/SavedPosts.model.js";
 import commentModel from "../../../../DB/models/Comment.model.js";
 
 // const posts = await postModel.aggregatePostss();
@@ -105,7 +106,7 @@ export const getPostsOfOwner = async (req, res, next) => {
       }
     });
 
-  console.log({posts});
+  // console.log({posts});
   posts = posts.map((post) => {
     const postObj = post?.post?.toObject() ?? {};
     const { likes, sharedUsers, ...rest } = postObj;
@@ -254,14 +255,21 @@ export const likePost = async (req, res, next) => {
 // }
 
 
-export const deletePost = async (req, res, next) => {
+export const deletePost = async (req, res, next) => { // DON'T Forget Profile model & Saved Posts
   const { id } = req.params;
   const checkUserPost = await postModel.findOne({
     createdBy: req.user._id,
     _id: id,
   });
-
+  
   if (!checkUserPost) return next(new Error("In-valid post")); // Modification is done
+
+  await ProfileDataModel.deleteMany({ post: id });
+
+  await savedPostsModel.updateMany(
+    { 'posts.postId': id },
+    { $pull: { posts: { postId: id } } }
+  );
 
   const doc = await postModel.findByIdAndDelete(id);
   if (!doc) {
