@@ -486,13 +486,13 @@
 [2024-06-18 23:19:01] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
 [2024-06-18 23:19:32] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
 [2024-06-18 23:19:39] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
-<<<<<<< Updated upstream
 [2024-06-19 16:18:10] [ERROR] An error occurred: In-valid users id
 [2024-06-19 17:42:24] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
 [2024-06-19 17:43:06] [ERROR] An error occurred: Not registered user
 [2024-06-19 17:46:56] [ERROR] An error occurred: Email not confirmed
 [2024-06-19 17:49:04] [ERROR] An error occurred: In-valid users id
 [2024-06-19 17:50:54] [ERROR] An error occurred: Not registered user
+<<<<<<< HEAD
 [2024-06-19 21:55:58] [ERROR] An error occurred: Cannot read properties of undefined (reading 'catch')
 [2024-06-19 21:56:24] [ERROR] An error occurred: Cannot read properties of undefined (reading 'catch')
 [2024-06-19 22:02:23] [ERROR] An error occurred: fn is not a function
@@ -516,3 +516,13 @@
 [2024-06-19 21:48:19] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
 [2024-06-19 21:49:48] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'changePasswordTime')
 >>>>>>> Stashed changes
+=======
+[2024-06-19 19:16:41] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-19 19:16:43] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-19 19:16:51] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-19 19:27:57] [ERROR] An error occurred: MongoServerSelectionError: connection <monitor> to 157.241.38.55:27017 timed out
+[2024-06-19 19:27:57] [ERROR] An error occurred: MongoServerSelectionError: connection <monitor> to 157.241.38.55:27017 timed out
+[2024-06-19 20:41:24] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
+[2024-06-19 20:42:50] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `createdBy` because it is not in your schema. Set the `strictPopulate` option to false to override.
+[2024-06-19 20:48:56] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `createdBy` because it is not in your schema. Set the `strictPopulate` option to false to override.
+>>>>>>> 5add6804c72943f6f650031c26cc999cec5fe773
