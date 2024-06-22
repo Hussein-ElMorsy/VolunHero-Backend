@@ -32,7 +32,11 @@ export const getPostComments = async (req, res, next) => {
         return res.status(404).json({ message: "No post with this id" });
     }
 
-    const comments = await commentModel.find({ postId });
+    const comments = await commentModel.find({ postId }).populate({
+        path:"createdBy",
+        select:"userName role profilePic"
+    });
+
     return res.status(200).json({ message: "success", comments });
 
 

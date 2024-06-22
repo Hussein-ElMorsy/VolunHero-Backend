@@ -17,4 +17,8 @@ router.post("/",auth(endPoint.commentPost),validation(validators.commentPost),as
 router.delete("/:commentId",auth(endPoint.deleteComment),validation(validators.deleteComment),commentController.deleteComment);
 
 
+
+
+
+
 export default router;

@@ -29,7 +29,10 @@ export const getAllPosts = async (req, res, next) => {
 
 export const getPostById = async (req, res, next) => {
   const { id } = req.params;
-  const post = await postModel.findById(id);
+  const post = await postModel.findById(id).populate({
+    path:"createdBy",
+    select:"userName profilePic role"
+  });
   if (!post) {
     return next(new Error("In-valid postId", { cause: 404 }));
   }
@@ -110,11 +113,7 @@ export const getPostsOfOwner = async (req, res, next) => {
       return rest;
     } else {
       // Handle cases where likes or sharedUsers do not exist
-      return {
-        ...rest,
-        likes: likes ?? null,
-        sharedUsers: sharedUsers ?? null
-      };
+      return;
     }
   });
   // console.log({posts});

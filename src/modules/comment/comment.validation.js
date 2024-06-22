@@ -5,7 +5,7 @@ import { generalFields } from "../../middleware/validation.middleware.js"
 
 export const commentPost = joi.object({
     postId:generalFields.id.required(),
-    content:joi.string(),
+    content:joi.string().required(),
 
 }).required()
 

@@ -500,3 +500,10 @@
 [2024-06-19 20:41:24] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
 [2024-06-19 20:42:50] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `createdBy` because it is not in your schema. Set the `strictPopulate` option to false to override.
 [2024-06-19 20:48:56] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `createdBy` because it is not in your schema. Set the `strictPopulate` option to false to override.
+[2024-06-19 21:21:42] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
+[2024-06-19 21:21:48] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
+[2024-06-19 21:22:09] [ERROR] An error occurred: TypeError: Cannot destructure property 'likes' of '(intermediate value)' as it is undefined.
+[2024-06-19 21:56:26] [ERROR] An error occurred: In-valid user Id
+[2024-06-19 21:58:24] [ERROR] An error occurred: In-valid user Id
+[2024-06-22 15:50:46] [ERROR] An error occurred: Not registered user
+[2024-06-22 15:51:42] [ERROR] An error occurred: In-valid postId
