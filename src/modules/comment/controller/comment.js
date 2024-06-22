@@ -13,7 +13,7 @@ export const commentPost = async (req, res, next) => {
 
     const updatedPost = await postModel.findByIdAndUpdate(postId, {
         $push: { comments: { commentId: comment._id, } },
-        $inc: { commentCount: 1 },
+        $inc: { commentsCount: 1 },
     },
         { new: true }
     );
