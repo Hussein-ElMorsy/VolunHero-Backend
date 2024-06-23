@@ -566,3 +566,5 @@
 [2024-06-23 19:08:03] [ERROR] An error occurred: TokenExpiredError: jwt expired
 [2024-06-23 19:08:42] [ERROR] An error occurred: ReferenceError: postModel is not defined
 >>>>>>> Stashed changes
+[2024-06-23 20:19:32] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-23 20:24:37] [ERROR] An error occurred: In-valid Bearer key
