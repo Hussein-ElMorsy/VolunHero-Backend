@@ -74,11 +74,9 @@ export const deleteComment = async (req, res, next) => {
             return res.status(404).json({ message: "Failed to delete comment" });
         }
 
-        
-      
         const updatedPost = await postModel.findByIdAndUpdate(
             postId,
-            { $pull: { comments: new mongoose.Types.ObjectId(commentId) }, $inc: { commentCount: -1 } },
+            { $pull: { comments: {commentId: commentId }}, $inc: { commentsCount: -1 } },
             { new: true, session }
         );
 
