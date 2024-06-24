@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import commentModel from "../../../../DB/models/Comment.model.js";
 import postModel from "../../../../DB/models/Post.model.js";
+import { createNotification, deleteNotification } from "../../../utils/notification.js";
 
 
 
@@ -8,8 +9,8 @@ export const commentPost = async (req, res, next) => {
     req.body.createdBy = req.user._id;
     const { postId } = req.params;
     req.body.postId = postId;
+    const post = await postModel.findById(postId).select("createdBy");
     const comment = await commentModel.create(req.body);
-
 
     const updatedPost = await postModel.findByIdAndUpdate(postId, {
         $push: { comments: { commentId: comment._id, } },
@@ -20,6 +21,9 @@ export const commentPost = async (req, res, next) => {
     if (!updatedPost) {
         return res.status(404).json({ message: "No post with this id" });
     }
+    if(!createNotification({user:post.createdBy,type:"comment",sender:req.user._id,content:`${req.user.userName} commented on your post.`, relatedEntity:comment, entityModel:"Comment"})){
+        return next(new Error("failed to send Notification", { cause: 400 }));
+      }
     return res.status(200).json({ message: "success", comment: comment });
 }
 
@@ -39,6 +43,18 @@ export const getPostComments = async (req, res, next) => {
 
     return res.status(200).json({ message: "success", comments });
 
+
+}
+
+
+export const getCommentById = async (req, res, next) => {
+
+    const { commentId } = req.params;
+
+    console.log({commentId});
+    const comment = await commentModel.findById(commentId).populate("postId");
+
+    return res.status(200).json({ message: "success", comment });
 
 }
 
@@ -89,11 +105,16 @@ export const deleteComment = async (req, res, next) => {
 
         
         await session.commitTransaction();
-        res.json({ message: "Comment deleted successfully", updatedPost });
+        if(!deleteNotification({relatedEntity:commentId,type:"comment"})){
+            return next(new Error("failed to delete Notification", { cause: 400 }));
+          }
+        return res.json({ message: "Comment deleted successfully" });
     } catch (error) {
         await session.abortTransaction();
-        res.status(500).json({ message: "Server error", error, stack:error.stack});
+        return res.status(500).json({ message: "Server error", error, stack:error.stack});
     } finally {
         session.endSession();
     }
 };
+
+

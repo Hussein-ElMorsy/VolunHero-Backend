@@ -10,6 +10,7 @@ import commentRouter from "./modules/comment/comment.router.js";
 import savedPostsRouter from "./modules/SavedPosts/savedPosts.router.js";
 import { savePost } from "./modules/SavedPosts/savedPosts.validation.js";
 import donationFormRouter from "./modules/donationForm/donationForm.router.js";
+import notificationsRouter from "./modules/notifications/notifications.router.js";
 
 const initApp = (app, express) => {
   if (process.env.MOOD == "DEV") {
@@ -30,6 +31,7 @@ const initApp = (app, express) => {
   app.use("/api/comment", commentRouter); // Added
   app.use("/api/savedPosts", savedPostsRouter); // Added
   app.use("/api/donationForm", donationFormRouter); // Added
+  app.use("/api/notifications", notificationsRouter); // Added
 
   app.all("*", (req, res, next) => {
     return res.json({ message: "In-valid routing" });

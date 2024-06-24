@@ -526,3 +526,12 @@
 [2024-06-19 20:42:50] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `createdBy` because it is not in your schema. Set the `strictPopulate` option to false to override.
 [2024-06-19 20:48:56] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `createdBy` because it is not in your schema. Set the `strictPopulate` option to false to override.
 >>>>>>> 5add6804c72943f6f650031c26cc999cec5fe773
+[2024-06-22 19:59:15] [ERROR] An error occurred: can not remove post
+[2024-06-22 20:01:21] [ERROR] An error occurred: can not remove post
+[2024-06-22 20:06:17] [ERROR] An error occurred: can not remove post
+[2024-06-24 12:00:54] [ERROR] An error occurred: Email not confirmed
+[2024-06-24 14:01:38] [ERROR] An error occurred: In-valid userId
+[2024-06-24 14:23:33] [ERROR] An error occurred: In-valid Bearer key
+[2024-06-24 14:27:39] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading '_id')
+[2024-06-24 14:27:52] [ERROR] An error occurred: Not authorized user
+[2024-06-24 14:28:52] [ERROR] An error occurred: Not authorized user

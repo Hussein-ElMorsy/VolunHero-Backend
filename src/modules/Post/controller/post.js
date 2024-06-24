@@ -4,6 +4,7 @@ import cloudinary from "../../../utils/coudinary.js";
 import userModel from "../../../../DB/models/User.model.js";
 import ProfileDataModel from "../../../../DB/models/ProfileData.model.js";
 import commentModel from "../../../../DB/models/Comment.model.js";
+import { createNotification, deleteNotification } from "../../../utils/notification.js";
 
 // const posts = await postModel.aggregatePostss();
 
@@ -225,6 +226,9 @@ export const likePost = async (req, res, next) => {
     });
     const updatedPost = await postModel.findById(id);
     console.log(updatedPost);
+    if(!createNotification({user:checkPostFound.createdBy,type:"like",sender:req.user._id,content:`${req.user.userName} liked your post.`, relatedEntity:id, entityModel:"Post"})){
+      return next(new Error("failed to send Notification", { cause: 400 }));
+    }
     return res.status(200).json({ message: "Added like", post: updatedPost });
   } else {
     console.log("no");
@@ -236,6 +240,9 @@ export const likePost = async (req, res, next) => {
       },
       $inc: { likesCount: -1 },
     });
+    if(!deleteNotification({relatedEntity:id,type:"like"})){
+      return next(new Error("failed to delete Notification", { cause: 400 }));
+    }
     const updatedPost = await postModel.findById(id);
     return res.status(200).json({ message: "Removed like", post: updatedPost });
   }
@@ -318,7 +325,11 @@ export const removeSharedPost = async (req, res, next) => {
       },
     },
   });
-
+  
+  const deletePost = await ProfileDataModel.deleteMany({post:id})
+  if(!deletePost){
+    return next(new Error("can not remove post", { cause: 400 }));
+  }
   const updatedPost = await postModel.findById(id);
   return res.status(200).json({ message: "Removed Post", post: updatedPost });
 };

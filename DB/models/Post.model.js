@@ -59,7 +59,6 @@ const postSchema = new Schema(
 //   this.select('-likes -sharedUsers'); // Exclude likes and sharedUsers fields
 //   next();
 // });
-
 postSchema.post('find', async function(docs,next) {
   for (let doc of docs) {
     doc.likesCount = doc.likes.length;
