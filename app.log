@@ -528,6 +528,7 @@
 [2024-06-19 20:42:50] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `createdBy` because it is not in your schema. Set the `strictPopulate` option to false to override.
 [2024-06-19 20:48:56] [ERROR] An error occurred: StrictPopulateError: Cannot populate path `createdBy` because it is not in your schema. Set the `strictPopulate` option to false to override.
 >>>>>>> 5add6804c72943f6f650031c26cc999cec5fe773
+<<<<<<< Updated upstream
 [2024-06-23 17:51:49] [ERROR] An error occurred: Unexpected token } in JSON at position 55
 [2024-06-23 17:57:02] [ERROR] An error occurred: Unexpected number in JSON at position 107
 [2024-06-23 17:58:20] [ERROR] An error occurred: TokenExpiredError: jwt expired
@@ -568,3 +569,13 @@
 >>>>>>> Stashed changes
 [2024-06-23 20:19:32] [ERROR] An error occurred: TokenExpiredError: jwt expired
 [2024-06-23 20:24:37] [ERROR] An error occurred: In-valid Bearer key
+=======
+[2024-06-24 02:27:09] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-24 02:34:48] [ERROR] An error occurred: ReferenceError: originalPost is not defined
+[2024-06-24 04:22:01] [ERROR] An error occurred: ReferenceError: userId is not defined
+[2024-06-24 04:22:20] [ERROR] An error occurred: In-valid post
+[2024-06-24 04:22:32] [ERROR] An error occurred: In-valid post
+[2024-06-24 04:29:57] [ERROR] An error occurred: In-valid post
+[2024-06-24 04:31:44] [ERROR] An error occurred: In-valid Post Id
+[2024-06-24 04:35:32] [ERROR] An error occurred: MongoServerError: unknown top level operator: $inc. If you have a field name that starts with a '$' symbol, consider using $getField or $setField.
+>>>>>>> Stashed changes

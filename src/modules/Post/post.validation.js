@@ -57,7 +57,8 @@ export const deletePost = joi.object({
 
 
 export const sharePost = joi.object({
-    id:generalFields.id.required()
+    id:generalFields.id.required(),
+    content: joi.string() // Added
 }).required()
 
 export const commentPost = joi.object({
