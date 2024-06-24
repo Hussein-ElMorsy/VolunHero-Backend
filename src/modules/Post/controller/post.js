@@ -280,12 +280,10 @@ export const deletePost = async (req, res, next) => {
 
   if (!checkUserPost) return next(new Error("In-valid post")); // Modification is done
   
-  // Find all shared posts that have this post as their `sharedFrom`
   const sharedPostIds = await postModel.find({ mainPost: id });
 
   console.log(sharedPostIds);
 
-  // Delete all posts from ProfileDataModel associated with `id` or `sharedPostIds`
   await ProfileDataModel.deleteMany({
       post: { $in: sharedPostIds } 
   });
