@@ -39,6 +39,17 @@ const postSchema = new Schema(
         }
       },
     ],
+
+    // sharedFrom:{ // Added for sharing
+    //   type: Types.ObjectId,
+    //   ref: "Post",
+    //   default: null
+    // },
+    // modifiedContent: {
+    //   type: String,
+    //   default: null
+    // },
+
     comments: [{
         commentId: {
             type: Types.ObjectId,
