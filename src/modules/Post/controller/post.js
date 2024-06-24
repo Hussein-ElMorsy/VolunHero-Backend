@@ -112,16 +112,18 @@ export const getPostsOfOwner = async (req, res, next) => {
   posts = posts.map((post) => {
     const postObj = post?.post?.toObject() ?? {};
     const { likes, sharedUsers, ...rest } = postObj;
-    if (likes !== undefined && sharedUsers !== undefined) {
-      return rest;
-    } else {
-      // Handle cases where likes or sharedUsers do not exist
-      return {
-        ...rest,
-        likes: likes ?? null,
-        sharedUsers: sharedUsers ?? null
-      };
-    }
+    return rest;
+    
+    // if (likes !== undefined && sharedUsers !== undefined) {
+    //   return rest;
+    // } else {
+    //   // Handle cases where likes or sharedUsers do not exist
+    //   return {
+    //     ...rest,
+    //     likes: likes ?? null,
+    //     sharedUsers: sharedUsers ?? null
+    //   };
+    // }
   });
   // console.log({posts});
   return res.status(200).json({ message: "success", posts });
@@ -277,9 +279,13 @@ export const deletePost = async (req, res, next) => {
   if (!checkUserPost) return next(new Error("In-valid post")); // Modification is done
 
   const doc = await postModel.findByIdAndDelete(id);
+
+  await ProfileDataModel.findOneAndDelete({ post: id, userId: req.user._id });
+  
   if (!doc) {
     return next(new Error("No Document found with this id"));
   }
+  
   return res.status(204).json({ message: "success" });
 };
 
@@ -292,6 +298,7 @@ export const sharePost = async (req, res, next) => {
 
   await postModel.findByIdAndUpdate(id, {
     $push: { sharedUsers: { userId: regUser } },
+    $inc: { shareCount: 1 },
   });
   const updatedPost = await postModel.findById(id);
   console.log(updatedPost);
@@ -324,12 +331,11 @@ export const removeSharedPost = async (req, res, next) => {
         // _id:sharedId
       },
     },
+    $inc: { shareCount: -1 },
   });
-  
-  const deletePost = await ProfileDataModel.deleteMany({post:id})
-  if(!deletePost){
-    return next(new Error("can not remove post", { cause: 400 }));
-  }
+
+  await ProfileDataModel.findOneAndDelete({ post: id, userId: req.user._id });
+
   const updatedPost = await postModel.findById(id);
   return res.status(200).json({ message: "Removed Post", post: updatedPost });
 };
