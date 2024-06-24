@@ -147,7 +147,6 @@ export const createPost = async (req, res, next) => {
       })
     );
   }
-
   const post = await postModel.create(req.body);
   const addToProfile = new ProfileDataModel();
   (addToProfile.userId = req.user._id), (addToProfile.post = post._id);
@@ -183,7 +182,7 @@ export const updatePost = async (req, res, next) => {
   const post = await postModel.findByIdAndUpdate(id, req.body, {
     new: true,
     runValidators: true,
-  });
+  }).select('-sharedFrom');
 
   return res.status(200).json({ message: "success", post });
 };
@@ -228,9 +227,11 @@ export const likePost = async (req, res, next) => {
     });
     const updatedPost = await postModel.findById(id);
     console.log(updatedPost);
+
     if(!createNotification({user:checkPostFound.createdBy,type:"like",sender:req.user._id,content:`${req.user.userName} liked your post.`, relatedEntity:id, entityModel:"Post"})){
       return next(new Error("failed to send Notification", { cause: 400 }));
     }
+
     return res.status(200).json({ message: "Added like", post: updatedPost });
   } else {
     console.log("no");
@@ -274,17 +275,30 @@ export const deletePost = async (req, res, next) => {
   const checkUserPost = await postModel.findOne({
     createdBy: req.user._id,
     _id: id,
+    sharedFrom: null
   });
 
   if (!checkUserPost) return next(new Error("In-valid post")); // Modification is done
+  
+  // Find all shared posts that have this post as their `sharedFrom`
+  const sharedPostIds = await postModel.find({ mainPost: id });
+
+  console.log(sharedPostIds);
+
+  // Delete all posts from ProfileDataModel associated with `id` or `sharedPostIds`
+  await ProfileDataModel.deleteMany({
+      post: { $in: sharedPostIds } 
+  });
+
+  await postModel.deleteMany({ mainPost: id });
 
   const doc = await postModel.findByIdAndDelete(id);
 
   await ProfileDataModel.findOneAndDelete({ post: id, userId: req.user._id });
   
-  if (!doc) {
-    return next(new Error("No Document found with this id"));
-  }
+  // if (!doc) {
+  //   return next(new Error("No Document found with this id"));
+  // }
   
   return res.status(204).json({ message: "success" });
 };
@@ -292,20 +306,37 @@ export const deletePost = async (req, res, next) => {
 export const sharePost = async (req, res, next) => {
   const { id } = req.params;
   const regUser = req.user._id;
+  // const modifiedContent = req.body.content;
   const checkPost = await postModel.findById(id);
 
   if (!checkPost) return next(new Error("In-valid Post Id", { cause: 404 }));
 
-  await postModel.findByIdAndUpdate(id, {
+  const updatedPost = await postModel.findByIdAndUpdate(id, {
     $push: { sharedUsers: { userId: regUser } },
-    $inc: { shareCount: 1 },
+    $inc: { shareCount: 1 },},
+    {
+    new: true
+    }
+);
+  // const updatedPost = await postModel.findById(id);
+  let mainPostId = updatedPost._id
+  
+  if(updatedPost.mainPost != null){
+    mainPostId = updatedPost.mainPost;
+  }
+
+  const newPost = await postModel.create({
+    mainPost: mainPostId, // For delete + main cotent
+    content: updatedPost.content,
+    attachments: updatedPost.attachments,
+    createdBy: regUser,
+    sharedFrom: updatedPost._id
   });
-  const updatedPost = await postModel.findById(id);
-  console.log(updatedPost);
   const addToProfile = new ProfileDataModel();
-  (addToProfile.userId = req.user._id), (addToProfile.post = updatedPost._id);
+  // (addToProfile.userId = req.user._id), (addToProfile.post = updatedPost._id);
+  (addToProfile.userId = req.user._id), (addToProfile.post = newPost._id);
   await addToProfile.save();
-  return res.status(200).json({ message: "Post shared", post: updatedPost });
+  return res.status(200).json({ message: "Post shared", post: newPost });
 };
 
 export const removeSharedPost = async (req, res, next) => {
@@ -318,13 +349,12 @@ export const removeSharedPost = async (req, res, next) => {
   const checkShare = await postModel.findOne({
     // Change each userId to _id If you want
     _id: id,
-    "sharedUsers.userId": regUser,
   });
 
-  if (!checkShare)
-    return next(new Error("can not remove post", { cause: 400 }));
+  if (!checkShare || checkShare.sharedFrom == null)
+    return next(new Error("can not remove this shared post", { cause: 400 }));
 
-  await postModel.findByIdAndUpdate(id, {
+  await postModel.findByIdAndUpdate(checkPost.sharedFrom, {
     $pull: {
       sharedUsers: {
         userId: regUser,
@@ -334,8 +364,9 @@ export const removeSharedPost = async (req, res, next) => {
     $inc: { shareCount: -1 },
   });
 
+
   await ProfileDataModel.findOneAndDelete({ post: id, userId: req.user._id });
 
-  const updatedPost = await postModel.findById(id);
-  return res.status(200).json({ message: "Removed Post", post: updatedPost });
+  const updatedPost = await postModel.findByIdAndDelete(id);
+  return res.status(200).json({ message: "Removed Post" });
 };
