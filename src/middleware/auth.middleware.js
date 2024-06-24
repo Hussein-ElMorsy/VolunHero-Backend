@@ -28,7 +28,7 @@ export const auth = (accessRoles=[])=>{
             return next(new Error("In-valid token payload",{cause:400}));
         }
 
-        const user = await userModel.findById(decoded._id).select('email image role changePasswordTime');
+        const user = await userModel.findById(decoded._id).select('email userName image role changePasswordTime');
         // console.log(user);
         if(parseInt(user?.changePasswordTime?.getTime()/1000)>decoded.iat){
             return next(new Error("Expired token",{cause:400}));

@@ -3,6 +3,7 @@ import * as factory from "./../../../utils/handlerFactory.js"
 import userModel from "../../../../DB/models/User.model.js";
 import mongoose from "mongoose";
 import cloudinary from "../../../utils/coudinary.js"
+import { createNotification, deleteNotification } from "../../../utils/notification.js";
 
 export const getUserModule = async (req, res, next) => {
   return res.json({ message: "user controller" });
@@ -248,7 +249,7 @@ export const makeFollow = async (req, res, next) => {
   }
 
 
-  console.log({ userFollowers });
+  // console.log({ userFollowers });
 
   // else
   // add my id to his followers array
@@ -261,6 +262,9 @@ export const makeFollow = async (req, res, next) => {
     { new: true }
   )
 
+  if(!createNotification({user:userId,type:"friend_request",sender:req.user._id,content:`${req.user.userName} started following you`, relatedEntity:req.user._id, entityModel:"User"})){
+    return next(new Error("failed to send Notification", { cause: 400 }));
+  }
   return res.status(200).json({ message: "success" })
 
 
@@ -300,6 +304,10 @@ export const makeUnFollow = async (req, res, next) => {
     { new: true }
   )
 
+  
+  if(!deleteNotification({sender:req.user._id,user:userId,type:"friend_request"})){
+    return next(new Error("failed to delete Notification", { cause: 400 }));
+  }
   return res.status(200).json({ message: "success" })
 
 

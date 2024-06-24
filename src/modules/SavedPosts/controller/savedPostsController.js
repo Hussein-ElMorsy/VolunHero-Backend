@@ -62,7 +62,7 @@ export const deleteSavedPost = async (req, res, next) => {
       { new: true }
     );
 
-    return res.status(200).json({ message: "success", posts: savedPosts });
+    return res.status(200).json({ message: "success"});
   } else {
     return res.status(400).json({ message: "No saved posts found for user" });
   }

@@ -8,6 +8,7 @@ import { fileUpload, fileValidation } from "../../utils/multer.js";
 import { endPoint } from "./user.endpoint.js";
 import postRouter from "../Post/post.router.js";
 import { auth } from "../../middleware/auth.middleware.js";
+
 const router = Router();
 
 // elle fadel hena ---------
@@ -16,6 +17,7 @@ const router = Router();
 // 2 - update user cover pic , remove cover pic     -|
 
 router.use("/:slugUserName/:userId/post", postRouter);
+
 
 router.get(
   "/me",
