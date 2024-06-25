@@ -35,6 +35,13 @@ export const getPostById = async (req, res, next) => {
       path: "createdBy",
       select: "userName profilePic role",
     },
+    {
+      path: "mainPost",
+      populate: {
+        path: "createdBy",
+        select: "userName profilePic role",
+      },
+    }
   ]);
   if (!post) {
     return next(new Error("In-valid postId", { cause: 404 }));
@@ -52,6 +59,19 @@ export const getHomePagePosts = async (req, res, next) => {
   let posts = await ProfileDataModel.find({ userId: { $in: followingIds } })
     .populate({
       path: "post",
+      populate: {
+        path: "createdBy",
+        select: "userName profilePic role",
+      },
+      populate: {
+
+        path: "mainPost",
+        populate: {
+          path: "createdBy",
+          select: "userName profilePic role",
+        },
+
+      }
     })
     .sort({ createdAt: -1 });
 
@@ -74,6 +94,13 @@ export const getPostsOfSpecificUser = async (req, res, next) => {
     })
     .populate({
       path: "post",
+      populate:{
+        path: "mainPost",
+        populate: {
+          path: "createdBy",
+          select: "userName profilePic role",
+        },
+      }
     });
 
   return res.status(200).json({ message: "success", posts });
@@ -103,17 +130,21 @@ export const getPostsOfOwner = async (req, res, next) => {
     .sort({ createdAt: -1 }).populate({
       path: "post",
       populate: {
-        path: 'createdBy', 
-        select: 'userName profilePic role' 
-      }
+        path: 'mainPost',
+        populate: {
+          path: "createdBy",
+          select: "userName profilePic role",
+        },
+      },
+      
     });
 
-  console.log({posts});
+  console.log({ posts });
   posts = posts.map((post) => {
     const postObj = post?.post?.toObject() ?? {};
     const { likes, sharedUsers, ...rest } = postObj;
     return rest;
-    
+
     // if (likes !== undefined && sharedUsers !== undefined) {
     //   return rest;
     // } else {
@@ -228,7 +259,7 @@ export const likePost = async (req, res, next) => {
     const updatedPost = await postModel.findById(id);
     console.log(updatedPost);
 
-    if(!createNotification({user:checkPostFound.createdBy,type:"like",sender:req.user._id,content:`${req.user.userName} liked your post.`, relatedEntity:id, entityModel:"Post"})){
+    if (!createNotification({ user: checkPostFound.createdBy, type: "like", sender: req.user._id, content: `${req.user.userName} liked your post.`, relatedEntity: id, entityModel: "Post" })) {
       return next(new Error("failed to send Notification", { cause: 400 }));
     }
 
@@ -243,7 +274,7 @@ export const likePost = async (req, res, next) => {
       },
       $inc: { likesCount: -1 },
     });
-    if(!deleteNotification({relatedEntity:id,type:"like"})){
+    if (!deleteNotification({ relatedEntity: id, type: "like" })) {
       return next(new Error("failed to delete Notification", { cause: 400 }));
     }
     const updatedPost = await postModel.findById(id);
@@ -279,13 +310,13 @@ export const deletePost = async (req, res, next) => {
   });
 
   if (!checkUserPost) return next(new Error("In-valid post")); // Modification is done
-  
+
   const sharedPostIds = await postModel.find({ mainPost: id });
 
   console.log(sharedPostIds);
 
   await ProfileDataModel.deleteMany({
-      post: { $in: sharedPostIds } 
+    post: { $in: sharedPostIds }
   });
 
   await postModel.deleteMany({ mainPost: id });
@@ -293,11 +324,11 @@ export const deletePost = async (req, res, next) => {
   const doc = await postModel.findByIdAndDelete(id);
 
   await ProfileDataModel.findOneAndDelete({ post: id, userId: req.user._id });
-  
+
   // if (!doc) {
   //   return next(new Error("No Document found with this id"));
   // }
-  
+
   return res.status(204).json({ message: "success" });
 };
 
@@ -311,15 +342,16 @@ export const sharePost = async (req, res, next) => {
 
   const updatedPost = await postModel.findByIdAndUpdate(id, {
     $push: { sharedUsers: { userId: regUser } },
-    $inc: { shareCount: 1 },},
+    $inc: { shareCount: 1 },
+  },
     {
-    new: true
+      new: true
     }
-);
+  );
   // const updatedPost = await postModel.findById(id);
   let mainPostId = updatedPost._id
-  
-  if(updatedPost.mainPost != null){
+
+  if (updatedPost.mainPost != null) {
     mainPostId = updatedPost.mainPost;
   }
 

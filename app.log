@@ -612,3 +612,19 @@
 [2024-06-24 22:42:04] [ERROR] An error occurred: In-valid user Id
 [2024-06-24 22:42:15] [ERROR] An error occurred: In-valid user Id
 [2024-06-24 22:43:59] [ERROR] An error occurred: In-valid user Id
+[2024-06-25 19:52:46] [ERROR] An error occurred: Not registered user
+[2024-06-25 19:53:05] [ERROR] An error occurred: ReferenceError: mainPost is not defined
+[2024-06-25 19:53:57] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-06-25 19:54:01] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-06-25 19:54:55] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-06-25 19:56:30] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-06-25 19:57:03] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-06-25 19:57:22] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-06-25 19:58:19] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-06-25 19:59:59] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-06-25 20:01:28] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-06-25 20:01:46] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
+[2024-06-25 20:02:31] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-06-25 20:03:26] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-06-25 20:04:06] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-06-25 20:19:36] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
