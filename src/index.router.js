@@ -11,7 +11,7 @@ import savedPostsRouter from "./modules/SavedPosts/savedPosts.router.js";
 import { savePost } from "./modules/SavedPosts/savedPosts.validation.js";
 import donationFormRouter from "./modules/donationForm/donationForm.router.js";
 import notificationsRouter from "./modules/notifications/notifications.router.js";
-
+import meetingRouter from "./modules/meeting/meeting.router.js"
 const initApp = (app, express) => {
   if (process.env.MOOD == "DEV") {
     app.use(morgan("dev"));
@@ -32,7 +32,7 @@ const initApp = (app, express) => {
   app.use("/api/savedPosts", savedPostsRouter); // Added
   app.use("/api/donationForm", donationFormRouter); // Added
   app.use("/api/notifications", notificationsRouter); // Added
-
+  app.use("/api/meeting", meetingRouter); // Added
   app.all("*", (req, res, next) => {
     return res.json({ message: "In-valid routing" });
   });

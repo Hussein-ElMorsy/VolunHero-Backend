@@ -137,7 +137,25 @@ const userSchema = new Schema({
             type: Types.ObjectId,
             ref: "User",
         }
-    }]
+    }],
+
+
+    socketId:{
+        type: String,
+    },
+    meetingId:{
+        type:Types.ObjectId,
+        ref:"Meeting"
+    },
+    joined:{
+        type:Boolean,
+        required:true,
+
+    },
+    isAlive:{
+        type:Boolean,
+        required:true,
+    }
 }, {
     timestamps: true
 });
