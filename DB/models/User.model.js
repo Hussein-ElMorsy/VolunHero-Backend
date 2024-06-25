@@ -149,12 +149,12 @@ const userSchema = new Schema({
     },
     joined:{
         type:Boolean,
-        required:true,
+        
 
     },
     isAlive:{
         type:Boolean,
-        required:true,
+        
     }
 }, {
     timestamps: true
