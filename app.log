@@ -628,3 +628,11 @@
 [2024-06-25 20:03:26] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
 [2024-06-25 20:04:06] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
 [2024-06-25 20:19:36] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-06-25 21:49:39] [ERROR] An error occurred: ReferenceError: createdById is not defined
+[2024-06-25 21:55:03] [ERROR] An error occurred: ReferenceError: Cannot access 'newPost' before initialization
+[2024-06-25 22:05:31] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
+[2024-06-25 22:06:14] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
+[2024-06-25 22:06:48] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
+[2024-06-25 22:07:07] [ERROR] An error occurred: In-valid Post Id
+[2024-06-25 22:07:34] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
+[2024-06-25 22:07:55] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`

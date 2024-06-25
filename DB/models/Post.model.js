@@ -17,6 +17,12 @@ const postSchema = new Schema(
       type: Types.ObjectId,
       ref: "User",
     },
+    sharedBy:{
+      type: Types.ObjectId,
+      ref: "User",
+      default: null
+    },
+    
     likes: [
       {
         userId: {

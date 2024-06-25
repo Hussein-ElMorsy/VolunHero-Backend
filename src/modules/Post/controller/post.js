@@ -135,9 +135,10 @@ export const getPostsOfOwner = async (req, res, next) => {
           path: "createdBy",
           select: "userName profilePic role",
         },
-      },
-      
-    });
+      }, 
+    },
+    
+  );
 
   console.log({ posts });
   posts = posts.map((post) => {
@@ -354,19 +355,35 @@ export const sharePost = async (req, res, next) => {
   if (updatedPost.mainPost != null) {
     mainPostId = updatedPost.mainPost;
   }
+  const createdById = await postModel.findById(mainPostId).select('createdBy');
+  console.log(createdById)
 
   const newPost = await postModel.create({
     mainPost: mainPostId, // For delete + main cotent
     content: updatedPost.content,
     attachments: updatedPost.attachments,
-    createdBy: regUser,
+    createdBy: createdById.createdBy,
+    sharedBy: regUser,
     sharedFrom: updatedPost._id
   });
+
   const addToProfile = new ProfileDataModel();
   // (addToProfile.userId = req.user._id), (addToProfile.post = updatedPost._id);
   (addToProfile.userId = req.user._id), (addToProfile.post = newPost._id);
   await addToProfile.save();
-  return res.status(200).json({ message: "Post shared", post: newPost });
+
+  const newPostRes = await postModel.findById(newPost._id).populate([
+    {
+      path: "createdBy",
+      select: "userName profilePic role",
+    },
+    {
+      path: "sharedBy",
+      select: "userName profilePic role",
+    }
+  ]);
+
+  return res.status(200).json({ message: "Post shared", post: newPostRes });
 };
 
 export const removeSharedPost = async (req, res, next) => {
