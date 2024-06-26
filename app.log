@@ -636,3 +636,13 @@
 [2024-06-25 22:07:07] [ERROR] An error occurred: In-valid Post Id
 [2024-06-25 22:07:34] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
 [2024-06-25 22:07:55] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
+[2024-06-26 01:28:52] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading '_id')
+[2024-06-26 01:32:55] [ERROR] An error occurred: In-valid user Id
+[2024-06-26 01:33:00] [ERROR] An error occurred: In-valid user Id
+[2024-06-26 01:45:35] [ERROR] An error occurred: In-valid user Id
+[2024-06-26 14:26:20] [ERROR] An error occurred: ReferenceError: Cannot access 'modifiedPosts' before initialization
+[2024-06-26 14:52:55] [ERROR] An error occurred: You already follow this user
+[2024-06-26 15:02:25] [ERROR] An error occurred: ReferenceError: mainPost is not defined
+[2024-06-26 15:02:52] [ERROR] An error occurred: ReferenceError: mainPost is not defined
+[2024-06-26 15:05:21] [ERROR] An error occurred: ReferenceError: mainPost is not defined
+[2024-06-26 15:05:34] [ERROR] An error occurred: ReferenceError: mainPost is not defined

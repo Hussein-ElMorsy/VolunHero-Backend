@@ -9,11 +9,14 @@ export const getSavedPosts = async (req, res, next) => {
 
 export const savePost = async (req, res, next) => {
   const userId = req.user._id;
-  const postId = req.params.id;
+  let postId = req.params.id;
   const existedPost = await postModel.findById(postId);
+  console.log(existedPost.mainPost);
   if(existedPost == null){
     return res.status(404).json({ message: "No post with this ID" });
   }
+  if(existedPost.mainPost != null) postId = existedPost.mainPost;
+
 
   let savedPosts = await savedPostsModel.findOne({ userId: userId });
  

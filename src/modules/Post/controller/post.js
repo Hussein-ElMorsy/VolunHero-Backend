@@ -5,22 +5,28 @@ import userModel from "../../../../DB/models/User.model.js";
 import ProfileDataModel from "../../../../DB/models/ProfileData.model.js";
 import commentModel from "../../../../DB/models/Comment.model.js";
 import { createNotification, deleteNotification } from "../../../utils/notification.js";
+import savedPostsModel from "../../../../DB/models/SavedPosts.model.js";
 
 // const posts = await postModel.aggregatePostss();
 
 export const getAllPosts = async (req, res, next) => {
-  const posts = await postModel.find().populate([
-    {
-      path: "createdBy",
-      select: "userName profilePic role",
-    },
-  ]);
+  const posts = await postModel.find()
+    .populate([
+      {
+        path: "createdBy",
+        select: "userName profilePic role",
+      },
+      {
+        path: "sharedBy",
+        select: "userName profilePic role",
+      }
+    ]);
 
   console.log({ posts });
 
   const modifiedPosts = posts.map((post) => {
     const { likes, sharedUsers, ...rest } = post.toObject();
-    return rest;
+    return post.toObject();
   });
 
   return res.status(200).json({ message: "success", modifiedPosts });
@@ -30,18 +36,16 @@ export const getAllPosts = async (req, res, next) => {
 
 export const getPostById = async (req, res, next) => {
   const { id } = req.params;
-  const post = await postModel.findById(id).populate([
-    {
-      path: "createdBy",
-      select: "userName profilePic role",
-    },
-    {
-      path: "mainPost",
-      populate: {
+  const post = await postModel.findById(id)
+    .populate([
+      {
         path: "createdBy",
         select: "userName profilePic role",
       },
-    }
+      {
+        path: "sharedBy",
+        select: "userName profilePic role",
+      }
   ]);
   if (!post) {
     return next(new Error("In-valid postId", { cause: 404 }));
@@ -57,24 +61,35 @@ export const getHomePagePosts = async (req, res, next) => {
 
   // Find posts created by the users the current user is following
   let posts = await ProfileDataModel.find({ userId: { $in: followingIds } })
-    .populate({
-      path: "post",
-      populate: {
+  .sort({ createdAt: -1 })
+  .populate({
+    path: "post",
+    populate: [
+      // {
+      //   path: "mainPost",
+      //   // populate: {
+      //   //   path: "createdBy",
+      //   //   select: "userName profilePic role",
+      //   // },
+      // },
+      {
         path: "createdBy",
         select: "userName profilePic role",
       },
-      populate: {
+      {
+        path: "sharedBy",
+        select: "userName profilePic role",
+      },
+    ],
+  });
 
-        path: "mainPost",
-        populate: {
-          path: "createdBy",
-          select: "userName profilePic role",
-        },
-
-      }
-    })
-    .sort({ createdAt: -1 });
-
+  posts = posts.map((post) => { // Added 
+    const postObj = post?.post?.toObject() ?? {};
+    // const { likes, sharedUsers, ...rest } = postObj; // Modified
+    console.log(postObj);
+    return postObj
+  });
+  console.log(posts)
   return res.status(200).json({ message: "success", posts });
 };
 
@@ -86,23 +101,34 @@ export const getPostsOfSpecificUser = async (req, res, next) => {
   if (!checkUser) {
     throw next(new Error("In-valid user Id", { cause: 404 }));
   }
-  const posts = await ProfileDataModel.find({ userId: req.params.userId })
-    .sort({ createdAt: -1 })
-    .populate({
-      path: "userId",
-      select: "userName profilePic role",
-    })
-    .populate({
-      path: "post",
-      populate:{
-        path: "mainPost",
-        populate: {
-          path: "createdBy",
-          select: "userName profilePic role",
-        },
-      }
-    });
+  let posts = await ProfileDataModel.find({ userId: req.params.userId })
+  .sort({ createdAt: -1 })
+  .populate({
+    path: "post",
+    populate: [
+      // {
+      //   path: "mainPost",
+      //   // populate: {
+      //   //   path: "createdBy",
+      //   //   select: "userName profilePic role",
+      //   // },
+      // },
+      {
+        path: "createdBy",
+        select: "userName profilePic role",
+      },
+      {
+        path: "sharedBy",
+        select: "userName profilePic role",
+      },
+    ],
+  });
 
+  posts = posts.map((post) => { // Added 
+    const postObj = post?.post?.toObject() ?? {};
+    // const { likes, sharedUsers, ...rest } = postObj;
+    return postObj;
+}); 
   return res.status(200).json({ message: "success", posts });
 };
 
@@ -127,24 +153,35 @@ export const getPostsOfOwner = async (req, res, next) => {
   // ]);
 
   let posts = await ProfileDataModel.find({ userId: req.user._id })
-    .sort({ createdAt: -1 }).populate({
-      path: "post",
-      populate: {
-        path: 'mainPost',
-        populate: {
-          path: "createdBy",
-          select: "userName profilePic role",
-        },
-      }, 
-    },
-    
-  );
+  .sort({ createdAt: -1 })
+  .populate({
+    path: "post",
+    populate: [
+      // {
+      //   path: "mainPost",
+      //   // populate: {
+      //   //   path: "createdBy",
+      //   //   select: "userName profilePic role",
+      //   // },
+      // },
+      {
+        path: "createdBy",
+        select: "userName profilePic role",
+      },
+      {
+        path: "sharedBy",
+        select: "userName profilePic role",
+      },
+    ],
+  });
+
 
   console.log({ posts });
   posts = posts.map((post) => {
     const postObj = post?.post?.toObject() ?? {};
-    const { likes, sharedUsers, ...rest } = postObj;
-    return rest;
+    // const { likes, sharedUsers, ...rest } = postObj;
+
+    return postObj;
 
     // if (likes !== undefined && sharedUsers !== undefined) {
     //   return rest;
@@ -179,10 +216,24 @@ export const createPost = async (req, res, next) => {
       })
     );
   }
-  const post = await postModel.create(req.body);
+  let post = await postModel.create(req.body);
   const addToProfile = new ProfileDataModel();
   (addToProfile.userId = req.user._id), (addToProfile.post = post._id);
   await addToProfile.save();
+
+  console.log(post)
+
+  post = await postModel.findById(post._id)
+  .populate([
+    {
+      path: "createdBy",
+      select: "userName profilePic role",
+    },
+    {
+      path: "sharedBy",
+      select: "userName profilePic role",
+    }
+  ]);
   return res.status(201).json({ message: "success", post });
 };
 
@@ -214,7 +265,7 @@ export const updatePost = async (req, res, next) => {
   const post = await postModel.findByIdAndUpdate(id, req.body, {
     new: true,
     runValidators: true,
-  }).select('-sharedFrom');
+  })
 
   return res.status(200).json({ message: "success", post });
 };
@@ -257,7 +308,17 @@ export const likePost = async (req, res, next) => {
       $addToSet: { likes: { userId: regUser } },
       $inc: { likesCount: 1 },
     });
-    const updatedPost = await postModel.findById(id);
+    const updatedPost = await postModel.findById(id)
+      .populate([
+        {
+          path: "createdBy",
+          select: "userName profilePic role",
+        },
+        {
+          path: "sharedBy",
+          select: "userName profilePic role",
+        }
+      ]);;
     console.log(updatedPost);
 
     if (!createNotification({ user: checkPostFound.createdBy, type: "like", sender: req.user._id, content: `${req.user.userName} liked your post.`, relatedEntity: id, entityModel: "Post" })) {
@@ -278,7 +339,17 @@ export const likePost = async (req, res, next) => {
     if (!deleteNotification({ relatedEntity: id, type: "like" })) {
       return next(new Error("failed to delete Notification", { cause: 400 }));
     }
-    const updatedPost = await postModel.findById(id);
+    const updatedPost = await postModel.findById(id)
+    .populate([
+      {
+        path: "createdBy",
+        select: "userName profilePic role",
+      },
+      {
+        path: "sharedBy",
+        select: "userName profilePic role",
+      }
+    ]);;
     return res.status(200).json({ message: "Removed like", post: updatedPost });
   }
 };
@@ -320,11 +391,19 @@ export const deletePost = async (req, res, next) => {
     post: { $in: sharedPostIds }
   });
 
+
+    await savedPostsModel.updateOne( // Added
+      { userId: req.user._id },
+      { $pull: { posts: { postId: id } } }
+    );
+
   await postModel.deleteMany({ mainPost: id });
 
   const doc = await postModel.findByIdAndDelete(id);
 
   await ProfileDataModel.findOneAndDelete({ post: id, userId: req.user._id });
+
+
 
   // if (!doc) {
   //   return next(new Error("No Document found with this id"));
