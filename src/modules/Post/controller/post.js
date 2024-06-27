@@ -36,11 +36,8 @@ export const getPostById = async (req, res, next) => {
       select: "userName profilePic role",
     },
     {
-      path: "mainPost",
-      populate: {
-        path: "createdBy",
-        select: "userName profilePic role",
-      },
+      path: "sharedBy",
+      select: "userName profilePic role",
     }
   ]);
   if (!post) {
@@ -65,11 +62,8 @@ export const getHomePagePosts = async (req, res, next) => {
       },
       populate: {
 
-        path: "mainPost",
-        populate: {
-          path: "createdBy",
-          select: "userName profilePic role",
-        },
+        path: "sharedBy",
+        select: "userName profilePic role",
 
       }
     })
@@ -94,7 +88,7 @@ export const getPostsOfSpecificUser = async (req, res, next) => {
     })
     .populate({
       path: "post",
-      populate:{
+      populate: {
         path: "mainPost",
         populate: {
           path: "createdBy",
@@ -135,10 +129,10 @@ export const getPostsOfOwner = async (req, res, next) => {
           path: "createdBy",
           select: "userName profilePic role",
         },
-      }, 
+      },
     },
-    
-  );
+
+    );
 
   console.log({ posts });
   posts = posts.map((post) => {
