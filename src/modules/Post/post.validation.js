@@ -64,6 +64,9 @@ export const sharePost = joi.object({
 export const commentPost = joi.object({
     id:generalFields.id.required(),
     content:joi.string(),
+}).required()
 
+export const searchPost = joi.object({
+    content:joi.string().required(),
 }).required()
 

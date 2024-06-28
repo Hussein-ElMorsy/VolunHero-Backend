@@ -46,9 +46,10 @@ router.delete("/:id", auth(endPoint.createPost),validation(validators.deletePost
 router.patch("/:id/share",auth(endPoint.sharePost),validation(validators.sharePost),asyncHandler(postController.sharePost))
 router.patch("/:id/removeShare",auth(endPoint.sharePost),validation(validators.sharePost),asyncHandler(postController.removeSharedPost))
 
-
+// Impelement it
 router.get("/:id/likes",auth(endPoint.getPostLikes),validation(validators.getPostLikes),asyncHandler(postController.getPostLikes));
-
+// 
+router.post("/search",auth(endPoint.searchPost),validation(validators.searchPost),asyncHandler(postController.searchPost));
 
 
 // -------------- 

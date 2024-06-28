@@ -496,3 +496,26 @@ export const removeSharedPost = async (req, res, next) => {
   const updatedPost = await postModel.findByIdAndDelete(id);
   return res.status(200).json({ message: "Removed Post" });
 };
+
+export const searchPost = async (req, res, next) =>{
+  const searchRegex = new RegExp(req.body.content, 'i');
+  let posts = await postModel.find({content: searchRegex})
+  .sort({ createdAt: -1 })
+  .populate([
+    {
+      path: "createdBy",
+      select: "userName profilePic role",
+    },
+    {
+      path: "sharedBy",
+      select: "userName profilePic role",
+    }
+  ])
+
+  posts = posts.map((post) => {
+    const { likes, sharedUsers, ...rest } = post.toObject();
+    return post.toObject();
+  });
+
+  return res.status(200).json({message: "success", posts});
+}
