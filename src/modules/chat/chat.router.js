@@ -14,5 +14,6 @@ router.get('/mychats',auth(endPoint.findUserChats),validation(validators.findUse
 // router.get('/find/:secondId',auth(endPoint.findChat),validation(validators.findChat),asyncHandler(chatControllers.findChat))
 router.get('/find/:chatId',auth(endPoint.findChat),validation(validators.findChatById),asyncHandler(chatControllers.findChatById))
 router.delete('/:chatId',auth(endPoint.deleteChat),validation(validators.deleteChat),asyncHandler(chatControllers.deleteChat))
+router.post('/search',auth(endPoint.search),validation(validators.search),asyncHandler(chatControllers.searchChat))
 
 export default router

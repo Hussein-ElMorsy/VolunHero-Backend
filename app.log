@@ -698,3 +698,17 @@
 [2024-06-29 03:58:28] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
 [2024-06-29 03:58:54] [ERROR] An error occurred: ReferenceError: uasr is not defined
 [2024-06-29 04:01:37] [ERROR] An error occurred: In-valid email or password
+[2024-06-29 04:30:57] [ERROR] An error occurred: In-valid email or password
+[2024-06-29 04:31:25] [ERROR] An error occurred: JsonWebTokenError: jwt malformed
+[2024-06-29 04:31:37] [ERROR] An error occurred: JsonWebTokenError: jwt malformed
+[2024-06-29 04:31:38] [ERROR] An error occurred: JsonWebTokenError: jwt malformed
+[2024-06-29 04:31:41] [ERROR] An error occurred: In-valid email or password
+[2024-06-29 04:31:55] [ERROR] An error occurred: In-valid email or password
+[2024-06-29 04:32:58] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-29 04:33:07] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-29 04:47:05] [ERROR] An error occurred: ReferenceError: firstId is not defined
+[2024-06-29 04:48:32] [ERROR] An error occurred: ReferenceError: receiver is not defined
+[2024-06-29 04:55:11] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'userName')
+[2024-06-29 04:57:32] [ERROR] An error occurred: TypeError: userModel.findMany is not a function
+[2024-06-29 05:04:15] [ERROR] An error occurred: ReferenceError: secondUser is not defined
+[2024-06-29 05:04:29] [ERROR] An error occurred: ReferenceError: _id is not defined

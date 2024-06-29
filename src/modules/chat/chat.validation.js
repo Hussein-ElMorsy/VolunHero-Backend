@@ -35,3 +35,7 @@ export const deleteChat = joi.object({
     chatId:generalFields.id.required(),
 
 }).required()
+
+export const search = joi.object({
+    userName: joi.string().required(),
+}).required()
