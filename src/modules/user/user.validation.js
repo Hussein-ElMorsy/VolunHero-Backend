@@ -50,3 +50,7 @@ export const update = joi.object({
   locations: generalFields.locations,
 }).required();
 
+export const updatePassword = joi.object({
+  currentPassword: generalFields.password.required(),
+  newPassword:  generalFields.password.required(),
+}).required();

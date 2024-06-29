@@ -646,3 +646,55 @@
 [2024-06-26 15:02:52] [ERROR] An error occurred: ReferenceError: mainPost is not defined
 [2024-06-26 15:05:21] [ERROR] An error occurred: ReferenceError: mainPost is not defined
 [2024-06-26 15:05:34] [ERROR] An error occurred: ReferenceError: mainPost is not defined
+[2024-06-29 01:43:05] [ERROR] An error occurred: In-valid Bearer key
+[2024-06-29 02:00:10] [ERROR] An error occurred: ReferenceError: userId is not defined
+[2024-06-29 02:00:58] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'userId')
+[2024-06-29 02:01:59] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'userId')
+[2024-06-29 02:02:19] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'userId')
+[2024-06-29 02:04:46] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'userId')
+[2024-06-29 02:05:20] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'userId')
+[2024-06-29 02:05:58] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'userId')
+[2024-06-29 02:06:37] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading '_id')
+[2024-06-29 02:07:14] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading '_id')
+[2024-06-29 02:19:17] [ERROR] An error occurred: TypeError: post.map is not a function
+[2024-06-29 02:20:27] [ERROR] An error occurred: ReferenceError: postObj is not defined
+[2024-06-29 02:41:11] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'map')
+[2024-06-29 02:41:45] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'map')
+[2024-06-29 02:45:02] [ERROR] An error occurred: ReferenceError: userId is not defined
+[2024-06-29 02:47:51] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading '_id')
+[2024-06-29 02:48:11] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading '_id')
+[2024-06-29 02:48:46] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading '_id')
+[2024-06-29 02:54:36] [ERROR] An error occurred: TypeError: Assignment to constant variable.
+[2024-06-29 02:57:35] [ERROR] An error occurred: TypeError: Assignment to constant variable.
+[2024-06-29 03:04:38] [ERROR] An error occurred: can not remove this shared post
+[2024-06-29 03:45:27] [ERROR] An error occurred: Not registered acount
+[2024-06-29 03:48:50] [ERROR] An error occurred: Not registered acount
+[2024-06-29 03:48:54] [ERROR] An error occurred: Not registered acount
+[2024-06-29 03:49:10] [ERROR] An error occurred: In-valid email or password
+[2024-06-29 03:49:23] [ERROR] An error occurred: JsonWebTokenError: jwt malformed
+[2024-06-29 03:49:33] [ERROR] An error occurred: In-valid email or password
+[2024-06-29 03:50:03] [ERROR] An error occurred: TypeError: Assignment to constant variable.
+[2024-06-29 03:50:29] [ERROR] An error occurred: ReferenceError: compare is not defined
+[2024-06-29 03:52:09] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:52:50] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:53:10] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:53:42] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:54:23] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:54:40] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:54:52] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:55:07] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:55:24] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:55:26] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:55:27] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:55:42] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:55:56] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:56:28] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:56:41] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:57:27] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:57:31] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:57:45] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:57:59] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:58:11] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:58:28] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:58:54] [ERROR] An error occurred: ReferenceError: uasr is not defined
+[2024-06-29 04:01:37] [ERROR] An error occurred: In-valid email or password

@@ -22,11 +22,17 @@ export const getAllPosts = async (req, res, next) => {
       }
     ]);
 
-  console.log({ posts });
 
   const modifiedPosts = posts.map((post) => {
-    const { likes, sharedUsers, ...rest } = post.toObject();
-    return post.toObject();
+    const postObj = post.toObject();
+    let isLikedByMe = null;
+    if(post.likes != null){
+    isLikedByMe = postObj.likes.some(
+      like => like.userId.toString() == req.user._id.toString() 
+      );
+    }
+    postObj.isLikedByMe = isLikedByMe;
+    return postObj;
   });
 
   return res.status(200).json({ message: "success", modifiedPosts });
@@ -36,7 +42,7 @@ export const getAllPosts = async (req, res, next) => {
 
 export const getPostById = async (req, res, next) => {
   const { id } = req.params;
-  const post = await postModel.findById(id)
+  let post = await postModel.findById(id)
     .populate([
       {
         path: "createdBy",
@@ -50,6 +56,18 @@ export const getPostById = async (req, res, next) => {
   if (!post) {
     return next(new Error("In-valid postId", { cause: 404 }));
   }
+
+  post = post.toObject();
+
+  let isLikedByMe = null;
+  if(post.likes != null){
+  isLikedByMe = post.likes.some(
+    like => like.userId.toString() == req.user._id.toString() 
+    );
+  }
+  post.isLikedByMe = isLikedByMe;
+  console.log(post)
+  
   return res.status(200).json({ message: "success", post });
 };
 
@@ -82,14 +100,18 @@ export const getHomePagePosts = async (req, res, next) => {
       },
     ],
   });
+    // console.log(posts);
+    posts = posts.map(post => {
+      const postObj = post.post.toObject();
 
-  posts = posts.map((post) => { // Added 
-    const postObj = post?.post?.toObject() ?? {};
-    // const { likes, sharedUsers, ...rest } = postObj; // Modified
-    console.log(postObj);
-    return postObj
-  });
-  console.log(posts)
+      const isLikedByMe = postObj.likes.some(like => like.userId.toString() === req.user._id.toString());
+
+      postObj.isLikedByMe = isLikedByMe;
+
+      return postObj;
+    });
+
+  
   return res.status(200).json({ message: "success", posts });
 };
 
@@ -123,35 +145,18 @@ export const getPostsOfSpecificUser = async (req, res, next) => {
       },
     ],
   });
-
   posts = posts.map((post) => { // Added 
     const postObj = post?.post?.toObject() ?? {};
-    // const { likes, sharedUsers, ...rest } = postObj;
+
+    const isLikedByMe = postObj.likes.some(like => like.userId.toString() === req.user._id.toString());
+
+    postObj.isLikedByMe = isLikedByMe;
     return postObj;
 }); 
   return res.status(200).json({ message: "success", posts });
 };
 
 export const getPostsOfOwner = async (req, res, next) => {
-  // const posts = await postModel.aggregatePosts(req.user._id);
-  // let posts = await postModel.aggregate([
-  //   {
-  //     $match: { createdBy: (req.user._id) }
-  //   },
-  //   {
-  //     $addFields: {
-  //       likesCount: { $size: "$likes" },
-  //       sharedCount: { $size: "$sharedUsers" }
-  //     }
-  //   },
-  //   {
-  //     $project: {
-  //       likes:0,
-  //       sharedUsers:0
-  //     }
-  //   }
-  // ]);
-
   let posts = await ProfileDataModel.find({ userId: req.user._id })
   .sort({ createdAt: -1 })
   .populate({
@@ -179,8 +184,9 @@ export const getPostsOfOwner = async (req, res, next) => {
   console.log({ posts });
   posts = posts.map((post) => {
     const postObj = post?.post?.toObject() ?? {};
-    // const { likes, sharedUsers, ...rest } = postObj;
+    const isLikedByMe = postObj.likes.some(like => like.userId.toString() === req.user._id.toString());
 
+    postObj.isLikedByMe = isLikedByMe;
     return postObj;
 
     // if (likes !== undefined && sharedUsers !== undefined) {
@@ -234,6 +240,17 @@ export const createPost = async (req, res, next) => {
       select: "userName profilePic role",
     }
   ]);
+
+  post = post.toObject();
+
+  let isLikedByMe = null;
+  if(post.likes != null){
+  isLikedByMe = post.likes.some(
+    like => like.userId.toString() == req.user._id.toString() 
+    );
+  }
+  post.isLikedByMe = isLikedByMe;
+
   return res.status(201).json({ message: "success", post });
 };
 
@@ -262,10 +279,19 @@ export const updatePost = async (req, res, next) => {
     }
   }
 
-  const post = await postModel.findByIdAndUpdate(id, req.body, {
+  let post = await postModel.findByIdAndUpdate(id, req.body, {
     new: true,
     runValidators: true,
   })
+  post = post.toObject();
+
+  let isLikedByMe = null;
+  if(post.likes != null){
+  isLikedByMe = post.likes.some(
+    like => like.userId.toString() == req.user._id.toString() 
+    );
+  }
+  post.isLikedByMe = isLikedByMe;
 
   return res.status(200).json({ message: "success", post });
 };
@@ -308,7 +334,7 @@ export const likePost = async (req, res, next) => {
       $addToSet: { likes: { userId: regUser } },
       $inc: { likesCount: 1 },
     });
-    const updatedPost = await postModel.findById(id)
+    let updatedPost = await postModel.findById(id)
       .populate([
         {
           path: "createdBy",
@@ -324,6 +350,9 @@ export const likePost = async (req, res, next) => {
     if (!createNotification({ user: checkPostFound.createdBy, type: "like", sender: req.user._id, content: `${req.user.userName} liked your post.`, relatedEntity: id, entityModel: "Post" })) {
       return next(new Error("failed to send Notification", { cause: 400 }));
     }
+    updatedPost = updatedPost.toObject();
+    updatedPost.isLikedByMe = true;
+    
 
     return res.status(200).json({ message: "Added like", post: updatedPost });
   } else {
@@ -339,7 +368,7 @@ export const likePost = async (req, res, next) => {
     if (!deleteNotification({ relatedEntity: id, type: "like" })) {
       return next(new Error("failed to delete Notification", { cause: 400 }));
     }
-    const updatedPost = await postModel.findById(id)
+    let updatedPost = await postModel.findById(id)
     .populate([
       {
         path: "createdBy",
@@ -350,6 +379,8 @@ export const likePost = async (req, res, next) => {
         select: "userName profilePic role",
       }
     ]);;
+    updatedPost = updatedPost.toObject();
+    updatedPost.isLikedByMe = false;
     return res.status(200).json({ message: "Removed like", post: updatedPost });
   }
 };
@@ -451,7 +482,7 @@ export const sharePost = async (req, res, next) => {
   (addToProfile.userId = req.user._id), (addToProfile.post = newPost._id);
   await addToProfile.save();
 
-  const newPostRes = await postModel.findById(newPost._id).populate([
+  let newPostRes = await postModel.findById(newPost._id).populate([
     {
       path: "createdBy",
       select: "userName profilePic role",
@@ -461,6 +492,16 @@ export const sharePost = async (req, res, next) => {
       select: "userName profilePic role",
     }
   ]);
+
+  newPostRes = newPostRes.toObject();
+
+  let isLikedByMe = null;
+  if(newPostRes.likes != null){
+  isLikedByMe = newPostRes.likes.some(
+    like => like.userId.toString() == req.user._id.toString() 
+    );
+  }
+  newPostRes.isLikedByMe = isLikedByMe;
 
   return res.status(200).json({ message: "Post shared", post: newPostRes });
 };
@@ -513,9 +554,29 @@ export const searchPost = async (req, res, next) =>{
   ])
 
   posts = posts.map((post) => {
-    const { likes, sharedUsers, ...rest } = post.toObject();
-    return post.toObject();
+    const postObj = post.toObject();
+    let isLikedByMe = null;
+    if(post.likes != null){
+    isLikedByMe = postObj.likes.some(
+      like => like.userId.toString() == req.user._id.toString() 
+      );
+    }
+    postObj.isLikedByMe = isLikedByMe;
+    return postObj;
   });
 
   return res.status(200).json({message: "success", posts});
 }
+
+export const getPostLikes = async (req, res, next) =>{
+  const postId = req.params.id;
+
+  const post = await postModel.findById(postId).select('likes');
+  if (!post) {
+    return next(new Error("In-valid postId", { cause: 404 }));
+  }
+  const userIds = post.likes.map(like => like.userId);
+  const users = await userModel.find({ _id: { $in: userIds } })
+  .select("-password -status -confirmEmail -forgetCode -changePasswordTime -createdAt")
+    return res.status(200).json({ message: "success", users });
+} 

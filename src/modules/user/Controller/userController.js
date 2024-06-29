@@ -4,6 +4,9 @@ import userModel from "../../../../DB/models/User.model.js";
 import mongoose from "mongoose";
 import cloudinary from "../../../utils/coudinary.js"
 import { createNotification, deleteNotification } from "../../../utils/notification.js";
+import { user } from "../user.validation.js";
+import { compare, hashText } from "../../../utils/hashAndComare.js";
+
 
 export const getUserModule = async (req, res, next) => {
   return res.json({ message: "user controller" });
@@ -44,6 +47,24 @@ export const updateMe = (async (req, res, next) => {
     user: updatedUser
   });
 });
+
+export const updatePassword = async (req, res, next) => {
+
+  const {currentPassword, newPassword} = req.body;
+  const user = await userModel.findById(req.user._id);
+  if (!compare({ plaintext: currentPassword, hashValue: user.password })) {
+    return next(new Error("In-valid password", { cause: 400 }));
+  }
+
+  const hashPassword = hashText({ plaintext: newPassword });
+  user.changePasswordTime = Date.now();
+  user.password = hashPassword;
+  await user.save();
+  return res.status(200).json({
+    status: 'success',
+    user: user
+  })
+};
 
 export const deleteMe = (async (req, res, next) => { // Not sure
   let id;

@@ -70,3 +70,7 @@ export const searchPost = joi.object({
     content:joi.string().required(),
 }).required()
 
+export const getPostLikes = joi.object({
+    id:generalFields.id.required(),
+}).required()
+

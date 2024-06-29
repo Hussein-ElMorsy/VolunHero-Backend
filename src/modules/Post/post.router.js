@@ -19,9 +19,9 @@ router.use("/:postId/comment", commentRouter);
 
 
 
-router.get("/allposts",asyncHandler(postController.getAllPosts)); // All posts 
+router.get("/allposts",auth(endPoint.getPostById), asyncHandler(postController.getAllPosts)); // All posts 
 
-router.get("/",asyncHandler(postController.getPostsOfSpecificUser)); // using slug-name :)
+router.get("/",auth(endPoint.getPostById), asyncHandler(postController.getPostsOfSpecificUser)); // using slug-name :)
 
 router.get("/ownerPosts", auth(endPoint.getPostsOfOwner),asyncHandler(postController.getPostsOfOwner)); // Post of logged in user
 
@@ -46,9 +46,7 @@ router.delete("/:id", auth(endPoint.createPost),validation(validators.deletePost
 router.patch("/:id/share",auth(endPoint.sharePost),validation(validators.sharePost),asyncHandler(postController.sharePost))
 router.patch("/:id/removeShare",auth(endPoint.sharePost),validation(validators.sharePost),asyncHandler(postController.removeSharedPost))
 
-// Impelement it
-router.get("/:id/likes",auth(endPoint.getPostLikes),validation(validators.getPostLikes),asyncHandler(postController.getPostLikes));
-// 
+router.get("/:id/like",auth(endPoint.getPostLikes),validation(validators.getPostLikes),asyncHandler(postController.getPostLikes));
 router.post("/search",auth(endPoint.searchPost),validation(validators.searchPost),asyncHandler(postController.searchPost));
 
 
