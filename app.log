@@ -712,3 +712,4 @@
 [2024-06-29 04:57:32] [ERROR] An error occurred: TypeError: userModel.findMany is not a function
 [2024-06-29 05:04:15] [ERROR] An error occurred: ReferenceError: secondUser is not defined
 [2024-06-29 05:04:29] [ERROR] An error occurred: ReferenceError: _id is not defined
+[2024-06-29 05:11:01] [ERROR] An error occurred: No user with this username
