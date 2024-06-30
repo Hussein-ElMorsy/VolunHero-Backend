@@ -734,3 +734,28 @@
   ]
 }" (type Object) at path "userId" for model "Chat"
 [2024-06-30 03:08:33] [ERROR] An error occurred: No user with this username
+[2024-06-30 19:52:23] [ERROR] An error occurred: Error: Illegal arguments: undefined, string
+[2024-06-30 19:52:28] [ERROR] An error occurred: Error: Illegal arguments: undefined, string
+[2024-06-30 19:53:05] [ERROR] An error occurred: ReferenceError: currentPassword is not defined
+[2024-06-30 19:53:50] [ERROR] An error occurred: ReferenceError: currentPassword is not defined
+[2024-06-30 19:54:16] [ERROR] An error occurred: In-valid password
+[2024-06-30 19:55:00] [ERROR] An error occurred: In-valid password
+[2024-06-30 20:35:25] [ERROR] An error occurred: OTP is already sent
+[2024-06-30 20:36:46] [ERROR] An error occurred: TypeError: otpModel.save is not a function
+[2024-06-30 20:40:46] [ERROR] An error occurred: ReferenceError: forgetCode is not defined
+[2024-06-30 20:43:42] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-06-30 20:44:00] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-06-30 20:44:52] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-06-30 20:46:19] [ERROR] An error occurred: OTP is already sent
+[2024-06-30 20:46:52] [ERROR] An error occurred: OTP is already sent
+[2024-06-30 20:47:06] [ERROR] An error occurred: OTP is already sent
+[2024-06-30 20:48:59] [ERROR] An error occurred: OTP is already sent
+[2024-06-30 21:54:17] [ERROR] An error occurred: OTP is already sent
+[2024-06-30 21:56:48] [ERROR] An error occurred: OTP is already sent
+[2024-07-01 00:00:36] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "updatePassword" (type string) at path "_id" for model "User"
+[2024-07-01 00:03:48] [ERROR] An error occurred: Expired token
+[2024-07-01 00:03:52] [ERROR] An error occurred: In-valid email or password
+[2024-07-01 00:04:06] [ERROR] An error occurred: In-valid password
+[2024-07-01 00:04:23] [ERROR] An error occurred: Expired token
+[2024-07-01 00:21:38] [ERROR] An error occurred: In-valid password
+[2024-07-01 00:22:13] [ERROR] An error occurred: OTP is already sent

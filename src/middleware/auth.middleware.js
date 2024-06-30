@@ -30,9 +30,9 @@ export const auth = (accessRoles=[])=>{
 
         const user = await userModel.findById(decoded._id).select('email userName image role changePasswordTime');
         // console.log(user);
-        if(parseInt(user?.changePasswordTime?.getTime()/1000)>decoded.iat){
-            return next(new Error("Expired token",{cause:400}));
-        }
+        // if(parseInt(user?.changePasswordTime?.getTime()/1000)>decoded.iat){
+        //     return next(new Error("Expired token",{cause:400}));
+        // }
 
         if(!user){
             return next(new Error("Not registered user",{cause:400}));
