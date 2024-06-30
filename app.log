@@ -713,3 +713,24 @@
 [2024-06-29 05:04:15] [ERROR] An error occurred: ReferenceError: secondUser is not defined
 [2024-06-29 05:04:29] [ERROR] An error occurred: ReferenceError: _id is not defined
 [2024-06-29 05:11:01] [ERROR] An error occurred: No user with this username
+[2024-06-30 02:43:02] [ERROR] An error occurred: No user with this username
+[2024-06-30 03:05:40] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{
+  '$in': [
+    new ObjectId("667948dce62cf39da0313c20"),
+    new ObjectId("667eb092c793ef9b175ffcc4")
+  ]
+}" (type Object) at path "userId" for model "Chat"
+[2024-06-30 03:05:43] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{
+  '$in': [
+    new ObjectId("667948dce62cf39da0313c20"),
+    new ObjectId("667eb092c793ef9b175ffcc4")
+  ]
+}" (type Object) at path "userId" for model "Chat"
+[2024-06-30 03:06:23] [ERROR] An error occurred: ReferenceError: firstUser_id is not defined
+[2024-06-30 03:06:37] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{
+  '$in': [
+    new ObjectId("667948dce62cf39da0313c20"),
+    new ObjectId("667eb092c793ef9b175ffcc4")
+  ]
+}" (type Object) at path "userId" for model "Chat"
+[2024-06-30 03:08:33] [ERROR] An error occurred: No user with this username

@@ -143,9 +143,12 @@ export const searchChat = async (req, res, next) =>{
         throw next(new Error("Can't search for your username",{cause:401})); 
     }
 
-    console.log(secondUsers)
+    console.log(...secondUserIds)
     const chats = await chatModel.find({
-        "members.userId": { $all: [firstUser._id, ...secondUserIds] }
+        $and: [
+            { "members.userId": firstUser._id },
+            { "members.userId": { $in: secondUserIds } }
+        ]
     })
     .populate({
         path: "members.userId",
