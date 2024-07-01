@@ -54,3 +54,11 @@ export const updatePassword = joi.object({
   currentPassword: generalFields.password.required(),
   newPassword:  generalFields.password.required(),
 }).required();
+
+export const verifyPassword = joi.object({
+  password: joi.string().required(),
+}).required();
+
+export const updateEmail = joi.object({
+  email:  generalFields.email.required(),
+}).required();
