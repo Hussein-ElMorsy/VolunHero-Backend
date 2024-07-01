@@ -118,7 +118,7 @@ router.get(
 // get my followers list
 
 router.get(
-  "/following",
+  "/followers",
   auth(endPoint.getMyFollowers),
   asyncHandler(userController.getMyFollowers)
 );
