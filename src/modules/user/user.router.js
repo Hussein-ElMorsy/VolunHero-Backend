@@ -42,6 +42,36 @@ router.patch(
 );
 
 router.patch(
+  "/updatePassword",
+  auth(endPoint.me), // Check again
+  validation(validators.updatePassword),
+  asyncHandler(userController.updatePassword)
+);
+
+router.patch(
+  "/updateEmail",
+  auth(endPoint.me), // Check again
+  validation(validators.updateEmail),
+  asyncHandler(userController.updateEmail)
+);
+///---------------------------------------------------------------------------
+
+router.post(
+  "/verifyPassword",
+  auth(endPoint.me), // Check again
+  validation(validators.verifyPassword),
+  asyncHandler(userController.verifyPassword)
+);
+
+router.patch(
+  "/updateEmail",
+  auth(endPoint.me), // Check again
+  validation(validators.updateEmail),
+  asyncHandler(userController.updateEmail)
+);
+
+///-----------------------------------------------------------------------------
+router.patch(
   "/updateProfilePic",
   auth(endPoint.me),
   fileUpload(fileValidation.image).fields([

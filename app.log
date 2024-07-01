@@ -636,3 +636,130 @@
 [2024-06-25 22:07:07] [ERROR] An error occurred: In-valid Post Id
 [2024-06-25 22:07:34] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
 [2024-06-25 22:07:55] [ERROR] An error occurred: TypeError: utils.populate: invalid path. Expected string. Got typeof `object`
+[2024-06-26 01:28:52] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading '_id')
+[2024-06-26 01:32:55] [ERROR] An error occurred: In-valid user Id
+[2024-06-26 01:33:00] [ERROR] An error occurred: In-valid user Id
+[2024-06-26 01:45:35] [ERROR] An error occurred: In-valid user Id
+[2024-06-26 14:26:20] [ERROR] An error occurred: ReferenceError: Cannot access 'modifiedPosts' before initialization
+[2024-06-26 14:52:55] [ERROR] An error occurred: You already follow this user
+[2024-06-26 15:02:25] [ERROR] An error occurred: ReferenceError: mainPost is not defined
+[2024-06-26 15:02:52] [ERROR] An error occurred: ReferenceError: mainPost is not defined
+[2024-06-26 15:05:21] [ERROR] An error occurred: ReferenceError: mainPost is not defined
+[2024-06-26 15:05:34] [ERROR] An error occurred: ReferenceError: mainPost is not defined
+[2024-06-29 01:43:05] [ERROR] An error occurred: In-valid Bearer key
+[2024-06-29 02:00:10] [ERROR] An error occurred: ReferenceError: userId is not defined
+[2024-06-29 02:00:58] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'userId')
+[2024-06-29 02:01:59] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'userId')
+[2024-06-29 02:02:19] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'userId')
+[2024-06-29 02:04:46] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'userId')
+[2024-06-29 02:05:20] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'userId')
+[2024-06-29 02:05:58] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'userId')
+[2024-06-29 02:06:37] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading '_id')
+[2024-06-29 02:07:14] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading '_id')
+[2024-06-29 02:19:17] [ERROR] An error occurred: TypeError: post.map is not a function
+[2024-06-29 02:20:27] [ERROR] An error occurred: ReferenceError: postObj is not defined
+[2024-06-29 02:41:11] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'map')
+[2024-06-29 02:41:45] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'map')
+[2024-06-29 02:45:02] [ERROR] An error occurred: ReferenceError: userId is not defined
+[2024-06-29 02:47:51] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading '_id')
+[2024-06-29 02:48:11] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading '_id')
+[2024-06-29 02:48:46] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading '_id')
+[2024-06-29 02:54:36] [ERROR] An error occurred: TypeError: Assignment to constant variable.
+[2024-06-29 02:57:35] [ERROR] An error occurred: TypeError: Assignment to constant variable.
+[2024-06-29 03:04:38] [ERROR] An error occurred: can not remove this shared post
+[2024-06-29 03:45:27] [ERROR] An error occurred: Not registered acount
+[2024-06-29 03:48:50] [ERROR] An error occurred: Not registered acount
+[2024-06-29 03:48:54] [ERROR] An error occurred: Not registered acount
+[2024-06-29 03:49:10] [ERROR] An error occurred: In-valid email or password
+[2024-06-29 03:49:23] [ERROR] An error occurred: JsonWebTokenError: jwt malformed
+[2024-06-29 03:49:33] [ERROR] An error occurred: In-valid email or password
+[2024-06-29 03:50:03] [ERROR] An error occurred: TypeError: Assignment to constant variable.
+[2024-06-29 03:50:29] [ERROR] An error occurred: ReferenceError: compare is not defined
+[2024-06-29 03:52:09] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:52:50] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:53:10] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:53:42] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:54:23] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:54:40] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:54:52] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:55:07] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:55:24] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:55:26] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:55:27] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:55:42] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:55:56] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:56:28] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:56:41] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:57:27] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:57:31] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:57:45] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:57:59] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:58:11] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:58:28] [ERROR] An error occurred: Error: Illegal arguments: string, undefined
+[2024-06-29 03:58:54] [ERROR] An error occurred: ReferenceError: uasr is not defined
+[2024-06-29 04:01:37] [ERROR] An error occurred: In-valid email or password
+[2024-06-29 04:30:57] [ERROR] An error occurred: In-valid email or password
+[2024-06-29 04:31:25] [ERROR] An error occurred: JsonWebTokenError: jwt malformed
+[2024-06-29 04:31:37] [ERROR] An error occurred: JsonWebTokenError: jwt malformed
+[2024-06-29 04:31:38] [ERROR] An error occurred: JsonWebTokenError: jwt malformed
+[2024-06-29 04:31:41] [ERROR] An error occurred: In-valid email or password
+[2024-06-29 04:31:55] [ERROR] An error occurred: In-valid email or password
+[2024-06-29 04:32:58] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-29 04:33:07] [ERROR] An error occurred: TokenExpiredError: jwt expired
+[2024-06-29 04:47:05] [ERROR] An error occurred: ReferenceError: firstId is not defined
+[2024-06-29 04:48:32] [ERROR] An error occurred: ReferenceError: receiver is not defined
+[2024-06-29 04:55:11] [ERROR] An error occurred: TypeError: Cannot read properties of null (reading 'userName')
+[2024-06-29 04:57:32] [ERROR] An error occurred: TypeError: userModel.findMany is not a function
+[2024-06-29 05:04:15] [ERROR] An error occurred: ReferenceError: secondUser is not defined
+[2024-06-29 05:04:29] [ERROR] An error occurred: ReferenceError: _id is not defined
+[2024-06-29 05:11:01] [ERROR] An error occurred: No user with this username
+[2024-06-30 02:43:02] [ERROR] An error occurred: No user with this username
+[2024-06-30 03:05:40] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{
+  '$in': [
+    new ObjectId("667948dce62cf39da0313c20"),
+    new ObjectId("667eb092c793ef9b175ffcc4")
+  ]
+}" (type Object) at path "userId" for model "Chat"
+[2024-06-30 03:05:43] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{
+  '$in': [
+    new ObjectId("667948dce62cf39da0313c20"),
+    new ObjectId("667eb092c793ef9b175ffcc4")
+  ]
+}" (type Object) at path "userId" for model "Chat"
+[2024-06-30 03:06:23] [ERROR] An error occurred: ReferenceError: firstUser_id is not defined
+[2024-06-30 03:06:37] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "{
+  '$in': [
+    new ObjectId("667948dce62cf39da0313c20"),
+    new ObjectId("667eb092c793ef9b175ffcc4")
+  ]
+}" (type Object) at path "userId" for model "Chat"
+[2024-06-30 03:08:33] [ERROR] An error occurred: No user with this username
+[2024-06-30 19:52:23] [ERROR] An error occurred: Error: Illegal arguments: undefined, string
+[2024-06-30 19:52:28] [ERROR] An error occurred: Error: Illegal arguments: undefined, string
+[2024-06-30 19:53:05] [ERROR] An error occurred: ReferenceError: currentPassword is not defined
+[2024-06-30 19:53:50] [ERROR] An error occurred: ReferenceError: currentPassword is not defined
+[2024-06-30 19:54:16] [ERROR] An error occurred: In-valid password
+[2024-06-30 19:55:00] [ERROR] An error occurred: In-valid password
+[2024-06-30 20:35:25] [ERROR] An error occurred: OTP is already sent
+[2024-06-30 20:36:46] [ERROR] An error occurred: TypeError: otpModel.save is not a function
+[2024-06-30 20:40:46] [ERROR] An error occurred: ReferenceError: forgetCode is not defined
+[2024-06-30 20:43:42] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-06-30 20:44:00] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-06-30 20:44:52] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-06-30 20:46:19] [ERROR] An error occurred: OTP is already sent
+[2024-06-30 20:46:52] [ERROR] An error occurred: OTP is already sent
+[2024-06-30 20:47:06] [ERROR] An error occurred: OTP is already sent
+[2024-06-30 20:48:59] [ERROR] An error occurred: OTP is already sent
+[2024-06-30 21:54:17] [ERROR] An error occurred: OTP is already sent
+[2024-06-30 21:56:48] [ERROR] An error occurred: OTP is already sent
+[2024-07-01 00:00:36] [ERROR] An error occurred: CastError: Cast to ObjectId failed for value "updatePassword" (type string) at path "_id" for model "User"
+[2024-07-01 00:03:48] [ERROR] An error occurred: Expired token
+[2024-07-01 00:03:52] [ERROR] An error occurred: In-valid email or password
+[2024-07-01 00:04:06] [ERROR] An error occurred: In-valid password
+[2024-07-01 00:04:23] [ERROR] An error occurred: Expired token
+[2024-07-01 00:21:38] [ERROR] An error occurred: In-valid password
+[2024-07-01 00:22:13] [ERROR] An error occurred: OTP is already sent
+[2024-07-01 00:34:35] [ERROR] An error occurred: In-valid password
+[2024-07-01 00:35:54] [ERROR] An error occurred: In-valid password
+[2024-07-01 00:36:02] [ERROR] An error occurred: In-valid password
+[2024-07-01 00:36:03] [ERROR] An error occurred: In-valid password

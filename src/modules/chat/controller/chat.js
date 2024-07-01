@@ -130,3 +130,30 @@ export const deleteChat = async (req,res,next)=>{
     return res.status(200).json({ message: "success"});
 
 }
+
+export const searchChat = async (req, res, next) =>{
+    const userName = req.body.userName;
+    const secondUsers = await userModel.find({userName: userName});
+    const secondUserIds = secondUsers.map(user => user._id);
+    const firstUser = req.user;
+    if(secondUsers == null || secondUsers.length == 0){
+        throw next(new Error("No user with this username",{cause:404})); 
+    }
+    if(secondUsers.userName == req.user.userName){
+        throw next(new Error("Can't search for your username",{cause:401})); 
+    }
+
+    console.log(...secondUserIds)
+    const chats = await chatModel.find({
+        $and: [
+            { "members.userId": firstUser._id },
+            { "members.userId": { $in: secondUserIds } }
+        ]
+    })
+    .populate({
+        path: "members.userId",
+        select: "userName profilePic role",
+        });
+
+    return res.status(200).json({ message: "success", chats });
+}

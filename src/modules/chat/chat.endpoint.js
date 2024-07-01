@@ -7,4 +7,5 @@ export const endPoint = {
     findUserChats:[roles.Organization,roles.User],
     findChat:[roles.Organization,roles.User],
     deleteChat:[roles.Organization,roles.User],
+    search: [roles.Organization, roles.User]
 }

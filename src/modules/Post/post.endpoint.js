@@ -14,4 +14,6 @@ export const endPoint = {
     commentPost:[roles.Organization,roles.User,roles.Admin],
     sharePost:[roles.Organization,roles.User,roles.Admin],
     getPostById:[roles.Organization,roles.User,roles.Admin],
+    searchPost: [roles.Organization,roles.User,roles.Admin],
+    getPostLikes:[roles.Organization,roles.User,roles.Admin] 
 }

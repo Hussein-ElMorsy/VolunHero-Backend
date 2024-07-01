@@ -21,7 +21,7 @@ const transporter = nodemailer.createTransport({
     html, // html body
     attachments,
   });
-  
+
   return info.rejected.length ? false : true
   
 

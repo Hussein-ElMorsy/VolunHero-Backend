@@ -9,8 +9,11 @@ export const hashText = ({plaintext,salt=process.env.SALT_ROUND}={})=>{
 }
 
 export const compare = ({plaintext,hashValue}={})=>{
+    console.log(plaintext)
+    console.log(hashValue)
 
     const match = bcrypt.compareSync(plaintext,hashValue);
+
     return match;
 
 }
