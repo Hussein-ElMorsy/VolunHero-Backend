@@ -763,3 +763,9 @@
 [2024-07-01 00:35:54] [ERROR] An error occurred: In-valid password
 [2024-07-01 00:36:02] [ERROR] An error occurred: In-valid password
 [2024-07-01 00:36:03] [ERROR] An error occurred: In-valid password
+[2024-07-02 15:51:11] [ERROR] An error occurred: In-valid Bearer key
+[2024-07-02 15:51:35] [ERROR] An error occurred: Cannot read properties of undefined (reading 'catch')
+[2024-07-02 15:51:59] [ERROR] An error occurred: Cannot read properties of undefined (reading 'catch')
+[2024-07-02 15:52:13] [ERROR] An error occurred: Cannot read properties of undefined (reading 'catch')
+[2024-07-02 15:52:17] [ERROR] An error occurred: Cannot read properties of undefined (reading 'catch')
+[2024-07-02 15:56:59] [ERROR] An error occurred: In-valid Bearer key

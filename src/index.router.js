@@ -1,3 +1,4 @@
+import http from 'http'
 import morgan from "morgan";
 import { connectDB } from "../DB/connection.js";
 import { globalErrorHandling } from "./utils/errorHandling.js";
@@ -12,6 +13,7 @@ import { savePost } from "./modules/SavedPosts/savedPosts.validation.js";
 import donationFormRouter from "./modules/donationForm/donationForm.router.js";
 import notificationsRouter from "./modules/notifications/notifications.router.js";
 import meetingRouter from "./modules/meeting/meeting.router.js"
+import initMeetingServer from "./meeting-server.js";
 const initApp = (app, express) => {
   if (process.env.MOOD == "DEV") {
     app.use(morgan("dev"));
@@ -19,6 +21,8 @@ const initApp = (app, express) => {
     app.use(morgan("combined"));
   }
 
+  const server = http.createServer(app);
+  initMeetingServer(server);
   app.use(express.json({}));
   app.get("/", (req, res, next) => {
     return res.status(200).json({ message: "Welcome to Volanhero" });

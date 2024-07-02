@@ -31,7 +31,7 @@ export async function joinMeeting (params,callBack){
 
     const meetingUserModel = new meetingModel(params);
 
-
+  
     meetingUserModel.save().then(async (response)=>{
         await meetingModel.findOneAndUpdate({id:params.meetingId},{$addToSet:{"meetingUsers":meetingUserModel}});
         return callBack(null,response);

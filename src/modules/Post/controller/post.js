@@ -22,7 +22,6 @@ export const getAllPosts = async (req, res, next) => {
       }
     ]);
 
-
   const modifiedPosts = posts.map((post) => {
     const postObj = post.toObject();
     let isLikedByMe = null;
