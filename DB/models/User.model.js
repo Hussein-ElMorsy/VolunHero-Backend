@@ -46,12 +46,18 @@ const userSchema = new Schema({
     profilePic: {type:Object,default:null},
     coverPic: {type:Object,default:null},
     images: [Object],
-    DOB:  {
-        type:String,
-        required: function () {
-            return this.role === 'User';
-        },
+    DOB: {
+        type: Date,
         default: null,
+        validate: {
+            validator: function(value) {
+                if (this.role === 'User' && !value) {
+                    return true;
+                }
+                return true;
+            },
+            message: 'DOB is required for users.'
+        }
     },
     address: {
         type:String,
@@ -159,6 +165,13 @@ const userSchema = new Schema({
 }, {
     timestamps: true
 });
+
+// userSchema.pre('validate', function(next) {
+//     if (this.role === 'User' && !this.DOB) {
+//         this.DOB = null;
+//     }
+//     next();
+// });
 
 const userModel = mongoose.models.User || model('User', userSchema);
 export default userModel;

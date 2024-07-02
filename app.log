@@ -769,3 +769,14 @@
 [2024-07-02 15:52:13] [ERROR] An error occurred: Cannot read properties of undefined (reading 'catch')
 [2024-07-02 15:52:17] [ERROR] An error occurred: Cannot read properties of undefined (reading 'catch')
 [2024-07-02 15:56:59] [ERROR] An error occurred: In-valid Bearer key
+[2024-07-02 21:20:47] [ERROR] An error occurred: ValidationError: DOB: Path `DOB` is required.
+[2024-07-02 21:23:24] [ERROR] An error occurred: ValidationError: DOB: Path `DOB` is required.
+[2024-07-02 21:24:08] [ERROR] An error occurred: ValidationError: DOB: DOB is required for users.
+[2024-07-02 21:25:52] [ERROR] An error occurred: ValidationError: DOB: DOB is required for users.
+[2024-07-02 21:27:21] [ERROR] An error occurred: Email already existed
+[2024-07-02 21:27:24] [ERROR] An error occurred: Email already existed
+[2024-07-02 21:27:33] [ERROR] An error occurred: Email already existed
+[2024-07-02 21:27:35] [ERROR] An error occurred: Email already existed
+[2024-07-02 21:27:57] [ERROR] An error occurred: Email already existed
+[2024-07-02 21:28:43] [ERROR] An error occurred: Email already existed
+[2024-07-02 21:28:55] [ERROR] An error occurred: ValidationError: address: Path `address` is required.
