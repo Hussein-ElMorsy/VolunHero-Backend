@@ -49,7 +49,7 @@ export const getOne = (Model, popOptions) => async (req, res, next) => {
   let query = Model.findById(req.params.id);
   if (popOptions) query.populate(popOptions);
 
-  req.query.fields = "-password,-status,-confirmEmail,-forgetCode,-changePasswordTime,-createdAt"
+  req.query.fields = "-password,-confirmEmail,-forgetCode,-changePasswordTime,-createdAt"
   const features = new ApiFeatures(query, req.query).select()
 
   const doc = await features.mongooseQuery;
