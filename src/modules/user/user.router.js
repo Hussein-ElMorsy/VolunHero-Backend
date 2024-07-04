@@ -38,6 +38,7 @@ router.delete(
 router.patch(
   "/updateMe",
   auth(endPoint.me), // Check again
+  validation(validators.update),
   asyncHandler(userController.updateMe)
 );
 
