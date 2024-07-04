@@ -61,18 +61,13 @@ const userSchema = new Schema({
     },
     address: {
         type:String,
-        required: function () {
-            return this.role === 'User';
-        },
         default: null,
     },
     gender: {
         type: String,
         default: "Male",
         enum: ["Male", 'Female'],
-        required: function () {
-            return this.role === 'User';
-        },
+        
         
     },
     forgetCode: {
@@ -88,46 +83,28 @@ const userSchema = new Schema({
     overview: {
         type: String,
         default: null,
-        required: function () {
-            return this.role === 'Organization';
-        }
-        
     },
     website: {
         type: String,
         default: null,
-        required: function () {
-            return this.role === 'Organization';
-        }
     },
     headquarters: {
         type: String,
         default: null,
-        required: function () {
-            return this.role === 'Organization';
-        }
     },
     specialties: {
         type: String,
         default: null,
-        required: function () {
-            return this.role === 'Organization';
-        }
     },
     locations: {
         type: [String],
         default: null,
-        required: function () {
-            return this.role === 'Organization';
-        },
     
     }
     ,
     specification: {
         type: String,
-        required: function () {
-            return this.role === 'User';
-        },
+        
         default: "General",
         enum: ["General", "Medical", "Educational"]
     },

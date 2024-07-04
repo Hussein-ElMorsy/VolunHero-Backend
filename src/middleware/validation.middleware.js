@@ -33,12 +33,20 @@ export const generalFields = {
         fieldname: joi.string()
     }),
 
-    overview: joi.when('role', { is: 'Organization', then: joi.string() }),
-    website: joi.when('role', { is: 'Organization', then: joi.string() }),
-    headquarters: joi.when('role', { is: 'Organization', then: joi.string() }),
-    specialties: joi.when('role', { is: 'Organization', then: joi.string() }),
-    locations: joi.array().items(joi.string()).when('role', { is: 'Organization', then: joi.required() }),
-    specification: joi.when('role', { is: 'User', then: joi.string().valid('General', 'Medical', 'Educational').default('General') })
+    overview: joi.string(),
+    website: joi.string(),
+    headquarters:  joi.string(),
+    specialties: joi.string(),
+    locations: joi.array().items(joi.string()),
+    specification: joi.string().valid('General', 'Medical', 'Educational').default('General'),
+
+    // overview: joi.string().when('role', { is: 'Organization', then: joi.required(), otherwise: joi.forbidden() }),
+    // website: joi.string().when('role', { is: 'Organization', then: joi.required(), otherwise: joi.forbidden() }),
+    // headquarters: joi.string().when('role', { is: 'Organization', then: joi.required(), otherwise: joi.forbidden() }),
+    // specialties: joi.string().when('role', { is: 'Organization', then: joi.required(), otherwise: joi.forbidden() }),
+    // locations: joi.array().items(joi.string()).when('role', { is: 'Organization', then: joi.required(), otherwise: joi.forbidden() }),
+    // specification: joi.string().valid('General', 'Medical', 'Educational').default('General')
+    // .when('role', { is: 'User', then: joi.required(), otherwise: joi.forbidden() })
 };
 
 export const validation = (schema)=>{
