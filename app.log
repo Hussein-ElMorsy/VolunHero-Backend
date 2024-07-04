@@ -788,3 +788,6 @@
 [2024-07-04 14:16:30] [ERROR] An error occurred: In-valid Bearer key
 [2024-07-04 14:25:31] [ERROR] An error occurred: ReferenceError: string is not defined
 [2024-07-04 14:25:49] [ERROR] An error occurred: TypeError: Assignment to constant variable.
+[2024-07-04 16:44:47] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-07-04 16:45:41] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-07-04 16:46:20] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
