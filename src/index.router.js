@@ -14,6 +14,8 @@ import donationFormRouter from "./modules/donationForm/donationForm.router.js";
 import notificationsRouter from "./modules/notifications/notifications.router.js";
 import meetingRouter from "./modules/meeting/meeting.router.js"
 import initMeetingServer from "./meeting-server.js";
+import specificationsRouter from "./modules/specifications/specifications.router.js"
+
 const initApp = (app, express) => {
   if (process.env.MOOD == "DEV") {
     app.use(morgan("dev"));
@@ -37,6 +39,8 @@ const initApp = (app, express) => {
   app.use("/api/donationForm", donationFormRouter); // Added
   app.use("/api/notifications", notificationsRouter); // Added
   app.use("/api/meeting", meetingRouter); // Added
+  app.use("/api/specification", specificationsRouter); // Added
+  
   app.all("*", (req, res, next) => {
     return res.json({ message: "In-valid routing" });
   });
