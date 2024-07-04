@@ -13,7 +13,6 @@ export const getAuthModule = (req, res, next) => {
 
 export const signUp = async (req, res, next) => {
     const { email } = req.body;
-
     let role = req.body.role || "User";
     // console.log(req.body);
     const user = await userModel.findOne({ email: email.toLowerCase() });
@@ -47,6 +46,7 @@ export const signUp = async (req, res, next) => {
         req.body.profilePic = { secure_url, public_id };
     }
     
+    console.log("REQ")
 
     req.body.attachments = [];
     if (req?.files && req?.files?.attachments) {
@@ -73,6 +73,7 @@ export const signUp = async (req, res, next) => {
             throw new Error("Attatchments required", { statusCode: 400 });
 
     }
+
     // console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkk");
     // console.log(req.body);
     req.body.slugUserName = slugify(req.body.userName, '-');
