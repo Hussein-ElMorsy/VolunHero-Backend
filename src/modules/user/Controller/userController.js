@@ -36,7 +36,7 @@ export const updateMe = (async (req, res, next) => {
       `This route is not for password updates. please use /updateMyPassword`, 400));
   };
   // 2) Flitered out unwanted fields names that are not allowed to be updated
-  const filteredBody = filterObj(req.body, 'firstName', 'lastName', 'email');
+  const filteredBody = filterObj(req.body, 'firstName', 'lastName', 'phone', 'address');
   if (req.file) filteredBody.photo = req.file.filename
 
   // 3) Update user document                                               
