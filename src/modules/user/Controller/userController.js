@@ -270,7 +270,7 @@ export const makeFollow = async (req, res, next) => {
 
   const user = await userModel.findById(userId);
   // console.log({user});
-  if (!user || user._id.equals(req.user._id)) {
+  if (!user || !user._id.equals(req.user._id)) {
     return next(new Error("In-valid userId", { cause: 404 }));
   }
 
@@ -312,7 +312,7 @@ export const makeUnFollow = async (req, res, next) => {
 
   const user = await userModel.findById(userId);
   // console.log({user});
-  if (!user || user._id.equals(req.user._id)) {
+  if (!user || !user._id.equals(req.user._id)) {
     return next(new Error("In-valid userId", { cause: 404 }));
   }
 
