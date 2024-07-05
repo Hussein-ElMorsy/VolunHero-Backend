@@ -6,7 +6,6 @@ export const endPoint = {
     getPostsOfOwner:[roles.Organization,roles.User, roles.Admin],
     getHomePagePosts:[roles.Organization,roles.User, roles.Admin],
     createPost : [roles.Organization,roles.User, roles.Admin],
-    // findUserChats:[roles.Organization,roles.User],
     updatePost:[roles.Organization,roles.User, roles.Admin],
     findPost:[roles.Organization,roles.User, roles.Admin],
     deletePost:[roles.Organization,roles.User,roles.Admin],
