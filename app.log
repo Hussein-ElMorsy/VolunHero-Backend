@@ -788,3 +788,20 @@
 [2024-07-04 14:16:30] [ERROR] An error occurred: In-valid Bearer key
 [2024-07-04 14:25:31] [ERROR] An error occurred: ReferenceError: string is not defined
 [2024-07-04 14:25:49] [ERROR] An error occurred: TypeError: Assignment to constant variable.
+<<<<<<< Updated upstream
+=======
+[2024-07-04 16:44:47] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-07-04 16:45:41] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-07-04 16:46:20] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+[2024-07-06 00:00:22] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-07-06 00:00:30] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-07-06 00:01:05] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-07-06 00:02:18] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-07-06 00:03:26] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-07-06 00:04:11] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-07-06 00:04:14] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-07-06 00:04:30] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-07-06 00:06:01] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-07-06 00:09:20] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+[2024-07-06 00:10:15] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+>>>>>>> Stashed changes

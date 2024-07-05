@@ -127,13 +127,6 @@ export const getPostsOfSpecificUser = async (req, res, next) => {
   .populate({
     path: "post",
     populate: [
-      // {
-      //   path: "mainPost",
-      //   // populate: {
-      //   //   path: "createdBy",
-      //   //   select: "userName profilePic role",
-      //   // },
-      // },
       {
         path: "createdBy",
         select: "userName profilePic role",
