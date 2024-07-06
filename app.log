@@ -793,6 +793,7 @@
 [2024-07-04 16:44:47] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
 [2024-07-04 16:45:41] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
 [2024-07-04 16:46:20] [ERROR] An error occurred: MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+<<<<<<< Updated upstream
 [2024-07-06 00:00:22] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
 [2024-07-06 00:00:30] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
 [2024-07-06 00:01:05] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
@@ -804,4 +805,13 @@
 [2024-07-06 00:06:01] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
 [2024-07-06 00:09:20] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
 [2024-07-06 00:10:15] [ERROR] An error occurred: TypeError: Cannot read properties of undefined (reading 'length')
+>>>>>>> Stashed changes
+=======
+[2024-07-06 05:44:05] [ERROR] An error occurred: In-valid userId
+[2024-07-06 05:44:41] [ERROR] An error occurred: In-valid userId
+[2024-07-06 05:45:08] [ERROR] An error occurred: In-valid userId
+[2024-07-06 05:45:43] [ERROR] An error occurred: In-valid userId
+[2024-07-06 05:46:13] [ERROR] An error occurred: In-valid userId
+[2024-07-06 05:46:38] [ERROR] An error occurred: You already follow this user
+[2024-07-06 05:46:44] [ERROR] An error occurred: In-valid userId
 >>>>>>> Stashed changes
