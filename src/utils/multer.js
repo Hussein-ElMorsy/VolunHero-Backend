@@ -1,6 +1,6 @@
 import multer from 'multer'
 export const fileValidation = {
-    image: ['image/jpeg', 'image/png', 'image/gif',"image/svg+xml"],
+    image: ['image/jpeg','image/jpg', 'image/png', 'image/gif',"image/svg+xml"],
     file: ['application/pdf', 'application/msword'],
     video: ['video/mp4']
 }
