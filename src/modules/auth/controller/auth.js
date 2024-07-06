@@ -36,7 +36,7 @@ export const signUp = async (req, res, next) => {
     const link = `https://volunhero.onrender.com/api/auth/confirmEmail/${token}`;
     console.log({link});
     const refreshToken = generateToken({ payload: { email }, expiresIn: 60 * 60 * 24 * 30, signature: process.env.EMAIL_TOKEN })
-    const refreshLink = `${req.protocol}://${req.headers.host}/api/auth/newConfirmEmail/${refreshToken}`
+    const refreshLink = `https://volunhero.onrender.com/api/auth/newConfirmEmail/${refreshToken}`
 
     const html = generateEmailHTML(link, refreshLink);
 
