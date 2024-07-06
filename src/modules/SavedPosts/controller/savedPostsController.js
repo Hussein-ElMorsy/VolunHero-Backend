@@ -3,8 +3,35 @@ import postModel from "../../../../DB/models/Post.model.js";
 
 export const getSavedPosts = async (req, res, next) => {
   const userId = req.user._id;
-  const posts = await savedPostsModel.find({ userId: userId });
-  return res.status(200).json({ message: "success", savedPosts: posts });
+  let posts = await savedPostsModel.findOne({ userId: userId });
+
+  const savedPosts = await savedPostsModel.findOne({ userId: userId }).populate({
+    path: 'posts.postId',
+});
+
+  const modifiedPosts = savedPosts.posts.map((post) => {
+    const postObj = post.postId.toObject();
+    const isLikedByMe = postObj.likes.length > 0 && postObj.likes.some(
+        (like) => like.userId.toString() === userId.toString()
+    );
+    return {  
+        _id: postObj._id,
+        postId: postObj._id,
+        isLikedByMe: isLikedByMe
+    };
+});
+
+  posts = {
+  savedPosts: {
+      _id: savedPosts._id,
+      userId: savedPosts.userId,
+      posts: modifiedPosts,
+      createdAt: savedPosts.createdAt,
+      updatedAt: savedPosts.updatedAt,
+      __v: savedPosts.__v
+  }
+};
+  return res.status(200).json({ message: "success", posts });
 };
 
 export const savePost = async (req, res, next) => {

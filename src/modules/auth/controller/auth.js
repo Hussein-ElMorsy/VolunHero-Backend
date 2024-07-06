@@ -13,12 +13,20 @@ export const getAuthModule = (req, res, next) => {
 
 export const signUp = async (req, res, next) => {
     const { email } = req.body;
-
     let role = req.body.role || "User";
-    // console.log(req.body);
-    const user = await userModel.findOne({ email: email.toLowerCase() });
+    const user = await userModel.findOne({
+        $or: [
+        { email: email.toLowerCase() },
+        { userName: req.body.userName.toLowerCase() }]
+    });
     if (user) {
-        return next(new Error("Email already existed", { cause: 409 }));
+        console.log(user.userName);
+        console.log(req.body.userName.toLowerCase())
+        if(user.email == email.toLowerCase())
+            return next(new Error("Email already existed", { cause: 409 }));
+        else if(user.userName == req.body.userName.toLowerCase()){
+            return next(new Error("username already existed", { cause: 409 }));
+        }
     }
 
 
@@ -41,7 +49,7 @@ export const signUp = async (req, res, next) => {
     // console.log(req.body.password);
     // console.log(req.body)
 
-    console.log(req.files);
+    // console.log(req.files);
     if(req?.files?.profilePic){
         const { secure_url, public_id } = await cloudinary.uploader.upload(req.files.profilePic[0].path, { folder: `${process.env.APP_NAME}/user` })
         req.body.profilePic = { secure_url, public_id };
@@ -73,6 +81,7 @@ export const signUp = async (req, res, next) => {
             throw new Error("Attatchments required", { statusCode: 400 });
 
     }
+
     // console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkk");
     // console.log(req.body);
     req.body.slugUserName = slugify(req.body.userName, '-');

@@ -12,13 +12,6 @@ const router = Router({mergeParams:true});
 
 router.use("/:postId/comment", commentRouter);
 
-// elle na2s 
-// 3ayzen kol ma ngeb el posts n4of elle 3aml login 3aml like lel post abl keda wala la w nrg3o
-// fe attrebute "isLikedByMe"
-
-
-
-
 router.get("/allposts",auth(endPoint.getPostById), asyncHandler(postController.getAllPosts)); // All posts 
 
 router.get("/",auth(endPoint.getPostById), asyncHandler(postController.getPostsOfSpecificUser)); // using slug-name :)
