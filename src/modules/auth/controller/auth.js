@@ -40,9 +40,9 @@ export const signUp = async (req, res, next) => {
 
     const html = generateEmailHTML(link, refreshLink);
 
-     if (!sendEmail({ to: email, subject: "Email Confirmation", html })) {
-         return next(new Error("Rejected Email", { cause: 400 }));
-     }
+//     if (!sendEmail({ to: email, subject: "Email Confirmation", html })) {
+//         return next(new Error("Rejected Email", { cause: 400 }));
+//     }
     // console.log("ddasds");
     const hashPassword = hashText({ plaintext: req.body.password });
     req.body.password = hashPassword;
