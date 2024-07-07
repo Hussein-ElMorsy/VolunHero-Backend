@@ -41,7 +41,7 @@ const userSchema = new Schema({
     },
     confirmEmail: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     profilePic: {type:Object,default:null},
     coverPic: {type:Object,default:null},
