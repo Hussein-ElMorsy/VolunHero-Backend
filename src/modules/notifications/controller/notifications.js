@@ -4,7 +4,11 @@ import notificationModel from "../../../../DB/models/Notification.model.js"
 
 export const getNotifications = async(req,res,next)=>{
 
-    const notifications = await notificationModel.find({user:req.user._id}).sort({ createdAt: -1 });
+    const notifications = await notificationModel.find({user:req.user._id}).sort({ createdAt: -1 })
+    .populate({
+        path: "sender",
+        select: "profilePic"
+    });
 
     return res.status(200).json({message:"success",notifications});
 
