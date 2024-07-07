@@ -4,7 +4,9 @@ import postModel from "../../../../DB/models/Post.model.js";
 export const getSavedPosts = async (req, res, next) => {
   const userId = req.user._id;
   let posts = await savedPostsModel.findOne({ userId: userId });
-
+  if(posts == null){
+    return res.status(200).json({ message: "success", posts: {} });
+  }
   const savedPosts = await savedPostsModel.findOne({ userId: userId }).populate({
     path: 'posts.postId',
 });
@@ -91,7 +93,9 @@ export const deleteSavedPost = async (req, res, next) => {
       },
       { new: true }
     );
-
+    if(savedPosts.posts.length == 0){
+      await savedPostsModel.findByIdAndDelete(savedPosts._id);
+    }
     return res.status(200).json({ message: "success"});
   } else {
     return res.status(400).json({ message: "No saved posts found for user" });
