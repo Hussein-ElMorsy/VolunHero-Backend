@@ -5,9 +5,9 @@ export const getSavedPosts = async (req, res, next) => {
   const userId = req.user._id;
   let posts = await savedPostsModel.findOne({ userId: userId });
   if(posts == null){
-    return res.status(200).json({ message: "success", posts: {} });
+    return res.status(200).json({ message: "success", savedPosts: {} });
   }
-  const savedPosts = await savedPostsModel.findOne({ userId: userId }).populate({
+  let savedPosts = await savedPostsModel.findOne({ userId: userId }).populate({
     path: 'posts.postId',
 });
 
@@ -22,18 +22,16 @@ export const getSavedPosts = async (req, res, next) => {
         isLikedByMe: isLikedByMe
     };
 });
-
-  posts = {
-  savedPosts: {
-      _id: savedPosts._id,
-      userId: savedPosts.userId,
-      posts: modifiedPosts,
-      createdAt: savedPosts.createdAt,
-      updatedAt: savedPosts.updatedAt,
-      __v: savedPosts.__v
-  }
+  savedPosts = {
+    _id: savedPosts._id,
+    userId: savedPosts.userId,
+    posts: modifiedPosts,
+    createdAt: savedPosts.createdAt,
+    updatedAt: savedPosts.updatedAt,
+    __v: savedPosts.__v
 };
-  return res.status(200).json({ message: "success", posts });
+console.log(savedPosts)
+  return res.status(200).json({ message: "success", savedPosts });
 };
 
 export const savePost = async (req, res, next) => {
