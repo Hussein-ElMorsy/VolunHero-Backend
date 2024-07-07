@@ -7,8 +7,14 @@ export const getSavedPosts = async (req, res, next) => {
   if(posts == null){
     return res.status(200).json({ message: "success", savedPosts: {} });
   }
-  let savedPosts = await savedPostsModel.findOne({ userId: userId }).populate({
+  let savedPosts = await savedPostsModel.findOne({ userId: userId })
+  .populate({
     path: 'posts.postId',
+    populate:
+      {
+        path: "createdBy",
+        select: "userName profilePic role",
+      },
 });
 
   const modifiedPosts = savedPosts.posts.map((post) => {
