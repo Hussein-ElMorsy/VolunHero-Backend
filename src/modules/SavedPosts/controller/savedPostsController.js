@@ -16,10 +16,9 @@ export const getSavedPosts = async (req, res, next) => {
     const isLikedByMe = postObj.likes.length > 0 && postObj.likes.some(
         (like) => like.userId.toString() === userId.toString()
     );
+    postObj.isLikedByMe=isLikedByMe;
     return {  
-        _id: postObj._id,
-        postId: postObj._id,
-        isLikedByMe: isLikedByMe
+      postObj
     };
 });
   savedPosts = {
