@@ -2,8 +2,9 @@ import notificationModel from "../../DB/models/Notification.model.js"
 
 
 export const createNotification = async ({ user, sender, type, content, relatedEntity, entityModel } = {}) => {
+    console.log(user)
 
-    if (!user.equals(sender)) {
+    if (user != sender) {
         const notification = new notificationModel({
             user: user,
             sender: sender,
