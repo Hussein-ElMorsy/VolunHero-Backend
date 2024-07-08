@@ -163,5 +163,7 @@ router
     validation(validators.user),
     asyncHandler(userController.deleteUser)
   );
-
+router.patch("/changeStatus/:id", auth(endPoint.changeStatus), 
+  validation(validators.user),
+  asyncHandler(userController.changeStatus))
 export default router;
