@@ -10,7 +10,7 @@ export const createDonationForm = async (req, res, next) => {
 };
 
 export const getAllDonationForms = async(req, res, next) => {
-  const donationForms = await donationFormModel.find().sort({ createdAt: -1 });
+  const donationForms = await donationFormModel.find({createdBy:req.user._id}).sort({ createdAt: -1 });
   return res.status(200).json({message: "success", donationForms});
 }
 

@@ -223,7 +223,7 @@ export const login = async (req, res, next) => {
     const { email, password } = req.body;
 
     const user = await userModel.findOne({ email: email.toLowerCase() });
-    if (!user) {
+    if (!user || user.status=="blocked") {
         return next(new Error("Not registered acount", { coase: 400 }));
     }
 
